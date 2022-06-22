@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YE6-Do-Pkz">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--Log In View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="LoginViewController" customModule="PetAdoptionApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" customClass="LogInViewController" customModule="PetAdoptionApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,6 +113,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Registrarme"/>
+                                        <connections>
+                                            <action selector="SignUp:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="2qt-iy-Ouz"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -161,7 +164,82 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1878.2608695652175" y="-260.49107142857144"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mBa-kB-XPv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YE6-Do-Pkz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5K5-bf-YbU">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="LD1-KZ-VRJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AqO-fC-mXT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="968.11594202898561" y="-260.49107142857144"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Ld2-5a-qUN">
+            <objects>
+                <viewController id="gd1-zf-T9a" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DCi-jK-inU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AOt-oL-0bQ" userLabel="centerGuide">
+                                <rect key="frame" x="0.0" y="246.5" width="414" height="3"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="J1e-xk-Pem"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0vW-tj-C5d" userLabel="guide2">
+                                <rect key="frame" x="0.0" y="173.5" width="414" height="3"/>
+                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="ot4-Hd-wle"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6t-UZ-ODk" userLabel="ViewHedaer">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="246.5"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YtI-X9-YaR" userLabel="ViewBody">
+                                <rect key="frame" x="0.0" y="176.5" width="414" height="685.5"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3f2-rk-GEz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3f2-rk-GEz" firstAttribute="bottom" secondItem="YtI-X9-YaR" secondAttribute="bottom" id="47g-5g-lf0"/>
+                            <constraint firstItem="j6t-UZ-ODk" firstAttribute="leading" secondItem="3f2-rk-GEz" secondAttribute="leading" id="MU4-al-A9O"/>
+                            <constraint firstItem="AOt-oL-0bQ" firstAttribute="top" secondItem="j6t-UZ-ODk" secondAttribute="bottom" id="RMM-AX-u03"/>
+                            <constraint firstItem="AOt-oL-0bQ" firstAttribute="centerY" secondItem="DCi-jK-inU" secondAttribute="centerY" constant="-200" id="TZe-Ca-faL"/>
+                            <constraint firstItem="0vW-tj-C5d" firstAttribute="leading" secondItem="3f2-rk-GEz" secondAttribute="leading" id="W4O-81-i9n"/>
+                            <constraint firstItem="j6t-UZ-ODk" firstAttribute="top" secondItem="DCi-jK-inU" secondAttribute="top" id="Xad-nh-fLF"/>
+                            <constraint firstItem="AOt-oL-0bQ" firstAttribute="top" secondItem="0vW-tj-C5d" secondAttribute="bottom" constant="70" id="Xhb-hr-5YO"/>
+                            <constraint firstItem="3f2-rk-GEz" firstAttribute="trailing" secondItem="AOt-oL-0bQ" secondAttribute="trailing" id="aeE-X5-hpx"/>
+                            <constraint firstItem="YtI-X9-YaR" firstAttribute="top" secondItem="0vW-tj-C5d" secondAttribute="bottom" id="bpt-6i-ADw"/>
+                            <constraint firstItem="AOt-oL-0bQ" firstAttribute="centerX" secondItem="DCi-jK-inU" secondAttribute="centerX" id="glP-dQ-hhI"/>
+                            <constraint firstItem="3f2-rk-GEz" firstAttribute="trailing" secondItem="YtI-X9-YaR" secondAttribute="trailing" id="h5m-ar-Quv"/>
+                            <constraint firstItem="AOt-oL-0bQ" firstAttribute="leading" secondItem="3f2-rk-GEz" secondAttribute="leading" id="mue-DV-hc7"/>
+                            <constraint firstItem="3f2-rk-GEz" firstAttribute="trailing" secondItem="j6t-UZ-ODk" secondAttribute="trailing" id="nEU-ID-OaG"/>
+                            <constraint firstItem="3f2-rk-GEz" firstAttribute="trailing" secondItem="0vW-tj-C5d" secondAttribute="trailing" id="pyX-FJ-tBo"/>
+                            <constraint firstItem="YtI-X9-YaR" firstAttribute="leading" secondItem="3f2-rk-GEz" secondAttribute="leading" id="v7H-1M-WJc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="wNO-ax-MlB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WFx-PZ-xsx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2778" y="-260"/>
         </scene>
     </scenes>
     <resources>
@@ -174,6 +252,15 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

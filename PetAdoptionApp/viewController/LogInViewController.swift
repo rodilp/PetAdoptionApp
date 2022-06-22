@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LogInViewController: UIViewController {
 
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -17,7 +17,20 @@ class LoginViewController: UIViewController {
     
     @IBAction func signIn(_ sender: Any) {
         signInButton.bounce()
+        
+        print("Goooo....1")
 
+    }
+    @IBAction func SignUp(_ sender: Any) {
+        
+  
+        
+        let nextStory = UIStoryboard(name: "SignUp", bundle: nil)
+        //let newViewController =  nextStory.instantiateInitialViewController() // scena main por defecto
+        let viewC = nextStory.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        self.navigationController?.pushViewController(viewC, animated: true)
+        
+        print("Goooo....")
     }
     
     @IBOutlet weak var cardBody: UIView!
