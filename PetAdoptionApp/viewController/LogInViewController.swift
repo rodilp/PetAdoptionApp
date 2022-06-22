@@ -22,15 +22,10 @@ class LogInViewController: UIViewController {
 
     }
     @IBAction func SignUp(_ sender: Any) {
+
+        let controller : SignUpViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+            self.navigationController?.pushViewController(controller, animated: true)
         
-  
-        
-        let nextStory = UIStoryboard(name: "SignUp", bundle: nil)
-        //let newViewController =  nextStory.instantiateInitialViewController() // scena main por defecto
-        let viewC = nextStory.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
-        self.navigationController?.pushViewController(viewC, animated: true)
-        
-        print("Goooo....")
     }
     
     @IBOutlet weak var cardBody: UIView!
@@ -39,16 +34,22 @@ class LogInViewController: UIViewController {
         super.viewDidLoad()
 
         setupView()
+
     }
     
     func setupView(){
         cardBody.roundCorners(corners: .topLeft, radius: 60)
 
-        signInButton.round()
-        emailTextField.round()
-        passwordTextField.round()
+        signInButton.roundButton()
+        emailTextField.roundTextField()
+        passwordTextField.roundTextField()
         
 
+    }
+    func navigateOtherStoryBoard(){
+        let nextStory = UIStoryboard(name: "SignUp", bundle: nil)
+        let viewC = nextStory.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        self.navigationController?.pushViewController(viewC, animated: true)
     }
     
     

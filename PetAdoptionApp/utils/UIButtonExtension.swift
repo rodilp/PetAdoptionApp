@@ -11,7 +11,7 @@ import UIKit
 private let color = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1)
 
 extension UIButton{
-    func round(){
+    func roundButton(){
         layer.cornerRadius = bounds.height/2
         tintColor = UIColor.orange
         clipsToBounds = true
@@ -55,10 +55,11 @@ extension UIButton{
 
 extension UITextField {
     
-    func round(){
+    func roundTextField(){
         layer.cornerRadius = bounds.height/2
         layer.borderColor = color.cgColor
         layer.borderWidth = 1.0
         clipsToBounds = true
     }
 }
+
