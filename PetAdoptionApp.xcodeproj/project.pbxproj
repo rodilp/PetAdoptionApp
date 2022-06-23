@@ -94,6 +94,7 @@
 		454074212861FE960076E075 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				4549502C2863D16C003D0DA7 /* customView */,
 				454074232861FEEE0076E075 /* LogIn.storyboard */,
 			);
 			path = view;
@@ -107,6 +108,13 @@
 				4540742F286298BD0076E075 /* NavigationViewController.swift */,
 			);
 			path = viewController;
+			sourceTree = "<group>";
+		};
+		4549502C2863D16C003D0DA7 /* customView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = customView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
