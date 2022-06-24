@@ -18,7 +18,7 @@ class LogInViewController: UIViewController {
     @IBAction func signIn(_ sender: Any) {
         signInButton.bounce()
         
-        print("Goooo....1")
+        navigateMainStoryBoard()
 
     }
     @IBAction func SignUp(_ sender: Any) {
@@ -46,10 +46,31 @@ class LogInViewController: UIViewController {
         
 
     }
+    
     func navigateOtherStoryBoard(){
         let nextStory = UIStoryboard(name: "SignUp", bundle: nil)
         let viewC = nextStory.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
         self.navigationController?.pushViewController(viewC, animated: true)
+    }
+    
+    func navigateMainStoryBoard(){
+        
+        
+        
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainTBC") as?
+            UITabBarController {
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        
+        
+        
+//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+//        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "mainApp") as! MainTabBarViewController
+//        nextViewController.modalPresentationStyle = .fullScreen
+//        self.present(nextViewController, animated:true, completion:nil)
+            
     }
     
     

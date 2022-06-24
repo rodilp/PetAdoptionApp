@@ -18,9 +18,9 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var createAccountButton: UIButton!
     
     @IBAction func createAccount(_ sender: Any) {
-        
         createAccountButton.bounce()
     }
+    
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
         
@@ -31,8 +31,6 @@ class SignUpViewController: UIViewController {
         setupView()
         //self.navigationItem.leftBarButtonItem =
          //   UIBarButtonItem(image:StyleKit.imageOfMap, style:.Plain, target:self, action:nil);
-
-
     }
     
     
@@ -47,7 +45,6 @@ class SignUpViewController: UIViewController {
         emailTextField.roundTextField()
         passwordTextField.roundTextField()
         confirmPasswordTextField.roundTextField()
-        
         createAccountButton.roundButton()
     }
     

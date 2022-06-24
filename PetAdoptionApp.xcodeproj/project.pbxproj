@@ -18,7 +18,9 @@
 		45407426286201C80076E075 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45407425286201C80076E075 /* LogInViewController.swift */; };
 		45407428286202260076E075 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45407427286202260076E075 /* ViewExtension.swift */; };
 		4540742E286291600076E075 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4540742D286291600076E075 /* SignUpViewController.swift */; };
-		45407430286298BD0076E075 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4540742F286298BD0076E075 /* NavigationViewController.swift */; };
+		455505D02866536D0095D71A /* SegundoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455505CF2866536D0095D71A /* SegundoViewController.swift */; };
+		455505D2286653A30095D71A /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455505D1286653A30095D71A /* MainTabBarViewController.swift */; };
+		455505D4286659EA0095D71A /* PrimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455505D3286659EA0095D71A /* PrimerViewController.swift */; };
 		4F1C1950B6ACE8BDBF39B458 /* Pods_PetAdoptionApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E708A8E7AD2E147CA9B158D0 /* Pods_PetAdoptionApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +38,9 @@
 		45407425286201C80076E075 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		45407427286202260076E075 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		4540742D286291600076E075 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		4540742F286298BD0076E075 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		455505CF2866536D0095D71A /* SegundoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegundoViewController.swift; sourceTree = "<group>"; };
+		455505D1286653A30095D71A /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		455505D3286659EA0095D71A /* PrimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimerViewController.swift; sourceTree = "<group>"; };
 		DF5AE19B79467414395DAB09 /* Pods-PetAdoptionApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetAdoptionApp.debug.xcconfig"; path = "Target Support Files/Pods-PetAdoptionApp/Pods-PetAdoptionApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E708A8E7AD2E147CA9B158D0 /* Pods_PetAdoptionApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetAdoptionApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDDFAA98D766BD86E2B3B3FE /* Pods-PetAdoptionApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetAdoptionApp.release.xcconfig"; path = "Target Support Files/Pods-PetAdoptionApp/Pods-PetAdoptionApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -60,7 +64,6 @@
 				DF5AE19B79467414395DAB09 /* Pods-PetAdoptionApp.debug.xcconfig */,
 				EDDFAA98D766BD86E2B3B3FE /* Pods-PetAdoptionApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -91,7 +94,6 @@
 				450B3F1028611D8900F1B025 /* AppDelegate.swift */,
 				450B3F1228611D8900F1B025 /* SceneDelegate.swift */,
 				450B3F1428611D8900F1B025 /* ViewController.swift */,
-				450B3F1628611D8900F1B025 /* Main.storyboard */,
 				450B3F1928611D8A00F1B025 /* Assets.xcassets */,
 				450B3F1B28611D8A00F1B025 /* LaunchScreen.storyboard */,
 				450B3F1E28611D8A00F1B025 /* Info.plist */,
@@ -113,6 +115,7 @@
 			children = (
 				4549502C2863D16C003D0DA7 /* customView */,
 				454074232861FEEE0076E075 /* LogIn.storyboard */,
+				450B3F1628611D8900F1B025 /* Main.storyboard */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -120,9 +123,9 @@
 		454074222861FEA50076E075 /* viewController */ = {
 			isa = PBXGroup;
 			children = (
+				455505D52866600B0095D71A /* navigation */,
 				45407425286201C80076E075 /* LogInViewController.swift */,
 				4540742D286291600076E075 /* SignUpViewController.swift */,
-				4540742F286298BD0076E075 /* NavigationViewController.swift */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -132,6 +135,16 @@
 			children = (
 			);
 			path = customView;
+			sourceTree = "<group>";
+		};
+		455505D52866600B0095D71A /* navigation */ = {
+			isa = PBXGroup;
+			children = (
+				455505CF2866536D0095D71A /* SegundoViewController.swift */,
+				455505D1286653A30095D71A /* MainTabBarViewController.swift */,
+				455505D3286659EA0095D71A /* PrimerViewController.swift */,
+			);
+			path = navigation;
 			sourceTree = "<group>";
 		};
 		5656519E35421879DDE306B7 /* Frameworks */ = {
@@ -258,12 +271,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45407430286298BD0076E075 /* NavigationViewController.swift in Sources */,
 				45407428286202260076E075 /* ViewExtension.swift in Sources */,
 				4540742E286291600076E075 /* SignUpViewController.swift in Sources */,
+				455505D4286659EA0095D71A /* PrimerViewController.swift in Sources */,
+				455505D02866536D0095D71A /* SegundoViewController.swift in Sources */,
 				450B3F1528611D8900F1B025 /* ViewController.swift in Sources */,
 				454074202861F3CD0076E075 /* UIButtonExtension.swift in Sources */,
 				450B3F1128611D8900F1B025 /* AppDelegate.swift in Sources */,
+				455505D2286653A30095D71A /* MainTabBarViewController.swift in Sources */,
 				45407426286201C80076E075 /* LogInViewController.swift in Sources */,
 				450B3F1328611D8900F1B025 /* SceneDelegate.swift in Sources */,
 			);

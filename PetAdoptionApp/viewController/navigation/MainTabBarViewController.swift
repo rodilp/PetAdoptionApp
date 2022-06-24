@@ -1,13 +1,13 @@
 //
-//  NavigationViewController.swift
+//  MainTabBarViewController.swift
 //  PetAdoptionApp
 //
-//  Created by Rodil Pampañaupa Velasque on 21/06/22.
+//  Created by Rodil Pampañaupa Velasque on 24/06/22.
 //
 
 import UIKit
 
-class NavigationViewController: UIViewController {
+class MainTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
