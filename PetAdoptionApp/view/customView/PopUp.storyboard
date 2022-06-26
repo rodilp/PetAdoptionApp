@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Bold.ttf">
+            <string>Montserrat-Bold</string>
+        </array>
+        <array key="Montserrat-Medium.ttf">
+            <string>Montserrat-Medium</string>
+        </array>
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Error Pop Up View Controller-->
+        <scene sceneID="zlc-ze-TIV">
+            <objects>
+                <viewController storyboardIdentifier="ErrorPopUpViewController" id="XcA-39-QbW" customClass="ErrorPopUpViewController" customModule="PetAdoptionApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sld-OA-nqn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVn-0h-0Od">
+                                <rect key="frame" x="24" y="313" width="366" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ups!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rrx-4a-n7p">
+                                        <rect key="frame" x="20" y="18" width="46" height="26"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNA-lm-k8b">
+                                        <rect key="frame" x="234" y="148" width="100" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="FNH-qR-QKm"/>
+                                            <constraint firstAttribute="height" constant="38" id="Qj1-nM-DVi"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
+                                        <state key="normal" title="Aceptar">
+                                            <color key="titleColor" name="primaryBackground"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="accept:" destination="XcA-39-QbW" eventType="touchUpInside" id="GJi-MH-iS8"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ocurrio un error con el servidor, estamos trabajando para solucionarlo." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXu-5d-rsZ">
+                                        <rect key="frame" x="20" y="68" width="322" height="37.5"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
+                                        <color key="textColor" name="primaryBackground"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="QXu-5d-rsZ" secondAttribute="trailing" constant="24" id="25P-Nd-W7X"/>
+                                    <constraint firstAttribute="bottom" secondItem="YNA-lm-k8b" secondAttribute="bottom" constant="14" id="3wZ-zZ-ty5"/>
+                                    <constraint firstItem="rrx-4a-n7p" firstAttribute="leading" secondItem="tVn-0h-0Od" secondAttribute="leading" constant="20" id="DAO-O2-1NR"/>
+                                    <constraint firstAttribute="height" constant="200" id="SMU-uy-LDd"/>
+                                    <constraint firstAttribute="trailing" secondItem="YNA-lm-k8b" secondAttribute="trailing" constant="32" id="eXq-7S-GuZ"/>
+                                    <constraint firstItem="rrx-4a-n7p" firstAttribute="top" secondItem="tVn-0h-0Od" secondAttribute="top" constant="18" id="jS7-pY-WtP"/>
+                                    <constraint firstItem="QXu-5d-rsZ" firstAttribute="leading" secondItem="tVn-0h-0Od" secondAttribute="leading" constant="20" id="v9n-Nd-pv7"/>
+                                    <constraint firstItem="QXu-5d-rsZ" firstAttribute="top" secondItem="rrx-4a-n7p" secondAttribute="bottom" constant="24" id="vi4-ox-Nfe"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sBl-hm-uLj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tVn-0h-0Od" firstAttribute="leading" secondItem="sBl-hm-uLj" secondAttribute="leading" constant="24" id="HWY-rI-NQv"/>
+                            <constraint firstItem="sBl-hm-uLj" firstAttribute="trailing" secondItem="tVn-0h-0Od" secondAttribute="trailing" constant="24" id="fs4-IU-gfC"/>
+                            <constraint firstItem="tVn-0h-0Od" firstAttribute="centerY" secondItem="sld-OA-nqn" secondAttribute="centerY" constant="-35" id="hIF-W4-ZWE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="accepButton" destination="YNA-lm-k8b" id="TE3-TK-cmS"/>
+                        <outlet property="cardBox" destination="tVn-0h-0Od" id="mPu-h9-95B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5qk-kR-fAp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1038" y="34"/>
+        </scene>
+        <!--Loading Pop Up View Controller-->
+        <scene sceneID="SQR-q2-hcx">
+            <objects>
+                <viewController storyboardIdentifier="LoadingPopUpViewController" id="Pty-Zp-aWd" customClass="LoadingPopUpViewController" customModule="PetAdoptionApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ngM-gV-2qp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Nx-Wf-TqY">
+                                <rect key="frame" x="132" y="388" width="150" height="120"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="2q7-Xq-Pu8">
+                                        <rect key="frame" x="40" y="25" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="CkH-rh-ke0"/>
+                                            <constraint firstAttribute="height" constant="70" id="GCj-4u-fv4"/>
+                                        </constraints>
+                                        <color key="color" systemColor="systemOrangeColor"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Espere..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2b-t8-hes">
+                                        <rect key="frame" x="5" y="94" width="140" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemGrayColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="SxY-ry-mt7"/>
+                                    <constraint firstItem="2q7-Xq-Pu8" firstAttribute="centerX" secondItem="9Nx-Wf-TqY" secondAttribute="centerX" id="Wki-pF-Ofa"/>
+                                    <constraint firstAttribute="bottom" secondItem="o2b-t8-hes" secondAttribute="bottom" constant="5" id="XbS-to-yOK"/>
+                                    <constraint firstAttribute="trailing" secondItem="o2b-t8-hes" secondAttribute="trailing" constant="5" id="kAT-Ul-wG7"/>
+                                    <constraint firstItem="o2b-t8-hes" firstAttribute="leading" secondItem="9Nx-Wf-TqY" secondAttribute="leading" constant="5" id="slQ-y7-ckE"/>
+                                    <constraint firstItem="2q7-Xq-Pu8" firstAttribute="centerY" secondItem="9Nx-Wf-TqY" secondAttribute="centerY" id="xzU-mi-Bq8"/>
+                                    <constraint firstAttribute="height" constant="120" id="z1n-lM-mXM"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="G7b-qx-UpR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9Nx-Wf-TqY" firstAttribute="centerY" secondItem="ngM-gV-2qp" secondAttribute="centerY" id="IYZ-PZ-wH0"/>
+                            <constraint firstItem="9Nx-Wf-TqY" firstAttribute="centerX" secondItem="ngM-gV-2qp" secondAttribute="centerX" id="psO-CW-CJA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cardBody" destination="o2b-t8-hes" id="c4j-cm-g4a"/>
+                        <outlet property="message" destination="o2b-t8-hes" id="r09-kb-AGH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M9B-mN-rdq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-255.07246376811597" y="32.8125"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="primaryBackground">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -6,45 +6,55 @@
 //
 
 import UIKit
+import Alamofire
 
-class LogInViewController: UIViewController {
-
+class LogInViewController: UIViewController, PopUpProtocol {
+    
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
-
-    
-    @IBAction func signIn(_ sender: Any) {
-        signInButton.bounce()
-        
-        navigateMainStoryBoard()
-
-    }
-    @IBAction func SignUp(_ sender: Any) {
-
-        let controller : SignUpViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
-            self.navigationController?.pushViewController(controller, animated: true)
-        
-    }
-    
     @IBOutlet weak var cardBody: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupView()
+        testRequest()
 
     }
     
+    func testRequest(){
+        AF.request("https://petadoptionapi.herokuapp.com/apiv1/user").response { res in
+            debugPrint(res)
+            
+        }
+    }
+
+    
     func setupView(){
         cardBody.roundCorners(corners: .topLeft, radius: 60)
-
         signInButton.roundButton()
         emailTextField.roundTextField()
         passwordTextField.roundTextField()
+    }
+    
+    
+    @IBAction func signIn(_ sender: Any) {
+        signInButton.bounce()
+        //navigateMainStoryBoard()
+        //ErrorPopUpViewController.showPopup(parentVc: self)
         
+        //LoadingPopUpViewController.showPopup(parentVc: self, msm: "cd..")
+        let loading = LoadingPopUpViewController()
+        loading.showPopup(parentVc: self, msm: "Carn...")
 
+    }
+    @IBAction func SignUp(_ sender: Any) {
+        let controller : SignUpViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+            self.navigationController?.pushViewController(controller, animated: true)
+        
     }
     
     func navigateOtherStoryBoard(){
@@ -53,37 +63,20 @@ class LogInViewController: UIViewController {
         self.navigationController?.pushViewController(viewC, animated: true)
     }
     
+    
     func navigateMainStoryBoard(){
-        
-        
-        
-        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainTBC") as?
-            UITabBarController {
-            
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainTBC") as? UITabBarController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
-        
-        
-        
-        
-//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-//        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "mainApp") as! MainTabBarViewController
-//        nextViewController.modalPresentationStyle = .fullScreen
-//        self.present(nextViewController, animated:true, completion:nil)
+    
             
     }
     
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func accepAction(action: Bool) {
+        print("Acept Pressed..")
     }
-    */
-
+    
+    
+    
 }
