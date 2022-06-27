@@ -16,21 +16,46 @@ class LogInViewController: UIViewController, PopUpProtocol {
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var cardBody: UIView!
     
+    // MARK: - Injection
+    let viewModel = LogInViewModel(dataService: DataService())
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupView()
-        testRequest()
+    
 
     }
     
-    func testRequest(){
-        AF.request("https://petadoptionapi.herokuapp.com/apiv1/user").response { res in
-            debugPrint(res)
+    
+    func login(email:String, pass:String){
+        let request = AuthRequest(email: email, password: pass)
+        viewModel.auth(rq: request)
+        
+        viewModel.didFinishFetch = { response in
             
+            if(response.data == nil){
+                print("Message: \(response.message)")
+                ErrorPopUpViewController.showPopup(parentVc: self)
+                return
+            }
+                
+            print("Correct User....")
+            print(response.data!)
+            self.navigateMainStoryBoard()
+        }
+        
+        viewModel.updateLoadingStatus = { st in
+            if(st){
+                print("cargando...")
+            }
+            else{
+                print("terminando....")
+            }
         }
     }
+
 
     
     func setupView(){
@@ -44,11 +69,12 @@ class LogInViewController: UIViewController, PopUpProtocol {
     @IBAction func signIn(_ sender: Any) {
         signInButton.bounce()
         //navigateMainStoryBoard()
+        
+        login(email: emailTextField.text ?? "", pass: passwordTextField.text ?? "" )
         //ErrorPopUpViewController.showPopup(parentVc: self)
         
-        //LoadingPopUpViewController.showPopup(parentVc: self, msm: "cd..")
-        let loading = LoadingPopUpViewController()
-        loading.showPopup(parentVc: self, msm: "Carn...")
+       //let loading = LoadingPopUpViewController()
+       //loading.showPopup(parentVc: self, msm: "Carn...")
 
     }
     @IBAction func SignUp(_ sender: Any) {

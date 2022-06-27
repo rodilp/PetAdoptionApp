@@ -10,9 +10,11 @@ import UIKit
 class LoadingPopUpViewController: UIViewController {
     
     private let color = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1)
+    
 
     @IBOutlet weak var message: UILabel!
     @IBOutlet weak var cardBody: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,9 +31,11 @@ class LoadingPopUpViewController: UIViewController {
    func showPopup(parentVc: UIViewController, msm: String){
         if let popupVc = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "LoadingPopUpViewController") as? LoadingPopUpViewController {
             
+            //popupVc.message.text = msm
+            
             popupVc.modalPresentationStyle = .custom
             popupVc.modalTransitionStyle = .crossDissolve
-            //popupVc.message.text = msm ?? "xd"
+
             
             //setting the delegate of the dialog box to the parent viewController
 

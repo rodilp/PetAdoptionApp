@@ -24,7 +24,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WnU-y0-l6o"/>
-                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <color key="backgroundColor" systemColor="systemGray3Color"/>
                         <constraints>
                             <constraint firstItem="b9i-Vy-QJ8" firstAttribute="centerX" secondItem="5eh-tS-Zw6" secondAttribute="centerX" id="5fn-cQ-KeC"/>
                             <constraint firstItem="b9i-Vy-QJ8" firstAttribute="centerY" secondItem="5eh-tS-Zw6" secondAttribute="centerY" id="IiG-y4-TPA"/>
@@ -36,7 +36,7 @@
             </objects>
             <point key="canvasLocation" x="-1035" y="1138"/>
         </scene>
-        <!--Inicio-->
+        <!--Primer View Controller-->
         <scene sceneID="Crp-3T-PVw">
             <objects>
                 <viewController storyboardIdentifier="PrimerVC" id="fzF-Ez-coC" customClass="PrimerViewController" customModule="PetAdoptionApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -52,13 +52,13 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RDe-UC-h77"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kGn-fI-OyU" firstAttribute="centerX" secondItem="z0X-u5-iss" secondAttribute="centerX" id="Pll-ao-jaZ"/>
                             <constraint firstItem="kGn-fI-OyU" firstAttribute="centerY" secondItem="z0X-u5-iss" secondAttribute="centerY" id="mtx-v2-TSb"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Inicio" selectedImage="checkmark.seal.fill" catalog="system" id="W1e-QJ-zTE">
+                    <tabBarItem key="tabBarItem" selectedImage="square.and.arrow.down.fill" catalog="system" systemItem="favorites" id="W1e-QJ-zTE">
                         <color key="badgeColor" systemColor="systemPinkColor"/>
                     </tabBarItem>
                 </viewController>
@@ -86,9 +86,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checkmark.seal.fill" catalog="system" width="128" height="128"/>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="square.and.arrow.down.fill" catalog="system" width="121" height="128"/>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
