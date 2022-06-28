@@ -12,9 +12,6 @@
         <array key="Montserrat-Bold.ttf">
             <string>Montserrat-Bold</string>
         </array>
-        <array key="Montserrat-Medium.ttf">
-            <string>Montserrat-Medium</string>
-        </array>
         <array key="Montserrat-Regular.ttf">
             <string>Montserrat-Regular</string>
         </array>
@@ -38,15 +35,18 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNA-lm-k8b">
-                                        <rect key="frame" x="234" y="98" width="100" height="38"/>
+                                        <rect key="frame" x="242" y="98" width="100" height="38"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="FNH-qR-QKm"/>
                                             <constraint firstAttribute="height" constant="38" id="Qj1-nM-DVi"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                         <state key="normal" title="Aceptar">
                                             <color key="titleColor" name="primaryBackground"/>
                                         </state>
+                                        <buttonConfiguration key="configuration" style="filled" title="Aceptar">
+                                            <fontDescription key="titleFontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="accept:" destination="XcA-39-QbW" eventType="touchUpInside" id="GJi-MH-iS8"/>
                                         </connections>
@@ -64,7 +64,7 @@
                                     <constraint firstAttribute="bottom" secondItem="YNA-lm-k8b" secondAttribute="bottom" constant="14" id="3wZ-zZ-ty5"/>
                                     <constraint firstItem="rrx-4a-n7p" firstAttribute="leading" secondItem="tVn-0h-0Od" secondAttribute="leading" constant="20" id="DAO-O2-1NR"/>
                                     <constraint firstAttribute="height" constant="150" id="SMU-uy-LDd"/>
-                                    <constraint firstAttribute="trailing" secondItem="YNA-lm-k8b" secondAttribute="trailing" constant="32" id="eXq-7S-GuZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="YNA-lm-k8b" secondAttribute="trailing" constant="24" id="eXq-7S-GuZ"/>
                                     <constraint firstItem="rrx-4a-n7p" firstAttribute="top" secondItem="tVn-0h-0Od" secondAttribute="top" constant="18" id="jS7-pY-WtP"/>
                                     <constraint firstItem="QXu-5d-rsZ" firstAttribute="leading" secondItem="tVn-0h-0Od" secondAttribute="leading" constant="20" id="v9n-Nd-pv7"/>
                                     <constraint firstItem="QXu-5d-rsZ" firstAttribute="top" secondItem="rrx-4a-n7p" secondAttribute="bottom" constant="24" id="vi4-ox-Nfe"/>
@@ -141,6 +141,91 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M9B-mN-rdq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-255.07246376811597" y="32.8125"/>
+        </scene>
+        <!--Success View Controller-->
+        <scene sceneID="saM-eE-ROZ">
+            <objects>
+                <viewController storyboardIdentifier="SuccessViewController" id="A1B-ED-POI" customClass="SuccessViewController" customModule="PetAdoptionApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tc6-cZ-60m">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftN-Xg-oG9">
+                                <rect key="frame" x="35" y="248" width="344" height="400"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HFH-Cv-CoX">
+                                        <rect key="frame" x="25" y="25" width="294" height="171"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="171" id="lTt-wH-fze"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Felicidades" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUu-1W-q1Y">
+                                        <rect key="frame" x="25" y="196" width="294" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="d0c-56-YTQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Su cuenta se creo satisfactoriamente, ya puedes ir a iniciar sesion." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l39-Pr-Jar">
+                                        <rect key="frame" x="25" y="232" width="294" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="BVz-r2-feW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" systemColor="systemGrayColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qK-5R-mZc">
+                                        <rect key="frame" x="25" y="333" width="294" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="5rq-Yu-aeZ"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Aceptar"/>
+                                        <connections>
+                                            <action selector="accept:" destination="A1B-ED-POI" eventType="touchUpInside" id="BX7-ij-wia"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="dUu-1W-q1Y" firstAttribute="leading" secondItem="ftN-Xg-oG9" secondAttribute="leading" constant="25" id="2Hs-4s-VP1"/>
+                                    <constraint firstAttribute="trailing" secondItem="HFH-Cv-CoX" secondAttribute="trailing" constant="25" id="7AP-UN-ebp"/>
+                                    <constraint firstItem="HFH-Cv-CoX" firstAttribute="leading" secondItem="ftN-Xg-oG9" secondAttribute="leading" constant="25" id="7n3-EJ-1Wj"/>
+                                    <constraint firstItem="l39-Pr-Jar" firstAttribute="leading" secondItem="ftN-Xg-oG9" secondAttribute="leading" constant="25" id="85A-8P-Cew"/>
+                                    <constraint firstAttribute="bottom" secondItem="6qK-5R-mZc" secondAttribute="bottom" constant="25" id="JTF-aD-A1c"/>
+                                    <constraint firstItem="l39-Pr-Jar" firstAttribute="top" secondItem="dUu-1W-q1Y" secondAttribute="bottom" constant="15" id="Mbq-ar-vb9"/>
+                                    <constraint firstAttribute="trailing" secondItem="dUu-1W-q1Y" secondAttribute="trailing" constant="25" id="Yt7-aA-cbP"/>
+                                    <constraint firstItem="6qK-5R-mZc" firstAttribute="leading" secondItem="ftN-Xg-oG9" secondAttribute="leading" constant="25" id="ddG-YF-b4u"/>
+                                    <constraint firstItem="HFH-Cv-CoX" firstAttribute="top" secondItem="ftN-Xg-oG9" secondAttribute="top" constant="25" id="jrd-VY-mRI"/>
+                                    <constraint firstAttribute="trailing" secondItem="l39-Pr-Jar" secondAttribute="trailing" constant="25" id="o7g-bG-c5w"/>
+                                    <constraint firstAttribute="height" constant="400" id="qV0-ZL-pZl"/>
+                                    <constraint firstAttribute="trailing" secondItem="6qK-5R-mZc" secondAttribute="trailing" constant="25" id="qh6-87-MMN"/>
+                                    <constraint firstItem="dUu-1W-q1Y" firstAttribute="top" secondItem="HFH-Cv-CoX" secondAttribute="bottom" id="vjS-we-fyN"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Lwo-SF-uK8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ftN-Xg-oG9" firstAttribute="leading" secondItem="Lwo-SF-uK8" secondAttribute="leading" constant="35" id="Lc5-jx-zDW"/>
+                            <constraint firstItem="Lwo-SF-uK8" firstAttribute="trailing" secondItem="ftN-Xg-oG9" secondAttribute="trailing" constant="35" id="Y0s-wy-Qsc"/>
+                            <constraint firstItem="ftN-Xg-oG9" firstAttribute="centerY" secondItem="tc6-cZ-60m" secondAttribute="centerY" id="iFU-ef-guv"/>
+                            <constraint firstItem="ftN-Xg-oG9" firstAttribute="centerX" secondItem="tc6-cZ-60m" secondAttribute="centerX" id="nat-WH-1zV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="acceptButton" destination="6qK-5R-mZc" id="Lbl-Qc-Nzh"/>
+                        <outlet property="cardBackground" destination="ftN-Xg-oG9" id="4Qi-ob-m2V"/>
+                        <outlet property="cardIcon" destination="HFH-Cv-CoX" id="x3g-BK-uW8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VvJ-74-iMH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1730.4347826086957" y="32.8125"/>
         </scene>
     </scenes>
     <resources>

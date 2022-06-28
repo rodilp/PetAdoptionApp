@@ -13,4 +13,5 @@ struct ApiUtils{
     
     
     static let apiAuth:String = "/apiv1/user/auth"
+    static let apiCreateAccount:String = "/apiv1/user/register"
 }

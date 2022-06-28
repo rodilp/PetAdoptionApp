@@ -8,9 +8,7 @@
 import UIKit
 
 class LoadingPopUpViewController: UIViewController {
-    
-    private let color = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1)
-    
+
 
     @IBOutlet weak var message: UILabel!
     @IBOutlet weak var cardBody: UIView!
@@ -24,7 +22,7 @@ class LoadingPopUpViewController: UIViewController {
         //customizing the dialog box view
         cardBody.layer.cornerRadius = 6.0
         cardBody.layer.borderWidth = 1.2
-        cardBody.layer.borderColor = color.cgColor
+        cardBody.layer.borderColor = AppUtils.GRAY.cgColor
     }
     
 

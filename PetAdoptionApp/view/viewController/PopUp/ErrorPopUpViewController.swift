@@ -17,8 +17,6 @@ class ErrorPopUpViewController: UIViewController {
     @IBOutlet weak var cardBox: UIView!
     @IBOutlet weak var accepButton: UIButton!
     var delegate: PopUpProtocol?
-
-    private let color = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1)
     
     
     override func viewDidLoad() {
@@ -30,13 +28,9 @@ class ErrorPopUpViewController: UIViewController {
         //customizing the dialog box view
         cardBox.layer.cornerRadius = 6.0
         cardBox.layer.borderWidth = 1.2
-        cardBox.layer.borderColor = color.cgColor
+        cardBox.layer.borderColor = AppUtils.GRAY.cgColor
         
-        //accepButton.roundButton()
-        accepButton.setTitleColor(UIColor.black, for: .normal)
-        accepButton.layer.cornerRadius = 4.0
-        accepButton.layer.borderWidth = 1.2
-        accepButton.layer.borderColor = UIColor.orange.cgColor
+        accepButton.roundButton()
     }
     
     

@@ -7,5 +7,6 @@ target 'PetAdoptionApp' do
 
   # Pods for PetAdoptionApp
   pod 'Alamofire'
+  pod 'lottie-ios'
 
 end

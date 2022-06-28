@@ -9,9 +9,9 @@ import Foundation
 import Alamofire
 
 
-struct DataService {
+struct LoginRepository {
     
-    static let shared = DataService()
+    static let shared = LoginRepository()
 
     
     func auth2(request: AuthRequest, completion: @escaping (AuthResponse?, Error?) -> () ){
@@ -45,6 +45,44 @@ struct DataService {
       
     }
     
+    func createAccount(request: AccountRequest, completion: @escaping (AuthResponse?, Error?) -> () ){
+        var memberJson : String = ""
+        let api = ApiUtils.BASE_URL + ApiUtils.apiCreateAccount
+        
+        do{
+            let jsonEncoder = JSONEncoder()
+            let jsonData = try jsonEncoder.encode(request)
+            memberJson = String(data: jsonData, encoding: String.Encoding.utf8)!
+           }catch{}
+        
+        let urlComponent = URLComponents(string: api)!
+        print(memberJson)
+        
+        var request = URLRequest(url: urlComponent.url!)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = memberJson.data(using: .utf8)
+        
+        AF.request(request).response{ response in
+               if let  error = response.error {
+                   completion(nil, error)
+                   return
+               }
+               
+               do {
+                   let usr = try JSONDecoder().decode(AuthResponse.self, from: response.data!)
+                   completion(usr, nil)
+                   
+               }catch let err  as NSError{
+                   print("Error:: \(err)")
+                   
+               }
+               
+           }
+        
+        
+    }
+    
     
     func auth(request: AuthRequest, completion: @escaping (AuthResponse?, Error?) -> () ){
         
@@ -55,7 +93,6 @@ struct DataService {
             let jsonEncoder = JSONEncoder()
             let jsonData = try jsonEncoder.encode(request)
             memberJson = String(data: jsonData, encoding: String.Encoding.utf8)!
-               
            }catch{}
         
         let urlComponent = URLComponents(string: api)!
@@ -63,10 +100,11 @@ struct DataService {
 
         var request = URLRequest(url: urlComponent.url!)
         request.httpMethod = HTTPMethod.post.rawValue
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = memberJson.data(using: .utf8)
-            AF.request(request).response{ response in
-               
+        
+        AF.request(request).response{ response in
+                
                if let  error = response.error {
                    completion(nil, error)
                    return
@@ -74,18 +112,18 @@ struct DataService {
                
                do {
                    let usr = try JSONDecoder().decode(AuthResponse.self, from: response.data!)
-                   //print(usr)
                    completion(usr, nil)
                    
                }catch let err  as NSError{
                    print("Error:: \(err)")
                    
                }
-               
            }
                                     
-                                    
+                        
     }
+    
+    
     
     
     

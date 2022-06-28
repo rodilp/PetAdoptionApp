@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-private let color = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1)
 
 extension UIButton{
     func roundButton(){
@@ -57,7 +56,7 @@ extension UITextField {
     
     func roundTextField(){
         layer.cornerRadius = bounds.height/2
-        layer.borderColor = color.cgColor
+        layer.borderColor = AppUtils.GRAY.cgColor
         layer.borderWidth = 1.0
         clipsToBounds = true
     }

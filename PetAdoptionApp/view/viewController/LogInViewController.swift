@@ -17,33 +17,35 @@ class LogInViewController: UIViewController, PopUpProtocol {
     @IBOutlet weak var cardBody: UIView!
     
     // MARK: - Injection
-    let viewModel = LogInViewModel(dataService: DataService())
+    let viewModel = LogInViewModel(dataService: LoginRepository())
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupView()
-    
-
     }
     
     
     func login(email:String, pass:String){
         let request = AuthRequest(email: email, password: pass)
+        let loader = self.showLoader(msm: "Ingresando...")
+        
         viewModel.auth(rq: request)
         
         viewModel.didFinishFetch = { response in
             
             if(response.data == nil){
-                print("Message: \(response.message)")
-                ErrorPopUpViewController.showPopup(parentVc: self)
+                loader.dismiss(animated: true, completion: {
+                    ErrorPopUpViewController.showPopup(parentVc: self)
+                })
                 return
             }
-                
-            print("Correct User....")
-            print(response.data!)
-            self.navigateMainStoryBoard()
+            
+            loader.dismiss(animated: true, completion: {
+                self.navigateMainStoryBoard()
+            })
+           
         }
         
         viewModel.updateLoadingStatus = { st in
@@ -68,10 +70,8 @@ class LogInViewController: UIViewController, PopUpProtocol {
     
     @IBAction func signIn(_ sender: Any) {
         signInButton.bounce()
-        //navigateMainStoryBoard()
         
         login(email: emailTextField.text ?? "", pass: passwordTextField.text ?? "" )
-        //ErrorPopUpViewController.showPopup(parentVc: self)
         
        //let loading = LoadingPopUpViewController()
        //loading.showPopup(parentVc: self, msm: "Carn...")
@@ -91,12 +91,15 @@ class LogInViewController: UIViewController, PopUpProtocol {
     
     
     func navigateMainStoryBoard(){
+        
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainTBC") as? UITabBarController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     
             
     }
+    
+
     
     
     func accepAction(action: Bool) {

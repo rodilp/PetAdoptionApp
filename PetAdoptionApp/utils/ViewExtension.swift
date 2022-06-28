@@ -25,16 +25,42 @@ extension UIView {
 }
 
 
-extension String {
-    func htmlAttributedString() -> NSAttributedString? {
-        guard let data = self.data(using: .utf8) else {
-            return nil
-        }
 
-        return try? NSAttributedString(
-            data: data,
-            options: [.documentType: NSAttributedString.DocumentType.html],
-            documentAttributes: nil
-        )
+extension UIViewController {
+    func showLoader(msm:String) -> UIAlertController {
+        let alert = UIAlertController(title: nil, message: msm, preferredStyle: .alert)
+        let indicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        indicator.hidesWhenStopped = true
+        indicator.startAnimating()
+        indicator.style = .large
+        alert.view.addSubview(indicator)
+        self.present(alert, animated: true, completion: nil)
+        return alert
     }
+    
+    func stopLoading(loader: UIAlertController) {
+        loader.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    func showAlert(msm:String) -> UIAlertController {
+        let alert = UIAlertController(title: nil, message: msm, preferredStyle: .alert)
+        let indicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        indicator.style = .large
+        alert.view.addSubview(indicator)
+        self.present(alert, animated: true, completion: nil)
+        return alert
+    }
+    
+    
+    func presentAlert(withTitle title: String, message : String) {
+      let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+      let OKAction = UIAlertAction(title: "Aceptar", style: .default) { action in
+          print("Pressed OK...")
+      }
+      alertController.addAction(OKAction)
+      self.present(alertController, animated: true, completion: nil)
+    }
+    
 }
+
