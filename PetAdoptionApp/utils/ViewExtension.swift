@@ -22,6 +22,13 @@ extension UIView {
         layer.cornerRadius = bounds.height/2
         clipsToBounds = true
     }
+    
+    func round(){
+        layer.cornerRadius = 15
+        layer.borderColor = AppUtils.GRAY.cgColor
+        layer.borderWidth = 1.0
+        clipsToBounds = true
+    }
 }
 
 

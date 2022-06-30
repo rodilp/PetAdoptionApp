@@ -31,4 +31,6 @@ struct User : Codable {
          self.image = try values.decodeIfPresent(String.self, forKey: .image) ?? ""
          self.createdAt = try values.decodeIfPresent(String.self, forKey: .createdAt) ?? ""
     }
+    
+    
 }

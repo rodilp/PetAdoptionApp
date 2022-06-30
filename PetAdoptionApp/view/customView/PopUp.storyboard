@@ -88,60 +88,6 @@
             </objects>
             <point key="canvasLocation" x="-1038" y="34"/>
         </scene>
-        <!--Loading Pop Up View Controller-->
-        <scene sceneID="SQR-q2-hcx">
-            <objects>
-                <viewController storyboardIdentifier="LoadingPopUpViewController" id="Pty-Zp-aWd" customClass="LoadingPopUpViewController" customModule="PetAdoptionApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ngM-gV-2qp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Nx-Wf-TqY">
-                                <rect key="frame" x="132" y="388" width="150" height="120"/>
-                                <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="2q7-Xq-Pu8">
-                                        <rect key="frame" x="40" y="25" width="70" height="70"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="70" id="CkH-rh-ke0"/>
-                                            <constraint firstAttribute="height" constant="70" id="GCj-4u-fv4"/>
-                                        </constraints>
-                                        <color key="color" systemColor="systemOrangeColor"/>
-                                    </activityIndicatorView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Espere..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2b-t8-hes">
-                                        <rect key="frame" x="5" y="94" width="140" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" systemColor="systemGrayColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="SxY-ry-mt7"/>
-                                    <constraint firstItem="2q7-Xq-Pu8" firstAttribute="centerX" secondItem="9Nx-Wf-TqY" secondAttribute="centerX" id="Wki-pF-Ofa"/>
-                                    <constraint firstAttribute="bottom" secondItem="o2b-t8-hes" secondAttribute="bottom" constant="5" id="XbS-to-yOK"/>
-                                    <constraint firstAttribute="trailing" secondItem="o2b-t8-hes" secondAttribute="trailing" constant="5" id="kAT-Ul-wG7"/>
-                                    <constraint firstItem="o2b-t8-hes" firstAttribute="leading" secondItem="9Nx-Wf-TqY" secondAttribute="leading" constant="5" id="slQ-y7-ckE"/>
-                                    <constraint firstItem="2q7-Xq-Pu8" firstAttribute="centerY" secondItem="9Nx-Wf-TqY" secondAttribute="centerY" id="xzU-mi-Bq8"/>
-                                    <constraint firstAttribute="height" constant="120" id="z1n-lM-mXM"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="G7b-qx-UpR"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="9Nx-Wf-TqY" firstAttribute="centerY" secondItem="ngM-gV-2qp" secondAttribute="centerY" id="IYZ-PZ-wH0"/>
-                            <constraint firstItem="9Nx-Wf-TqY" firstAttribute="centerX" secondItem="ngM-gV-2qp" secondAttribute="centerX" id="psO-CW-CJA"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="cardBody" destination="o2b-t8-hes" id="c4j-cm-g4a"/>
-                        <outlet property="message" destination="o2b-t8-hes" id="r09-kb-AGH"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="M9B-mN-rdq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-255.07246376811597" y="32.8125"/>
-        </scene>
         <!--Success View Controller-->
         <scene sceneID="saM-eE-ROZ">
             <objects>
@@ -237,9 +183,6 @@
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

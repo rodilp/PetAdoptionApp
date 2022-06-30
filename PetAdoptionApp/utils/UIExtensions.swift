@@ -60,5 +60,34 @@ extension UITextField {
         layer.borderWidth = 1.0
         clipsToBounds = true
     }
+    
+    func searchTextField(){
+        layer.cornerRadius = 8
+        
+        let image = UIImage(named: "search_icon")
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 45, height: frame.height))
+     
+        imageView.image = image
+        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 45 + 2 * 0, height: frame.height))
+     
+        containerView.addSubview(imageView)
+        leftView = containerView
+        leftViewMode = .always
+        
+        layer.borderColor = AppUtils.GRAY.cgColor
+        layer.borderWidth = 1.0
+        clipsToBounds = true
+    }
+}
+
+
+extension UIImageView{
+    func roundBorder(){
+        layer.borderWidth = 1
+        layer.masksToBounds = false
+        layer.borderColor = AppUtils.GRAY.cgColor
+        layer.cornerRadius = frame.height/2
+        clipsToBounds = true
+    }
 }
 

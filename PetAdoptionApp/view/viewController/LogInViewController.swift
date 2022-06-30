@@ -43,6 +43,7 @@ class LogInViewController: UIViewController, PopUpProtocol {
             }
             
             loader.dismiss(animated: true, completion: {
+                // save user Data
                 self.navigateMainStoryBoard()
             })
            
@@ -54,6 +55,8 @@ class LogInViewController: UIViewController, PopUpProtocol {
             }
             else{
                 print("terminando....")
+                loader.dismiss(animated: true, completion: nil)
+                    
             }
         }
     }
