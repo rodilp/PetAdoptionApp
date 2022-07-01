@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AuthResponse: Decodable{
+struct AuthResponse: Codable{
     let code:Int
     let message:String
     let data:User?

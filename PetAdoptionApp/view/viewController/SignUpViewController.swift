@@ -34,7 +34,6 @@ class SignUpViewController: UIViewController {
             self.loader?.dismiss(animated: true, completion: {
                 self.cleanInputs()
                 SuccessViewController.showPopup(parentVc: self)
-                //self.presentAlert(withTitle: "Felicitaciones!", message: response.message)
             })
         }
         

@@ -24,10 +24,22 @@ extension UIView {
     }
     
     func round(){
+        backgroundColor = .white
         layer.cornerRadius = 15
         layer.borderColor = AppUtils.GRAY.cgColor
         layer.borderWidth = 1.0
         clipsToBounds = true
+    }
+    
+    func selectedBackground(){
+        backgroundColor = AppUtils.PRIMARY_ORANGE
+        layer.cornerRadius = 15
+        layer.borderColor = AppUtils.PRIMARY_ORANGE.cgColor
+        layer.backgroundColor = AppUtils.PRIMARY_ORANGE.cgColor
+        tintColor = AppUtils.PRIMARY_ORANGE
+        layer.borderWidth = 1.0
+        clipsToBounds = true
+        
     }
 }
 

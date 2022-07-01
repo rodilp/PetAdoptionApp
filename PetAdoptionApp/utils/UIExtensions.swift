@@ -82,12 +82,40 @@ extension UITextField {
 
 
 extension UIImageView{
-    func roundBorder(){
+    func roundBorder(corner:CGFloat, round:Bool){
+        if(round){
+            layer.cornerRadius = frame.height/2
+        }else{
+            layer.cornerRadius = corner
+        }
+        layer.borderColor = AppUtils.GRAY.cgColor
         layer.borderWidth = 1
         layer.masksToBounds = false
-        layer.borderColor = AppUtils.GRAY.cgColor
-        layer.cornerRadius = frame.height/2
         clipsToBounds = true
+    }
+    
+    func loadImage(url:String){
+        let fileUrl = URL(string: url)!
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: fileUrl){
+                if let image = UIImage(data: data){
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+            
+        }
+    }
+
+}
+
+extension UILabel {
+    func titleColor(){
+        textColor = AppUtils.TITLE_COLOR
+    }
+    func detailColor(){
+        textColor = AppUtils.TEXT_COLOR
     }
 }
 

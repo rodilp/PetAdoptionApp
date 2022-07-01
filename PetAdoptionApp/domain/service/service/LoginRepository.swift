@@ -12,38 +12,6 @@ import Alamofire
 struct LoginRepository {
     
     static let shared = LoginRepository()
-
-    
-    func auth2(request: AuthRequest, completion: @escaping (AuthResponse?, Error?) -> () ){
-        
-
-        let api = ApiUtils.BASE_URL + ApiUtils.apiAuth
-        let params: Parameters = ["email": "\(request.email)","password": "\(request.password)"]
-        print("request:: \(params)")
-    
-        AF.request(api, method: .get, parameters:params , encoding: JSONEncoding.default, headers: nil).response { response in
-            
-            if let  error = response.error {
-                completion(nil, error)
-                return
-            }
-            
-            do {
-                debugPrint(response)
-        
-                let usr = try JSONDecoder().decode(AuthResponse.self, from: response.data!)
-                print(usr)
-                completion(usr, nil)
-            }catch let err  as NSError{
-                print("Error:: \(err)")
-                
-            }
-            
-    
-        }
-        
-      
-    }
     
     func createAccount(request: AccountRequest, completion: @escaping (AuthResponse?, Error?) -> () ){
         var memberJson : String = ""
@@ -68,11 +36,9 @@ struct LoginRepository {
                    completion(nil, error)
                    return
                }
-               
                do {
                    let usr = try JSONDecoder().decode(AuthResponse.self, from: response.data!)
                    completion(usr, nil)
-                   
                }catch let err  as NSError{
                    print("Error:: \(err)")
                    

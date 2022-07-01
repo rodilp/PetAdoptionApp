@@ -34,7 +34,6 @@ class LogInViewController: UIViewController, PopUpProtocol {
         viewModel.auth(rq: request)
         
         viewModel.didFinishFetch = { response in
-            
             if(response.data == nil){
                 loader.dismiss(animated: true, completion: {
                     ErrorPopUpViewController.showPopup(parentVc: self)
@@ -43,7 +42,6 @@ class LogInViewController: UIViewController, PopUpProtocol {
             }
             
             loader.dismiss(animated: true, completion: {
-                // save user Data
                 self.navigateMainStoryBoard()
             })
            
