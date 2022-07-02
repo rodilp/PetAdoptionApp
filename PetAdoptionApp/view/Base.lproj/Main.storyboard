@@ -153,8 +153,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="170" height="241"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="register_image" translatesAutoresizingMaskIntoConstraints="NO" id="Z3H-6H-qAS">
-                                                    <rect key="frame" x="15" y="5" width="140" height="172"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="load_image" translatesAutoresizingMaskIntoConstraints="NO" id="Z3H-6H-qAS">
+                                                    <rect key="frame" x="5" y="5" width="160" height="172"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="180" id="dNC-FK-kWN"/>
                                                         <constraint firstAttribute="width" constant="150" id="nFe-Kn-E0M"/>
@@ -180,15 +180,15 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Z3H-6H-qAS" firstAttribute="leading" secondItem="O10-hp-RlY" secondAttribute="leading" constant="15" id="6Mq-2h-mXV"/>
+                                                <constraint firstItem="Z3H-6H-qAS" firstAttribute="leading" secondItem="O10-hp-RlY" secondAttribute="leading" constant="5" id="6Mq-2h-mXV"/>
                                                 <constraint firstAttribute="trailing" secondItem="VfK-1e-Gmm" secondAttribute="trailing" constant="15" id="CW2-xt-opV"/>
                                                 <constraint firstItem="VfK-1e-Gmm" firstAttribute="top" secondItem="d0L-V8-dgU" secondAttribute="bottom" constant="1" id="TiO-rB-JWc"/>
                                                 <constraint firstItem="d0L-V8-dgU" firstAttribute="leading" secondItem="O10-hp-RlY" secondAttribute="leading" constant="15" id="Ymz-4B-JCF"/>
                                                 <constraint firstAttribute="trailing" secondItem="d0L-V8-dgU" secondAttribute="trailing" constant="15" id="ays-5J-iJa"/>
                                                 <constraint firstItem="VfK-1e-Gmm" firstAttribute="leading" secondItem="O10-hp-RlY" secondAttribute="leading" constant="15" id="iPL-Lk-K77"/>
-                                                <constraint firstAttribute="trailing" secondItem="Z3H-6H-qAS" secondAttribute="trailing" constant="15" id="qfI-YS-lID"/>
                                                 <constraint firstAttribute="bottom" secondItem="VfK-1e-Gmm" secondAttribute="bottom" constant="16" id="rlm-Kl-cbr"/>
                                                 <constraint firstItem="d0L-V8-dgU" firstAttribute="top" secondItem="Z3H-6H-qAS" secondAttribute="bottom" constant="5" id="wXS-Va-nlF"/>
+                                                <constraint firstAttribute="trailing" secondItem="Z3H-6H-qAS" secondAttribute="trailing" constant="5" id="ya0-cu-Oab"/>
                                                 <constraint firstItem="Z3H-6H-qAS" firstAttribute="top" secondItem="O10-hp-RlY" secondAttribute="top" constant="5" id="zCA-RJ-Psp"/>
                                             </constraints>
                                         </collectionViewCellContentView>
@@ -316,6 +316,7 @@
     <resources>
         <image name="home_sele" width="20" height="22"/>
         <image name="home_uns" width="20" height="22"/>
+        <image name="load_image" width="620" height="609"/>
         <image name="pet_sele" width="23" height="22"/>
         <image name="pet_uns" width="22" height="20"/>
         <image name="register_image" width="960" height="640"/>

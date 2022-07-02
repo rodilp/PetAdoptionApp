@@ -150,7 +150,7 @@ extension HomeViewController: UICollectionViewDataSource{
             if(!pets.isEmpty){
                 let pet = pets[indexPath.row]
                 cell2.nameLabel.text = pet.name
-                cell2.detailLabel.text = "\(pet.sex), \(pet.age) meses"
+                cell2.detailLabel.text = "\(pet.sex), \(pet.age) \(pet.ageTime)"
                 cell2.petImage.roundBorder(corner: 15, round: false)
                 
                 cell2.nameLabel.titleColor()

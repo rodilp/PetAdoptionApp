@@ -10,6 +10,7 @@ struct Pet: Codable{
     let idPet:Int
     let name:String
     let age:Int
+    let ageTime:String
     let sex:String
     let race:String
     let address:String
