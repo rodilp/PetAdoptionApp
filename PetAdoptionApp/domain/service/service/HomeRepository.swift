@@ -44,6 +44,26 @@ struct HomeRepository{
         }
     }
     
+    func getPetBycategory(id:Int, completion: @escaping (PetResponse?, Error?) -> () ){
+        let api = ApiUtils.BASE_URL + ApiUtils.apiPetByCategory + String(id)
+        print(api)
+        AF.request(api, method: .get, headers: nil).response { response in
+            if let  error = response.error {
+                completion(nil, error)
+                return
+            }
+            do {
+                let petResponse = try JSONDecoder().decode(PetResponse.self, from: response.data!)
+                print(petResponse)
+                completion(petResponse, nil)
+            }catch let err  as NSError{
+                print("Error:: \(err)")
+            }
+        }
+    }
+    
+    
+    
     
     
     

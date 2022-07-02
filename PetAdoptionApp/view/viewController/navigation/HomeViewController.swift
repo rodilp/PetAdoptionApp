@@ -182,7 +182,9 @@ extension HomeViewController: UICollectionViewDelegate{
             if let cell = categoryCollectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell{
                 cell.selectedBackground()
                 cell.categoryLabel.textColor = .white
-                //viewModel.getPets()
+                
+                let model = categories[indexPath.row]
+                viewModel.getPetsByCategory(id: model.idCategory)
             }
             
         }
@@ -208,7 +210,7 @@ extension HomeViewController: UICollectionViewDelegate{
             }
             
             if(!categories.isEmpty){
-                if let cell2 = categoryCollectionView.cellForItem(at: [0,2])  as? CategoryCollectionViewCell{
+                if let cell2 = categoryCollectionView.cellForItem(at: [0,0])  as? CategoryCollectionViewCell{
                     cell2.contentView.backgroundColor = nil
                     cell2.categoryLabel.titleColor()
                 }

@@ -19,6 +19,7 @@ struct ApiUtils{
     static let apiCategory:String = "/apiv1/category"
     static let apiPets:String = "/apiv1/pet"
     static let apiPetById:String = "/apiv1/pet/{id:}"
+    static let apiPetByCategory:String = "/apiv1/pet/category/"
     
     //Adoption
     
