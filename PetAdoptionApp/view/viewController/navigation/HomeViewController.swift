@@ -16,7 +16,7 @@ class HomeViewController: UIViewController  {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var sectionTitleLabel: UILabel!
     
-    var categories:[LocalCategory] = []
+    var categories:[Category] = []
     var pets:[Pet] = []
     
     //interface
@@ -24,7 +24,7 @@ class HomeViewController: UIViewController  {
 
     // MARK: - Injection
     let viewModel = HomeViewModel(repo: HomeRepository())
-    let catController = CategoryController(categories: [])
+ 
     
     
     
@@ -88,8 +88,7 @@ extension HomeViewController: CategoryDelegate{
     }
     
     func getCategories(cat: [Category]) {
-        catController.loadLocalCategory(apiCategories: cat)
-        self.categories = catController.getCategories()
+        self.categories = cat
         categoryCollectionView.reloadData()
     }
 }
@@ -108,40 +107,28 @@ extension HomeViewController: UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = categoryCollectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
         if(!categories.isEmpty){
-            
-            let cat = categories[indexPath.row]
-            cell.categoryLabel.text = cat.name
-            cell.round()
-            cell.categoryLabel.titleColor()
-            
-            if(cat.name == "Todos"){
-                cell.contentView.backgroundColor = AppUtils.PRIMARY_ORANGE
-                cell.contentView.layer.cornerRadius = 15
-                cell.categoryLabel.textColor = .white
-            }
-            
-          /*  if(cat.isSelected){
-                cell.selectedBackground()
-                cell.categoryLabel.textColor = UIColor.white
-                print(" cat: \(cat)")
-            }else{
+        
+        if(collectionView == categoryCollectionView){
+                
+                let cat = categories[indexPath.row]
+           
                 cell.categoryLabel.text = cat.name
                 cell.round()
                 cell.categoryLabel.titleColor()
+                    
+                if(cat.name == "Todos"){
+                    cell.contentView.backgroundColor = AppUtils.PRIMARY_ORANGE
+                    cell.contentView.layer.cornerRadius = 15
+                    cell.categoryLabel.textColor = .white
+                }
+        
             }
-            */
-          
-            
-            
-            
-            
-            
-            
         }
-        
-        
+            
+
        
         
         if(collectionView == petCollectionView){
@@ -165,6 +152,8 @@ extension HomeViewController: UICollectionViewDataSource{
         }
         
         return cell
+        
+       
     }
     
 }

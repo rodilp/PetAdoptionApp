@@ -44,7 +44,7 @@ class HomeViewModel{
     }
     
     func getPetsByCategory(id:Int){
-        repo?.getPetBycategory(id: id, completion: { response, error in
+        repo?.getPetByCategory(id: id, completion: { response, error in
             if(response?.code == HttpUtil.OK){
                 let pets = response?.data ?? []
                 self.delegate?.getPets(pets: pets)

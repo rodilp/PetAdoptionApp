@@ -44,7 +44,7 @@ struct HomeRepository{
         }
     }
     
-    func getPetBycategory(id:Int, completion: @escaping (PetResponse?, Error?) -> () ){
+    func getPetByCategory(id:Int, completion: @escaping (PetResponse?, Error?) -> () ){
         let api = ApiUtils.BASE_URL + ApiUtils.apiPetByCategory + String(id)
         print(api)
         AF.request(api, method: .get, headers: nil).response { response in
