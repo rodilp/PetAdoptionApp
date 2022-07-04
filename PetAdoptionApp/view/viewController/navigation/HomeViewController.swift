@@ -42,6 +42,7 @@ class HomeViewController: UIViewController  {
         categoryCollectionView.dataSource = self
         petCollectionView.dataSource = self
         // Do any additional setup after loading the view.
+
         
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
         imageLogo.addGestureRecognizer(tapGR)
@@ -76,7 +77,22 @@ class HomeViewController: UIViewController  {
     
     func goToPetProfile(){
         let controller : PetProfileViewController = self.storyboard?.instantiateViewController(withIdentifier: "PetProfileViewController") as! PetProfileViewController
+        controller.idPet = 556
             self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let segueSelection = segue.identifier
+        
+        
+        print(segueSelection ?? "default value")
+        if let s = segueSelection, s == "facebookSegue" {
+        }else{
+            let viewC = segue.destination as! PetProfileViewController
+            viewC.idPet = 555
+        }
     }
 
 }
@@ -97,6 +113,7 @@ extension HomeViewController: CategoryDelegate{
 
 
 extension HomeViewController: UICollectionViewDataSource{
+
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
        if(collectionView == petCollectionView){
@@ -112,9 +129,7 @@ extension HomeViewController: UICollectionViewDataSource{
         if(!categories.isEmpty){
         
         if(collectionView == categoryCollectionView){
-                
                 let cat = categories[indexPath.row]
-           
                 cell.categoryLabel.text = cat.name
                 cell.round()
                 cell.categoryLabel.titleColor()
@@ -145,16 +160,13 @@ extension HomeViewController: UICollectionViewDataSource{
                 if(!pet.images.isEmpty){
                     cell2.petImage.loadImage(url: pet.images[0].url)
                 }
-                
             }
             return cell2
-           
         }
-        
         return cell
-        
-       
     }
+    
+    
     
 }
 
@@ -185,7 +197,6 @@ extension HomeViewController: UICollectionViewDelegate{
                 cell.round()
                 cell.categoryLabel.titleColor()
             }
-            
             let category = categories[indexPath.row]
             print("Cell deselect -> \(category.name) clicked")
             
@@ -214,11 +225,9 @@ extension HomeViewController: UICollectionViewDelegate{
                 cell.contentView.backgroundColor = nil
             }
         }
-
     }
     
-
+    
 }
-//https://www.youtube.com/watch?v=xtBeYERxE2Y&ab_channel=TechnicalistoFCI
 
 

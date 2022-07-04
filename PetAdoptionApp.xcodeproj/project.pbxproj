@@ -49,6 +49,7 @@
 		458523D22869FF39007C9F07 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458523D12869FF39007C9F07 /* LogInViewModel.swift */; };
 		458523D5286A06BE007C9F07 /* ApiUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458523D4286A06BE007C9F07 /* ApiUtils.swift */; };
 		458523D8286A6DE9007C9F07 /* AccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458523D7286A6DE9007C9F07 /* AccountRequest.swift */; };
+		45E536862873345600260F6F /* PetBannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E536852873345600260F6F /* PetBannerCollectionViewCell.swift */; };
 		4F1C1950B6ACE8BDBF39B458 /* Pods_PetAdoptionApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E708A8E7AD2E147CA9B158D0 /* Pods_PetAdoptionApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +98,7 @@
 		458523D12869FF39007C9F07 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		458523D4286A06BE007C9F07 /* ApiUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUtils.swift; sourceTree = "<group>"; };
 		458523D7286A6DE9007C9F07 /* AccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRequest.swift; sourceTree = "<group>"; };
+		45E536852873345600260F6F /* PetBannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetBannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		DF5AE19B79467414395DAB09 /* Pods-PetAdoptionApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetAdoptionApp.debug.xcconfig"; path = "Target Support Files/Pods-PetAdoptionApp/Pods-PetAdoptionApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E708A8E7AD2E147CA9B158D0 /* Pods_PetAdoptionApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetAdoptionApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDDFAA98D766BD86E2B3B3FE /* Pods-PetAdoptionApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetAdoptionApp.release.xcconfig"; path = "Target Support Files/Pods-PetAdoptionApp/Pods-PetAdoptionApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			children = (
 				4506D585286BBF38006CD863 /* CategoryCollectionViewCell.swift */,
 				4554A21F286E4D27001A2FE3 /* PetCollectionViewCell.swift */,
+				45E536852873345600260F6F /* PetBannerCollectionViewCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4506D58B286D0E3F006CD863 /* PetResponse.swift in Sources */,
+				45E536862873345600260F6F /* PetBannerCollectionViewCell.swift in Sources */,
 				45407428286202260076E075 /* ViewExtension.swift in Sources */,
 				4506D57E286BAC1F006CD863 /* AppUtils.swift in Sources */,
 				4554A21E286E18EE001A2FE3 /* HomeViewModel.swift in Sources */,

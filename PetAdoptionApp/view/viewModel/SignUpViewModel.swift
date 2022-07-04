@@ -43,12 +43,12 @@ class SignUpViewModel {
                 return
             }
             
-            if(response?.code == 200){
+            if(response?.code == HttpUtil.OK){
                 self.isNotSuccess = response?.message ?? ""
                 return
             }
             
-            if(response?.code == 201){
+            if(response?.code == HttpUtil.CREATED){
                 self.isSuccess = response!
                 return
             }

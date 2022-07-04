@@ -13,7 +13,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        
         let unsBack = UIView(frame: bounds)
         unsBack.round()
         self.backgroundView = unsBack
@@ -21,11 +20,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         let selBack = UIView(frame: bounds)
         selBack.selectedBackground()
         self.selectedBackgroundView = selBack
-        
-        if(categoryLabel.text == "Todos"){
-            selBack.selectedBackground()
-            self.backgroundView = selBack
-        }
+
         
         
     }
