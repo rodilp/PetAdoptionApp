@@ -17,13 +17,13 @@ struct PetRepository{
                 completion(nil, error)
                 return
             }
-            do {
-                let catResponse = try JSONDecoder().decode(CategoryResponse.self, from: response.data!)
+
+            if let catResponse = try? JSONDecoder().decode(CategoryResponse.self, from: response.data!){
                 print(catResponse)
                 completion(catResponse, nil)
-            }catch let err  as NSError{
-                print("Error:: \(err)")
             }
+               
+         
         }
     }
     
@@ -34,13 +34,13 @@ struct PetRepository{
                 completion(nil, error)
                 return
             }
-            do {
-                let petResponse = try JSONDecoder().decode(PetResponse.self, from: response.data!)
+ 
+            if let petResponse = try? JSONDecoder().decode(PetResponse.self, from: response.data!){
                 print(petResponse)
                 completion(petResponse, nil)
-            }catch let err  as NSError{
-                print("Error:: \(err)")
             }
+                
+          
         }
     }
     
@@ -52,13 +52,13 @@ struct PetRepository{
                 completion(nil, error)
                 return
             }
-            do {
-                let petResponse = try JSONDecoder().decode(PetResponse.self, from: response.data!)
+       
+            if let petResponse = try? JSONDecoder().decode(PetResponse.self, from: response.data!) {
                 print(petResponse)
                 completion(petResponse, nil)
-            }catch let err  as NSError{
-                print("Error:: \(err)")
             }
+                
+           
         }
     }
     
@@ -71,13 +71,13 @@ struct PetRepository{
                 completion(nil, error)
                 return
             }
-            do {
-                let petResponse = try JSONDecoder().decode(PetProfileResponse.self, from: response.data!)
+           
+            if let petResponse = try? JSONDecoder().decode(PetProfileResponse.self, from: response.data!){
                 print(petResponse)
                 completion(petResponse, nil)
-            }catch let err  as NSError{
-                print("Error:: \(err)")
             }
+                
+          
         }
     }
     

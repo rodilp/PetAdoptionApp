@@ -34,7 +34,6 @@ struct AdoptionDataSource : AdoptionProtocol {
         request.httpBody = bodyJson.data(using: .utf8)
         
         AF.request(request).response{ response in
-            //print("DATA SOURCE:: ",response)
             if let  error = response.error {
                 completion(nil, error)
                 return

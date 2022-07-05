@@ -54,7 +54,18 @@ class PetProfileViewController: UIViewController, PopUpProtocol {
         viewModel.delegate = self
         petBannerCollectionView.dataSource = self
         pageControl.currentPage = 0
+        
+        
+        //let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
+        //imageLogo.addGestureRecognizer(tapGR)
+        //imageLogo.isUserInteractionEnabled = true
     
+    }
+    
+    @objc func imageTapped(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            print("UIImageView tapped")
+        }
     }
     
     func setupView(){

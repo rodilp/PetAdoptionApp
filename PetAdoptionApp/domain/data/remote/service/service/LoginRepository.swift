@@ -15,12 +15,10 @@ struct LoginRepository {
         var memberJson : String = ""
         
         let api = ApiUtils.apiCreateAccount.getService()
-        
-        do{
-            let jsonEncoder = JSONEncoder()
-            let jsonData = try jsonEncoder.encode(request)
+ 
+        if let jsonData = try? JSONEncoder().encode(request) {
             memberJson = String(data: jsonData, encoding: String.Encoding.utf8)!
-           }catch{}
+        }
         
         let urlComponent = URLComponents(string: api)!
         print(memberJson)
@@ -31,20 +29,16 @@ struct LoginRepository {
         request.httpBody = memberJson.data(using: .utf8)
         
         AF.request(request).response{ response in
-               if let  error = response.error {
-                   completion(nil, error)
-                   return
-               }
-               do {
-                   let usr = try JSONDecoder().decode(AuthResponse.self, from: response.data!)
-                   completion(usr, nil)
-               }catch let err  as NSError{
-                   print("Error:: \(err)")
-                   
-               }
+            if let  error = response.error {
+                completion(nil, error)
+                return
+            }
                
-           }
-        
+            if let usr = try? JSONDecoder().decode(AuthResponse.self, from: response.data!) {
+                completion(usr, nil)
+            }
+        }
+
         
     }
     
@@ -54,12 +48,11 @@ struct LoginRepository {
         var memberJson : String = ""
         let api = ApiUtils.apiAuth.getService()
         
-        do{
-            let jsonEncoder = JSONEncoder()
-            let jsonData = try jsonEncoder.encode(request)
+
+        if let jsonData = try? JSONEncoder().encode(request) {
             memberJson = String(data: jsonData, encoding: String.Encoding.utf8)!
-           }catch{}
-        
+        }
+
         let urlComponent = URLComponents(string: api)!
         print(memberJson)
 
@@ -70,22 +63,17 @@ struct LoginRepository {
         
         AF.request(request).response{ response in
                 
-               if let  error = response.error {
-                   completion(nil, error)
-                   return
-               }
+            if let  error = response.error {
+                completion(nil, error)
+                return
+            }
                
-               do {
-                   let usr = try JSONDecoder().decode(AuthResponse.self, from: response.data!)
-                   completion(usr, nil)
-                   
-               }catch let err  as NSError{
-                   print("Error:: \(err)")
-                   
-               }
-           }
-                                    
-                        
+        
+            if let usr = try? JSONDecoder().decode(AuthResponse.self, from: response.data!){
+                completion(usr, nil)
+            }
+        }
+                    
     }
     
     

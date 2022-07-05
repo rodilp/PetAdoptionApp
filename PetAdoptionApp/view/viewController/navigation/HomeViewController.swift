@@ -37,12 +37,6 @@ class HomeViewController: UIViewController  {
         petCollectionView.dataSource = self
         // Do any additional setup after loading the view.
 
-        
-        let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
-        imageLogo.addGestureRecognizer(tapGR)
-        imageLogo.isUserInteractionEnabled = true
-        
-
  
     }
     
@@ -50,13 +44,6 @@ class HomeViewController: UIViewController  {
     override func viewDidAppear(_ animated: Bool) {
         //call Api
     }
-    
-    @objc func imageTapped(sender: UITapGestureRecognizer) {
-        if sender.state == .ended {
-            print("UIImageView tapped")
-        }
-    }
-    
 
     
     func setupView(){
