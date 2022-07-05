@@ -95,37 +95,19 @@ extension UIImageView{
     }
     
     func loadImage(url:String){
-        let fileUrl = URL(string: url)!
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: fileUrl){
-                if let image = UIImage(data: data){
-                    DispatchQueue.main.async {
-                        self?.image = image
+            let fileUrl = URL(string: url)!
+            DispatchQueue.global().async { [weak self] in
+                if let data = try? Data(contentsOf: fileUrl){
+                    if let image = UIImage(data: data){
+                        DispatchQueue.main.async {
+                            self?.image = image
+                        }
                     }
                 }
             }
-            
-        }
     }
     
     
-    func loadImageV2(url:String) -> UIImage{
-        let fileUrl = URL(string: url)!
-        
-        var img = UIImage()
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: fileUrl){
-                if let image = UIImage(data: data){
-                    DispatchQueue.main.async {
-                        self?.image = image
-                        img = image
-                    }
-                }
-            }
-            
-        }
-        return img
-    }
 
 }
 
@@ -135,6 +117,21 @@ extension UILabel {
     }
     func detailColor(){
         textColor = AppUtils.TEXT_COLOR
+    }
+}
+
+
+extension String {
+    static func getFormattedDate(string: String) -> String{
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "MMM dd,yyyy"
+        
+        let date: Date? = dateFormatterGet.date(from: string)
+        print("Date",dateFormatterPrint.string(from: date!))
+        return dateFormatterPrint.string(from: date!);
     }
 }
 

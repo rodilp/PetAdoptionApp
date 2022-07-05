@@ -9,47 +9,147 @@ import UIKit
 
 class PetProfileViewController: UIViewController {
     
-    var page:Int = 0
-    var idPet:Int!
+    var page:Int!
+    var idPet:Int = -1
 
     @IBOutlet weak var petBannerCollectionView: UICollectionView!
     @IBOutlet weak var backCard: UIView!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var cardInfo: UIView!
+    
+    @IBOutlet weak var ownerLogo: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var raceLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var sexLogo: UIImageView!
+    @IBOutlet weak var ownerNameLabel: UILabel!
+    @IBOutlet weak var ownerLabel: UILabel!
+    @IBOutlet weak var ownerDateLabel: UILabel!
+    
+    @IBOutlet weak var descriptionTitleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var adoptionBt: UIButton!
+    
+    
+    
+    var petImages:[Image] = []
+    
+    // MARK: - Injection
+    let viewModel = PetProfileViewModel(repo: HomeRepository())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.setHidesBackButton(true, animated: true)
+        setupView()
+        
+        if(idPet != -1){
+            viewModel.getPetById(id: idPet)
+        }
+        
+        setupObserver()
+        viewModel.delegate = self
         petBannerCollectionView.dataSource = self
-        backCard.roundView()
-        print("ID Pet \(String(describing: idPet))")
-
-        // Do any additional setup after loading the view.
+        pageControl.currentPage = 0
+    
     }
     
-    //https://www.youtube.com/watch?v=KhebpuFBD14&t=3s&ab_channel=Brain4CodeLearning
+    func setupView(){
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        
+        cardInfo.cardBorder(corner: 15, round: false)
+        backCard.roundView()
+        ownerLogo.roundBorder(corner: 0, round: true)
+        
+        nameLabel.titleColor()
+        raceLabel.detailColor()
+        addressLabel.detailColor()
+        ageLabel.detailColor()
+        
+        ownerNameLabel.titleColor()
+        ownerLabel.detailColor()
+        ownerDateLabel.detailColor()
+        
+        descriptionTitleLabel.titleColor()
+        descriptionLabel.detailColor()
+        
+        adoptionBt.roundButton()
+    }
+    
     
     @IBAction func backButton(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func adoptionButton(_ sender: UIButton) {
+    }
     
+    
+    func setupObserver(){
+        viewModel.didFinishPet = { pet in
+            self.petImages = pet.images
+        }
+    }
+    
+    func loadInfoPet(pet: Pet){
+        nameLabel.text = pet.name
+        raceLabel.text = pet.race
+        addressLabel.text = pet.address
+        ageLabel.text = "\(pet.age), \(pet.ageTime)"
+        
+        if let owner = pet.owner {
+            ownerLogo.loadImage(url: owner.image)
+            ownerNameLabel.text = owner.fullName
+            ownerDateLabel.text = String.getFormattedDate(string: owner.createdAt)
+            ownerLabel.text = "Dueño"
+        }
+        
+        descriptionTitleLabel.text = "Conoce a \(pet.name)"
+        descriptionLabel.text = pet.description
+        
+        var image = UIImage()
+        if(pet.sex == "Macho"){
+            image = UIImage(named: "icon_male")!
+        }else{
+            image = UIImage(named: "icon_female")!
+        }
+        let imageView = UIImageView(image: image)
+        sexLogo.image = imageView.image
+ 
+        
+    }
+    
+}
 
-
-
+extension PetProfileViewController: PetDelegate{
+    func getPet(pet: Pet) {
+        self.petImages = pet.images
+        petBannerCollectionView.reloadData()
+        pageControl.numberOfPages = petImages.count
+        self.loadInfoPet(pet: pet)
+    }
+    
+    
 }
 
 extension PetProfileViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return petImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = petBannerCollectionView.dequeueReusableCell(withReuseIdentifier: "PetBannerCollectionViewCell", for: indexPath) as! PetBannerCollectionViewCell
+        let image = petImages[indexPath.row]
+        cell.petImage.loadImage(url: image.url)
         
         return cell
     }
-    
-    
+ 
+}
+
+extension PetProfileViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        pageControl.currentPage = indexPath.row
+    }
 }

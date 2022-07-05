@@ -19,21 +19,14 @@ class HomeViewController: UIViewController  {
     var categories:[Category] = []
     var pets:[Pet] = []
     
-    //interface
-    var repository : PetRepository?
-
     // MARK: - Injection
     let viewModel = HomeViewModel(repo: HomeRepository())
  
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
-        repository = PetRemoteRepository()
-        loadPet()
         viewModel.delegate = self
         
         viewModel.getListCategory()
@@ -47,6 +40,9 @@ class HomeViewController: UIViewController  {
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
         imageLogo.addGestureRecognizer(tapGR)
         imageLogo.isUserInteractionEnabled = true
+        
+
+ 
     }
     
     //life of cicle view
@@ -60,11 +56,7 @@ class HomeViewController: UIViewController  {
         }
     }
     
-    func loadPet(){
-        let pets = repository?.getPets()
-        print(pets?.data ?? "")
-    }
-    
+
     
     func setupView(){
         searchTextField.searchTextField()
@@ -75,25 +67,17 @@ class HomeViewController: UIViewController  {
         sectionTitleLabel.titleColor()
     }
     
-    func goToPetProfile(){
+    func goToPetProfile(idPet:Int){
         let controller : PetProfileViewController = self.storyboard?.instantiateViewController(withIdentifier: "PetProfileViewController") as! PetProfileViewController
-        controller.idPet = 556
+        controller.idPet = idPet
             self.navigationController?.pushViewController(controller, animated: true)
     }
     
+
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let segueSelection = segue.identifier
-        
-        
-        print(segueSelection ?? "default value")
-        if let s = segueSelection, s == "facebookSegue" {
-        }else{
-            let viewC = segue.destination as! PetProfileViewController
-            viewC.idPet = 555
-        }
-    }
+
+
 
 }
 
@@ -176,7 +160,8 @@ extension HomeViewController: UICollectionViewDelegate{
         
         if(collectionView == petCollectionView){
             print("Cell Pets \(indexPath.row + 1) clicked")
-            goToPetProfile()
+            let pet = pets[indexPath.row]
+            goToPetProfile(idPet: pet.idPet)
         }
         
         if(collectionView == categoryCollectionView){

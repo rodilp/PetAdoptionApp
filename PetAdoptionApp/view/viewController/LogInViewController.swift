@@ -18,33 +18,41 @@ class LogInViewController: UIViewController, PopUpProtocol {
     
     // MARK: - Injection
     let viewModel = LogInViewModel(dataService: LoginRepository())
+    var loader : UIAlertController?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupView()
+        setupObserver()
     }
     
     
     func login(email:String, pass:String){
         let request = AuthRequest(email: email, password: pass)
-        let loader = self.showLoader(msm: "Ingresando...")
-        
+        self.loader = self.showLoader(msm: "Ingresando...")
         viewModel.auth(rq: request)
-        
+    }
+    
+    func setupObserver(){
         viewModel.didFinishFetch = { response in
             if(response.data == nil){
-                loader.dismiss(animated: true, completion: {
+                self.loader?.dismiss(animated: true, completion: {
                     ErrorPopUpViewController.showPopup(parentVc: self)
                 })
                 return
             }
             
-            loader.dismiss(animated: true, completion: {
+            
+            
+            
+            let user:User = response.data!
+            UserProfileRepository().saveUser(user: user)
+
+            self.loader?.dismiss(animated: true, completion: {
                 self.navigateMainStoryBoard()
             })
-           
         }
         
         viewModel.updateLoadingStatus = { st in
@@ -53,8 +61,7 @@ class LogInViewController: UIViewController, PopUpProtocol {
             }
             else{
                 print("terminando....")
-                loader.dismiss(animated: true, completion: nil)
-                    
+                self.loader?.dismiss(animated: true, completion: nil)
             }
         }
     }
@@ -74,14 +81,11 @@ class LogInViewController: UIViewController, PopUpProtocol {
         
         login(email: emailTextField.text ?? "", pass: passwordTextField.text ?? "" )
         
-       //let loading = LoadingPopUpViewController()
-       //loading.showPopup(parentVc: self, msm: "Carn...")
-
     }
+    
     @IBAction func SignUp(_ sender: Any) {
         let controller : SignUpViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
             self.navigationController?.pushViewController(controller, animated: true)
-        
     }
     
     func navigateOtherStoryBoard(){
@@ -90,19 +94,12 @@ class LogInViewController: UIViewController, PopUpProtocol {
         self.navigationController?.pushViewController(viewC, animated: true)
     }
     
-    
     func navigateMainStoryBoard(){
-        
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainTBC") as? UITabBarController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
-    
-            
     }
-    
 
-    
-    
     func accepAction(action: Bool) {
         print("Acept Pressed..")
     }

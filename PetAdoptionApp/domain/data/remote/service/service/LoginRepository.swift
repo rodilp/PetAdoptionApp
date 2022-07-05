@@ -11,8 +11,6 @@ import Alamofire
 
 struct LoginRepository {
     
-    static let shared = LoginRepository()
-    
     func createAccount(request: AccountRequest, completion: @escaping (AuthResponse?, Error?) -> () ){
         var memberJson : String = ""
         let api = ApiUtils.BASE_URL + ApiUtils.apiCreateAccount

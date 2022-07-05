@@ -41,6 +41,19 @@ extension UIView {
         clipsToBounds = true
         
     }
+    
+    
+    func cardBorder(corner:CGFloat, round:Bool){
+        if(round){
+            layer.cornerRadius = frame.height/2
+        }else{
+            layer.cornerRadius = corner
+        }
+        backgroundColor = .white
+        layer.borderColor = AppUtils.GRAY.cgColor
+        layer.borderWidth = 1
+        clipsToBounds = true
+    }
 }
 
 
@@ -82,4 +95,9 @@ extension UIViewController {
     }
     
 }
+
+
+
+
+
 

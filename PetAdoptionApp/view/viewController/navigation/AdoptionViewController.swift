@@ -12,8 +12,19 @@ class AdoptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+
+        getPerfil()
     }
+    
+    func getPerfil(){
+        if let user = UserProfileRepository().getUser() {
+            print("USER::::",user)
+        }
+ 
+    }
+    
+    
+
     
 
 

@@ -16,3 +16,14 @@ struct AppUtils{
     static let TITLE_COLOR = UIColor(red: 9/255, green: 44/255, blue: 76/255, alpha: 1)
     static let TEXT_COLOR = UIColor(red: 127/255, green: 146/255, blue: 164/255, alpha: 1)
 }
+
+
+enum ObjectSavableError: String, LocalizedError {
+    case unableToEncode = "Unable to encode object into data"
+    case noValue = "No data object found for the given key"
+    case unableToDecode = "Unable to decode object into given type"
+    
+    var errorDescription: String? {
+        rawValue
+    }
+}
