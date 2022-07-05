@@ -33,19 +33,22 @@ class SignUpViewController: UIViewController {
         viewModel.onSuccessRegister = { response in
             self.loader?.dismiss(animated: true, completion: {
                 self.cleanInputs()
-                SuccessViewController.showPopup(parentVc: self)
+                self.showSuccessPopUp(title: "¡Felicitaciones!", description: response.message)
+
             })
         }
         
         viewModel.onAlertRegister = { message in
             self.loader?.dismiss(animated: true, completion: {
-                self.presentAlert(withTitle: "Ups!", message: message)
+                self.showAlertPopUp(title: "¡Ups!", description: message, showCancel: false)
+
             })
         }
         
         viewModel.onError = {
             self.loader?.dismiss(animated: true, completion: {
-                self.presentAlert(withTitle: "Ups!", message: "Ocurrio un error con el servidor")
+                self.showAlertPopUp(title: "¡Ups!", description: "Ocurrio un error con el servidor", showCancel: false)
+   
             })
             
         }

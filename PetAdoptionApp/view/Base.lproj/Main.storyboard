@@ -205,7 +205,7 @@
                                     <outlet property="delegate" destination="fzF-Ez-coC" id="hMm-vg-lac"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hola de nuevo busca nuevos amigos!" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Mb-o4-WHL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hola de nuevo, busca nuevos amigos" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Mb-o4-WHL">
                                 <rect key="frame" x="15" y="56" width="319" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="zif-5Y-uhO"/>

@@ -39,7 +39,7 @@ class LogInViewController: UIViewController, PopUpProtocol {
         viewModel.didFinishFetch = { response in
             if(response.data == nil){
                 self.loader?.dismiss(animated: true, completion: {
-                    ErrorPopUpViewController.showPopup(parentVc: self)
+                    self.showAlertPopUp(title: "¡Ups!!", description: response.message, showCancel: false)
                 })
                 return
             }
@@ -100,6 +100,7 @@ class LogInViewController: UIViewController, PopUpProtocol {
     func accepAction(action: Bool) {
         print("Acept Pressed..")
     }
+    
     
     
     

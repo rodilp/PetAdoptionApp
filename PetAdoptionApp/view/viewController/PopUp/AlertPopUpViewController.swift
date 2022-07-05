@@ -12,16 +12,29 @@ protocol PopUpProtocol {
     func accepAction(action: Bool)
 }
 
-class ErrorPopUpViewController: UIViewController {
+class AlertPopUpViewController: UIViewController {
     
     @IBOutlet weak var cardBox: UIView!
     @IBOutlet weak var accepButton: UIButton!
+    @IBOutlet weak var popupTitle: UILabel!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var popupDescription: UILabel!
+    
     var delegate: PopUpProtocol?
+    
+    var messageTitle:String!
+    var messageDescription:String!
+    var isShowCancel:Bool!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setupView()
+    }
+    
+    
+    func setupView(){
         //adding an overlay to the view to give focus to the dialog box
         view.backgroundColor = UIColor.black.withAlphaComponent(0.50)
         
@@ -31,28 +44,28 @@ class ErrorPopUpViewController: UIViewController {
         cardBox.layer.borderColor = AppUtils.GRAY.cgColor
         
         accepButton.roundButton()
+        cancelButton.cancelButton()
+        
+        popupTitle.text = messageTitle
+        popupDescription.text = messageDescription
+        
+        popupTitle.titleColor()
+        popupDescription.detailColor()
+        
+        if(!isShowCancel){
+            cancelButton.alpha = 0
+        }
     }
-    
     
     @IBAction func accept(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-        self.delegate?.accepAction(action: true)
-    }
-    
-    static func showPopup(parentVc: UIViewController){
-        if let popupVc = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "ErrorPopUpViewController") as? ErrorPopUpViewController {
-            
-            popupVc.modalPresentationStyle = .custom
-            popupVc.modalTransitionStyle = .crossDissolve
-            
-            //setting the delegate of the dialog box to the parent viewController
-            popupVc.delegate = parentVc as? PopUpProtocol
-
-            //presenting the pop up viewController from the parent viewController
-            parentVc.present(popupVc, animated: true)
-            
-        }
+        self.dismiss(animated: true, completion: {
+            self.delegate?.accepAction(action: true)
+        })
         
     }
+    @IBAction func cancel(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 
 }

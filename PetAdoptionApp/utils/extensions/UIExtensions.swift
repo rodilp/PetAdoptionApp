@@ -16,6 +16,12 @@ extension UIButton{
         clipsToBounds = true
     }
     
+    func cancelButton(){
+        layer.cornerRadius = bounds.height/2
+        tintColor = UIColor.gray
+        clipsToBounds = true
+    }
+    
     //Rebote
     func bounce(){
         UIView.animate(withDuration: 0.1) {

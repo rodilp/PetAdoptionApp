@@ -17,25 +17,25 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Error Pop Up View Controller-->
+        <!--Alert Pop Up View Controller-->
         <scene sceneID="zlc-ze-TIV">
             <objects>
-                <viewController storyboardIdentifier="ErrorPopUpViewController" id="XcA-39-QbW" customClass="ErrorPopUpViewController" customModule="PetAdoptionApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ErrorPopUpViewController" id="XcA-39-QbW" customClass="AlertPopUpViewController" customModule="PetAdoptionApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sld-OA-nqn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVn-0h-0Od">
-                                <rect key="frame" x="24" y="338" width="366" height="150"/>
+                                <rect key="frame" x="24" y="333" width="366" height="160"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ups!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rrx-4a-n7p">
-                                        <rect key="frame" x="20" y="18" width="46" height="26"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="22"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rrx-4a-n7p">
+                                        <rect key="frame" x="20" y="18" width="17" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNA-lm-k8b">
-                                        <rect key="frame" x="242" y="98" width="100" height="38"/>
+                                        <rect key="frame" x="246" y="104" width="100" height="38"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="FNH-qR-QKm"/>
                                             <constraint firstAttribute="height" constant="38" id="Qj1-nM-DVi"/>
@@ -51,23 +51,37 @@
                                             <action selector="accept:" destination="XcA-39-QbW" eventType="touchUpInside" id="GJi-MH-iS8"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correo o contraseña incorrecto" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXu-5d-rsZ">
-                                        <rect key="frame" x="20" y="68" width="322" height="19"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="...." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXu-5d-rsZ">
+                                        <rect key="frame" x="20" y="51.5" width="322" height="17.5"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
                                         <color key="textColor" name="primaryBackground"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gpt-yz-ANW">
+                                        <rect key="frame" x="20" y="104" width="100" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="S9X-FG-eNB"/>
+                                            <constraint firstAttribute="width" constant="100" id="bgV-CC-xfz"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Cancelar"/>
+                                        <connections>
+                                            <action selector="cancel:" destination="XcA-39-QbW" eventType="touchUpInside" id="TDH-us-UoK"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="QXu-5d-rsZ" secondAttribute="trailing" constant="24" id="25P-Nd-W7X"/>
-                                    <constraint firstAttribute="bottom" secondItem="YNA-lm-k8b" secondAttribute="bottom" constant="14" id="3wZ-zZ-ty5"/>
+                                    <constraint firstAttribute="bottom" secondItem="YNA-lm-k8b" secondAttribute="bottom" constant="18" id="3wZ-zZ-ty5"/>
                                     <constraint firstItem="rrx-4a-n7p" firstAttribute="leading" secondItem="tVn-0h-0Od" secondAttribute="leading" constant="20" id="DAO-O2-1NR"/>
-                                    <constraint firstAttribute="height" constant="150" id="SMU-uy-LDd"/>
-                                    <constraint firstAttribute="trailing" secondItem="YNA-lm-k8b" secondAttribute="trailing" constant="24" id="eXq-7S-GuZ"/>
+                                    <constraint firstAttribute="height" constant="160" id="SMU-uy-LDd"/>
+                                    <constraint firstItem="Gpt-yz-ANW" firstAttribute="leading" secondItem="tVn-0h-0Od" secondAttribute="leading" constant="20" id="YDh-Qu-p1T"/>
+                                    <constraint firstAttribute="trailing" secondItem="YNA-lm-k8b" secondAttribute="trailing" constant="20" id="eXq-7S-GuZ"/>
                                     <constraint firstItem="rrx-4a-n7p" firstAttribute="top" secondItem="tVn-0h-0Od" secondAttribute="top" constant="18" id="jS7-pY-WtP"/>
+                                    <constraint firstAttribute="bottom" secondItem="Gpt-yz-ANW" secondAttribute="bottom" constant="18" id="qbt-7B-psK"/>
                                     <constraint firstItem="QXu-5d-rsZ" firstAttribute="leading" secondItem="tVn-0h-0Od" secondAttribute="leading" constant="20" id="v9n-Nd-pv7"/>
-                                    <constraint firstItem="QXu-5d-rsZ" firstAttribute="top" secondItem="rrx-4a-n7p" secondAttribute="bottom" constant="24" id="vi4-ox-Nfe"/>
+                                    <constraint firstItem="QXu-5d-rsZ" firstAttribute="top" secondItem="rrx-4a-n7p" secondAttribute="bottom" constant="10" id="vi4-ox-Nfe"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -81,12 +95,15 @@
                     </view>
                     <connections>
                         <outlet property="accepButton" destination="YNA-lm-k8b" id="TE3-TK-cmS"/>
+                        <outlet property="cancelButton" destination="Gpt-yz-ANW" id="MN6-KY-EG8"/>
                         <outlet property="cardBox" destination="tVn-0h-0Od" id="mPu-h9-95B"/>
+                        <outlet property="popupDescription" destination="QXu-5d-rsZ" id="SOj-Jx-TQe"/>
+                        <outlet property="popupTitle" destination="rrx-4a-n7p" id="VWN-wU-s8R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5qk-kR-fAp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1038" y="34"/>
+            <point key="canvasLocation" x="-1039.1304347826087" y="33.482142857142854"/>
         </scene>
         <!--Success View Controller-->
         <scene sceneID="saM-eE-ROZ">
@@ -106,20 +123,14 @@
                                             <constraint firstAttribute="height" constant="171" id="lTt-wH-fze"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Felicidades" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUu-1W-q1Y">
-                                        <rect key="frame" x="25" y="196" width="294" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="d0c-56-YTQ"/>
-                                        </constraints>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUu-1W-q1Y">
+                                        <rect key="frame" x="25" y="196" width="294" height="29"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Su cuenta se creo satisfactoriamente, ya puedes ir a iniciar sesion." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l39-Pr-Jar">
-                                        <rect key="frame" x="25" y="232" width="294" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="BVz-r2-feW"/>
-                                        </constraints>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=".." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l39-Pr-Jar">
+                                        <rect key="frame" x="25" y="240" width="294" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" systemColor="systemGrayColor"/>
                                         <nil key="highlightedColor"/>
@@ -167,6 +178,8 @@
                         <outlet property="acceptButton" destination="6qK-5R-mZc" id="Lbl-Qc-Nzh"/>
                         <outlet property="cardBackground" destination="ftN-Xg-oG9" id="4Qi-ob-m2V"/>
                         <outlet property="cardIcon" destination="HFH-Cv-CoX" id="x3g-BK-uW8"/>
+                        <outlet property="popupDescription" destination="l39-Pr-Jar" id="UI3-e9-rDq"/>
+                        <outlet property="popupTitle" destination="dUu-1W-q1Y" id="lo8-T0-1ZM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VvJ-74-iMH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

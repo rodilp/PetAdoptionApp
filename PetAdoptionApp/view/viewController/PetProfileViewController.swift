@@ -7,7 +7,9 @@
 
 import UIKit
 
-class PetProfileViewController: UIViewController {
+class PetProfileViewController: UIViewController, PopUpProtocol {
+
+    
     
     var page:Int!
     var idPet:Int = -1
@@ -84,18 +86,15 @@ class PetProfileViewController: UIViewController {
     
     @IBAction func adoptionButton(_ sender: UIButton) {
         adoptionBt.bounce()
-        let idUser = UserProfileRepository().getUser()?.idUser
-        let requestAdoption = AdoptionRequest(idUser!, idPet)
         
-        self.loader = self.showLoader(msm: "Solicitando...")
-        viewModel.requestAdoption(request: requestAdoption)
+        self.showAlertPopUp(title: "¡Confirmación!", description: "Estas seguro de enviar su solicitud de adopcion?", showCancel: true)
     }
     
     
     func setupObserver(){
         viewModel.didFinishAdoptionRequest  = { response in
             self.loader?.dismiss(animated: true, completion: {
-                print("Response:::: \(response)")
+                self.showSuccessPopUp(title: "¡Felicitaciones!", description: response.message)
             })
         }
     }
@@ -124,8 +123,15 @@ class PetProfileViewController: UIViewController {
         }
         let imageView = UIImageView(image: image)
         sexLogo.image = imageView.image
- 
+    }
+    
+    
+    func accepAction(action: Bool) {
+        let idUser = UserProfileRepository().getUser()?.idUser
+        let requestAdoption = AdoptionRequest(idUser!, idPet)
         
+        self.loader = self.showLoader(msm: "Solicitando...")
+        viewModel.requestAdoption(request: requestAdoption)
     }
     
 }

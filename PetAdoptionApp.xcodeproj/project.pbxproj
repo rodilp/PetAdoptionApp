@@ -32,7 +32,7 @@
 		452D1DCB2873C06100748E52 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452D1DCA2873C06100748E52 /* UserData.swift */; };
 		452D1DCD2873C33A00748E52 /* UserProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452D1DCC2873C33A00748E52 /* UserProfileRepository.swift */; };
 		453D786B286786E500EBC53A /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453D786A286786E500EBC53A /* PopUp.storyboard */; };
-		453D786E2867884400EBC53A /* ErrorPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D786D2867884400EBC53A /* ErrorPopUpViewController.swift */; };
+		453D786E2867884400EBC53A /* AlertPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D786D2867884400EBC53A /* AlertPopUpViewController.swift */; };
 		454074202861F3CD0076E075 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4540741F2861F3CD0076E075 /* UIExtensions.swift */; };
 		454074242861FEEE0076E075 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 454074232861FEEE0076E075 /* LogIn.storyboard */; };
 		45407426286201C80076E075 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45407425286201C80076E075 /* LogInViewController.swift */; };
@@ -88,7 +88,7 @@
 		452D1DCA2873C06100748E52 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		452D1DCC2873C33A00748E52 /* UserProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRepository.swift; sourceTree = "<group>"; };
 		453D786A286786E500EBC53A /* PopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUp.storyboard; sourceTree = "<group>"; };
-		453D786D2867884400EBC53A /* ErrorPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPopUpViewController.swift; sourceTree = "<group>"; };
+		453D786D2867884400EBC53A /* AlertPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPopUpViewController.swift; sourceTree = "<group>"; };
 		4540741F2861F3CD0076E075 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		454074232861FEEE0076E075 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
 		45407425286201C80076E075 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -265,7 +265,7 @@
 		453D786C2867882300EBC53A /* PopUp */ = {
 			isa = PBXGroup;
 			children = (
-				453D786D2867884400EBC53A /* ErrorPopUpViewController.swift */,
+				453D786D2867884400EBC53A /* AlertPopUpViewController.swift */,
 				4506D576286B7A0C006CD863 /* SuccessViewController.swift */,
 			);
 			path = PopUp;
@@ -558,7 +558,7 @@
 				4506D586286BBF38006CD863 /* CategoryCollectionViewCell.swift in Sources */,
 				4505DC6C2874ABBA00D104EF /* AdoptionRequest.swift in Sources */,
 				4554A21C286E1440001A2FE3 /* PetRepository.swift in Sources */,
-				453D786E2867884400EBC53A /* ErrorPopUpViewController.swift in Sources */,
+				453D786E2867884400EBC53A /* AlertPopUpViewController.swift in Sources */,
 				4554A220286E4D27001A2FE3 /* PetCollectionViewCell.swift in Sources */,
 				452D1DC62873BF3000748E52 /* CacheExtension.swift in Sources */,
 				458523D5286A06BE007C9F07 /* ApiUtils.swift in Sources */,

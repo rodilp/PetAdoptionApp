@@ -21,6 +21,7 @@ class HomeViewController: UIViewController  {
     
     // MARK: - Injection
     let viewModel = HomeViewModel(repo: PetRepository())
+    let profile = UserProfileRepository()
  
 
     override func viewDidLoad() {
@@ -61,7 +62,10 @@ class HomeViewController: UIViewController  {
     func setupView(){
         searchTextField.searchTextField()
         imageLogo.roundBorder(corner: 0, round: true)
-        imageLogo.loadImage(url: "https://wallpaperaccess.com/full/472042.jpg")
+        
+        if let image = profile.getUser(){
+            imageLogo.loadImage(url: image.image)
+        }
         
         titleLabel.titleColor()
         sectionTitleLabel.titleColor()

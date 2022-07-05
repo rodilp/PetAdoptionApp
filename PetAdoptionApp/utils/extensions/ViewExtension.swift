@@ -94,6 +94,39 @@ extension UIViewController {
       self.present(alertController, animated: true, completion: nil)
     }
     
+    
+    func showAlertPopUp(title:String, description:String, showCancel:Bool){
+        if let popupVc = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "ErrorPopUpViewController") as? AlertPopUpViewController {
+            popupVc.messageTitle = title
+            popupVc.messageDescription = description
+            popupVc.isShowCancel = showCancel
+            
+            popupVc.modalPresentationStyle = .custom
+            popupVc.modalTransitionStyle = .crossDissolve
+            
+            popupVc.delegate = self as? PopUpProtocol
+            present(popupVc, animated: true)
+            
+        }
+    }
+    
+    
+    func showSuccessPopUp(title:String, description:String){
+        if let popupVc = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "SuccessViewController") as? SuccessViewController {
+            
+            popupVc.messageTitle = title
+            popupVc.messageDescription = description
+            
+            popupVc.modalPresentationStyle = .custom
+            popupVc.modalTransitionStyle = .crossDissolve
+
+            present(popupVc, animated: true)
+            
+        }
+    }
+    
+    
+    
 }
 
 
