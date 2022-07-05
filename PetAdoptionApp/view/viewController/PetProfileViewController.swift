@@ -36,7 +36,8 @@ class PetProfileViewController: UIViewController {
     var petImages:[Image] = []
     
     // MARK: - Injection
-    let viewModel = PetProfileViewModel(repo: HomeRepository())
+    let viewModel = PetProfileViewModel(repo: PetRepository())
+    var loader : UIAlertController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,12 +83,20 @@ class PetProfileViewController: UIViewController {
     }
     
     @IBAction func adoptionButton(_ sender: UIButton) {
+        adoptionBt.bounce()
+        let idUser = UserProfileRepository().getUser()?.idUser
+        let requestAdoption = AdoptionRequest(idUser!, idPet)
+        
+        self.loader = self.showLoader(msm: "Solicitando...")
+        viewModel.requestAdoption(request: requestAdoption)
     }
     
     
     func setupObserver(){
-        viewModel.didFinishPet = { pet in
-            self.petImages = pet.images
+        viewModel.didFinishAdoptionRequest  = { response in
+            self.loader?.dismiss(animated: true, completion: {
+                print("Response:::: \(response)")
+            })
         }
     }
     
@@ -100,15 +109,15 @@ class PetProfileViewController: UIViewController {
         if let owner = pet.owner {
             ownerLogo.loadImage(url: owner.image)
             ownerNameLabel.text = owner.fullName
-            ownerDateLabel.text = String.getFormattedDate(string: owner.createdAt)
-            ownerLabel.text = "Dueño"
+            ownerDateLabel.text = owner.createdAt.formatDate()
+            ownerLabel.text = AppUtils.OWNER
         }
         
-        descriptionTitleLabel.text = "Conoce a \(pet.name)"
+        descriptionTitleLabel.text = pet.name.formatDescriptionTitle()
         descriptionLabel.text = pet.description
         
         var image = UIImage()
-        if(pet.sex == "Macho"){
+        if(pet.sex == AppUtils.MALE){
             image = UIImage(named: "icon_male")!
         }else{
             image = UIImage(named: "icon_female")!

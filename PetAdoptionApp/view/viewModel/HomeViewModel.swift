@@ -16,9 +16,9 @@ protocol CategoryDelegate{
 class HomeViewModel{
     
     var delegate : CategoryDelegate?
-    private var repo: HomeRepository?
+    private var repo: PetRepository?
     
-    init(repo: HomeRepository) {
+    init(repo: PetRepository) {
         self.repo = repo
     }
     

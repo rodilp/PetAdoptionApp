@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4505DC6C2874ABBA00D104EF /* AdoptionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505DC6B2874ABBA00D104EF /* AdoptionRequest.swift */; };
+		4505DC6E2874AE9000D104EF /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505DC6D2874AE9000D104EF /* BaseResponse.swift */; };
+		4505DC722874B06900D104EF /* AdoptionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505DC712874B06900D104EF /* AdoptionDataSource.swift */; };
+		4505DC742874B0B000D104EF /* AdoptionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505DC732874B0B000D104EF /* AdoptionRepository.swift */; };
 		4506D575286B6384006CD863 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4506D574286B6384006CD863 /* SignUpViewModel.swift */; };
 		4506D577286B7A0C006CD863 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4506D576286B7A0C006CD863 /* SuccessViewController.swift */; };
 		4506D57C286B7F22006CD863 /* successful.json in Resources */ = {isa = PBXBuildFile; fileRef = 4506D57B286B7F22006CD863 /* successful.json */; };
@@ -36,7 +40,7 @@
 		4540742E286291600076E075 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4540742D286291600076E075 /* SignUpViewController.swift */; };
 		4554A218286E1013001A2FE3 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554A217286E1013001A2FE3 /* Category.swift */; };
 		4554A21A286E135C001A2FE3 /* CategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554A219286E135C001A2FE3 /* CategoryResponse.swift */; };
-		4554A21C286E1440001A2FE3 /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554A21B286E1440001A2FE3 /* HomeRepository.swift */; };
+		4554A21C286E1440001A2FE3 /* PetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554A21B286E1440001A2FE3 /* PetRepository.swift */; };
 		4554A21E286E18EE001A2FE3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554A21D286E18EE001A2FE3 /* HomeViewModel.swift */; };
 		4554A220286E4D27001A2FE3 /* PetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554A21F286E4D27001A2FE3 /* PetCollectionViewCell.swift */; };
 		4554A222286E7286001A2FE3 /* PetProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554A221286E7286001A2FE3 /* PetProfileViewController.swift */; };
@@ -57,6 +61,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4505DC6B2874ABBA00D104EF /* AdoptionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdoptionRequest.swift; sourceTree = "<group>"; };
+		4505DC6D2874AE9000D104EF /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		4505DC712874B06900D104EF /* AdoptionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdoptionDataSource.swift; sourceTree = "<group>"; };
+		4505DC732874B0B000D104EF /* AdoptionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdoptionRepository.swift; sourceTree = "<group>"; };
 		4506D574286B6384006CD863 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		4506D576286B7A0C006CD863 /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		4506D57B286B7F22006CD863 /* successful.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = successful.json; path = ../../../../../../Downloads/successful.json; sourceTree = "<group>"; };
@@ -88,7 +96,7 @@
 		4540742D286291600076E075 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4554A217286E1013001A2FE3 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		4554A219286E135C001A2FE3 /* CategoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryResponse.swift; sourceTree = "<group>"; };
-		4554A21B286E1440001A2FE3 /* HomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
+		4554A21B286E1440001A2FE3 /* PetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetRepository.swift; sourceTree = "<group>"; };
 		4554A21D286E18EE001A2FE3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		4554A21F286E4D27001A2FE3 /* PetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCollectionViewCell.swift; sourceTree = "<group>"; };
 		4554A221286E7286001A2FE3 /* PetProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileViewController.swift; sourceTree = "<group>"; };
@@ -135,7 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				458523C52869E8A7007C9F07 /* LoginRepository.swift */,
-				4554A21B286E1440001A2FE3 /* HomeRepository.swift */,
+				4554A21B286E1440001A2FE3 /* PetRepository.swift */,
+				4505DC712874B06900D104EF /* AdoptionDataSource.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -148,13 +157,13 @@
 			path = lottie;
 			sourceTree = "<group>";
 		};
-		4506D581286BAF67006CD863 /* common */ = {
+		4506D581286BAF67006CD863 /* application */ = {
 			isa = PBXGroup;
 			children = (
 				450B3F1028611D8900F1B025 /* AppDelegate.swift */,
 				450B3F1228611D8900F1B025 /* SceneDelegate.swift */,
 			);
-			path = common;
+			path = application;
 			sourceTree = "<group>";
 		};
 		4506D584286BBF15006CD863 /* cells */ = {
@@ -171,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				452D1DCC2873C33A00748E52 /* UserProfileRepository.swift */,
+				4505DC732874B0B000D104EF /* AdoptionRepository.swift */,
 			);
 			path = repository;
 			sourceTree = "<group>";
@@ -196,7 +206,7 @@
 		450B3F0F28611D8900F1B025 /* PetAdoptionApp */ = {
 			isa = PBXGroup;
 			children = (
-				4506D581286BAF67006CD863 /* common */,
+				4506D581286BAF67006CD863 /* application */,
 				458523C72869E941007C9F07 /* model */,
 				458523C32869E608007C9F07 /* domain */,
 				454074212861FE960076E075 /* view */,
@@ -352,6 +362,7 @@
 			children = (
 				458523CC2869EA1E007C9F07 /* AuthRequest.swift */,
 				458523D7286A6DE9007C9F07 /* AccountRequest.swift */,
+				4505DC6B2874ABBA00D104EF /* AdoptionRequest.swift */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -363,6 +374,7 @@
 				458523CE2869EA4C007C9F07 /* AuthResponse.swift */,
 				4554A219286E135C001A2FE3 /* CategoryResponse.swift */,
 				45E5368B28734E0400260F6F /* PetProfileResponse.swift */,
+				4505DC6D2874AE9000D104EF /* BaseResponse.swift */,
 			);
 			path = response;
 			sourceTree = "<group>";
@@ -526,12 +538,15 @@
 				455505D4286659EA0095D71A /* HomeViewController.swift in Sources */,
 				452D1DC32873BAF200748E52 /* ObjectSavable.swift in Sources */,
 				455505D02866536D0095D71A /* AdoptionViewController.swift in Sources */,
+				4505DC6E2874AE9000D104EF /* BaseResponse.swift in Sources */,
 				458523C92869E992007C9F07 /* User.swift in Sources */,
 				458523D8286A6DE9007C9F07 /* AccountRequest.swift in Sources */,
 				4554A222286E7286001A2FE3 /* PetProfileViewController.swift in Sources */,
 				45E5368A28734C9F00260F6F /* PetProfileViewModel.swift in Sources */,
 				450B3F1528611D8900F1B025 /* ViewController.swift in Sources */,
 				4506D58D286D0ED9006CD863 /* Pet.swift in Sources */,
+				4505DC722874B06900D104EF /* AdoptionDataSource.swift in Sources */,
+				4505DC742874B0B000D104EF /* AdoptionRepository.swift in Sources */,
 				452D1DCB2873C06100748E52 /* UserData.swift in Sources */,
 				454074202861F3CD0076E075 /* UIExtensions.swift in Sources */,
 				452D1DCD2873C33A00748E52 /* UserProfileRepository.swift in Sources */,
@@ -541,7 +556,8 @@
 				450B3F1128611D8900F1B025 /* AppDelegate.swift in Sources */,
 				4506D583286BB95A006CD863 /* ProfileViewController.swift in Sources */,
 				4506D586286BBF38006CD863 /* CategoryCollectionViewCell.swift in Sources */,
-				4554A21C286E1440001A2FE3 /* HomeRepository.swift in Sources */,
+				4505DC6C2874ABBA00D104EF /* AdoptionRequest.swift in Sources */,
+				4554A21C286E1440001A2FE3 /* PetRepository.swift in Sources */,
 				453D786E2867884400EBC53A /* ErrorPopUpViewController.swift in Sources */,
 				4554A220286E4D27001A2FE3 /* PetCollectionViewCell.swift in Sources */,
 				452D1DC62873BF3000748E52 /* CacheExtension.swift in Sources */,

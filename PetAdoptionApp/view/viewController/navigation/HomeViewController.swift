@@ -20,7 +20,7 @@ class HomeViewController: UIViewController  {
     var pets:[Pet] = []
     
     // MARK: - Injection
-    let viewModel = HomeViewModel(repo: HomeRepository())
+    let viewModel = HomeViewModel(repo: PetRepository())
  
 
     override func viewDidLoad() {

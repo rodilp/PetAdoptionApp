@@ -15,6 +15,9 @@ struct AppUtils{
     static let SECONDARY_GRAY = UIColor(red: 127/255, green: 146/255, blue: 164/255, alpha: 0.5)
     static let TITLE_COLOR = UIColor(red: 9/255, green: 44/255, blue: 76/255, alpha: 1)
     static let TEXT_COLOR = UIColor(red: 127/255, green: 146/255, blue: 164/255, alpha: 1)
+    
+    static let MALE = "Macho"
+    static let OWNER = "Dueño"
 }
 
 

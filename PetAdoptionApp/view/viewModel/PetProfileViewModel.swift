@@ -9,24 +9,22 @@ import Foundation
 
 protocol PetDelegate{
     func getPet(pet:Pet)
-
 }
 
 class PetProfileViewModel{
     
     var delegate : PetDelegate?
-    private var repo: HomeRepository?
+    private var repo: PetRepository?
+    let adoptionRepository = AdoptionRepository()
     
-    init(repo: HomeRepository) {
+    init(repo: PetRepository) {
         self.repo = repo
     }
     
-    
-    var didFinishPet:((_ res:Pet) -> ())?
-    
-    var pet: Pet? {
+    var didFinishAdoptionRequest:((_ res:BaseResponse) -> Void)?
+    var response: BaseResponse? {
         didSet {
-            self.didFinishPet?(pet!)
+            self.didFinishAdoptionRequest?(response!)
         }
     }
     
@@ -39,6 +37,20 @@ class PetProfileViewModel{
                 return
             }
         })
+    }
+    
+    func requestAdoption(request:AdoptionRequest){
+        adoptionRepository.requestAdoption(request: request) { response, error in
+            if error != nil {
+                return
+            }
+            if(response?.code == HttpUtil.OK){
+                self.response = response
+                return
+            }
+            
+        }
+        
     }
     
     

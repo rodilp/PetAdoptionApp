@@ -13,7 +13,8 @@ struct LoginRepository {
     
     func createAccount(request: AccountRequest, completion: @escaping (AuthResponse?, Error?) -> () ){
         var memberJson : String = ""
-        let api = ApiUtils.BASE_URL + ApiUtils.apiCreateAccount
+        
+        let api = ApiUtils.apiCreateAccount.getService()
         
         do{
             let jsonEncoder = JSONEncoder()
@@ -51,7 +52,7 @@ struct LoginRepository {
     func auth(request: AuthRequest, completion: @escaping (AuthResponse?, Error?) -> () ){
         
         var memberJson : String = ""
-        let api = ApiUtils.BASE_URL + ApiUtils.apiAuth
+        let api = ApiUtils.apiAuth.getService()
         
         do{
             let jsonEncoder = JSONEncoder()

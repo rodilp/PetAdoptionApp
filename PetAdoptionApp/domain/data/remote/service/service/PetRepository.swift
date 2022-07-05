@@ -8,10 +8,10 @@
 import Foundation
 import Alamofire
 
-struct HomeRepository{
+struct PetRepository{
     
     func getCategories(completion: @escaping (CategoryResponse?, Error?) -> () ){
-        let api = ApiUtils.BASE_URL + ApiUtils.apiCategory
+        let api = ApiUtils.apiCategory.getService()
         AF.request(api, method: .get, headers: nil).response { response in
             if let  error = response.error {
                 completion(nil, error)
@@ -28,7 +28,7 @@ struct HomeRepository{
     }
     
     func getPets(completion: @escaping (PetResponse?, Error?) -> () ){
-        let api = ApiUtils.BASE_URL + ApiUtils.apiPets
+        let api = ApiUtils.apiPets.getService()
         AF.request(api, method: .get, headers: nil).response { response in
             if let  error = response.error {
                 completion(nil, error)
@@ -45,7 +45,7 @@ struct HomeRepository{
     }
     
     func getPetByCategory(id:Int, completion: @escaping (PetResponse?, Error?) -> () ){
-        let api = ApiUtils.BASE_URL + ApiUtils.apiPetByCategory + String(id)
+        let api = ApiUtils.apiPetByCategory.getService() + String(id)
         print(api)
         AF.request(api, method: .get, headers: nil).response { response in
             if let  error = response.error {
@@ -64,7 +64,7 @@ struct HomeRepository{
     
     
     func getPetById(id:Int, completion: @escaping (PetProfileResponse?, Error?) -> () ){
-        let api = ApiUtils.BASE_URL + ApiUtils.apiPetById + String(id)
+        let api = ApiUtils.apiPetById.getService() + String(id)
         
         AF.request(api, method: .get, headers: nil).response { response in
             if let  error = response.error {

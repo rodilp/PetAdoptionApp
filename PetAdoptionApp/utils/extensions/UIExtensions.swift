@@ -122,16 +122,24 @@ extension UILabel {
 
 
 extension String {
-    static func getFormattedDate(string: String) -> String{
+    func formatDate() -> String {
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         
         let dateFormatterPrint = DateFormatter()
         dateFormatterPrint.dateFormat = "MMM dd,yyyy"
-        
-        let date: Date? = dateFormatterGet.date(from: string)
+        let dateString:String = self
+        let date: Date? = dateFormatterGet.date(from: dateString)
         print("Date",dateFormatterPrint.string(from: date!))
         return dateFormatterPrint.string(from: date!);
+    }
+    
+    func getService() -> String {
+        return ApiUtils.PROD_BASE_URL + self
+    }
+    
+    func formatDescriptionTitle() -> String {
+        return "Conoce a \(self)"
     }
 }
 

@@ -44,9 +44,6 @@ class LogInViewController: UIViewController, PopUpProtocol {
                 return
             }
             
-            
-            
-            
             let user:User = response.data!
             UserProfileRepository().saveUser(user: user)
 
