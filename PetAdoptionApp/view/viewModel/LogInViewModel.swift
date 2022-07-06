@@ -7,7 +7,7 @@
 
 import Foundation
 class LogInViewModel {
-    private var dataService: LoginRepository?
+    private var dataService: AuthDataSource?
     
     
     var response: AuthResponse? {
@@ -27,7 +27,7 @@ class LogInViewModel {
     var updateLoadingStatus: ((_ st:Bool) -> ())?
     var didFinishFetch: ((_ res:AuthResponse) -> ())?
     
-    init(dataService: LoginRepository) {
+    init(dataService: AuthDataSource) {
             self.dataService = dataService
         }
     

@@ -38,7 +38,7 @@ class PetProfileViewController: UIViewController, PopUpProtocol {
     var petImages:[Image] = []
     
     // MARK: - Injection
-    let viewModel = PetProfileViewModel(repo: PetRepository())
+    let viewModel = PetProfileViewModel(repo: PetDataSource())
     var loader : UIAlertController?
     
     override func viewDidLoad() {
@@ -72,6 +72,7 @@ class PetProfileViewController: UIViewController, PopUpProtocol {
         self.navigationItem.setHidesBackButton(true, animated: true)
         
         cardInfo.cardBorder(corner: 15, round: false)
+        cardInfo.dropShadow(color: AppUtils.SECONDARY_GRAY, opacity: 1, offSet: CGSize(width: -1, height: 1), radius: 15, scale: true)
         backCard.roundView()
         ownerLogo.roundBorder(corner: 0, round: true)
         
@@ -138,7 +139,7 @@ class PetProfileViewController: UIViewController, PopUpProtocol {
     
     
     func accepAction(action: Bool) {
-        let idUser = UserProfileRepository().getUser()?.idUser
+        let idUser = LocalUserRepository().getUser()?.idUser
         let requestAdoption = AdoptionRequest(idUser!, idPet)
         
         self.loader = self.showLoader(msm: "Solicitando...")

@@ -28,6 +28,7 @@ class SuccessViewController: UIViewController {
         setupView()
 
     }
+    
     func setupView(){
         //adding an overlay to the view to give focus to the dialog box
         view.backgroundColor = UIColor.black.withAlphaComponent(0.50)
@@ -54,7 +55,6 @@ class SuccessViewController: UIViewController {
         animationView.loopMode = .loop
         animationView.play()
         cardIcon.addSubview(animationView)
-
     }
     
     

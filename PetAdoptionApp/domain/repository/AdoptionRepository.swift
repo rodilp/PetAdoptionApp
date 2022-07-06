@@ -8,10 +8,10 @@
 import Foundation
 
 struct AdoptionRepository{
-    let data = AdoptionDataSource()
+    private let remote = AdoptionDataSource()
     
     func requestAdoption(request: AdoptionRequest, completion: @escaping  (BaseResponse?, Error?) -> Void) {
-        data.requestAdoption(request: request) { response, error in
+        remote.requestAdoption(request: request) { response, error in
             completion(response, error)
         }
     }

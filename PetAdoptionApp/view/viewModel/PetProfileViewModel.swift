@@ -14,10 +14,10 @@ protocol PetDelegate{
 class PetProfileViewModel{
     
     var delegate : PetDelegate?
-    private var repo: PetRepository?
+    private var repo: PetDataSource?
     let adoptionRepository = AdoptionRepository()
     
-    init(repo: PetRepository) {
+    init(repo: PetDataSource) {
         self.repo = repo
     }
     

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserProfileRepository {
+struct LocalUserRepository {
     let data = UserData()
     
     func getUser() -> User? { return data.getUser() }

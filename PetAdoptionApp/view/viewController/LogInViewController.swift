@@ -17,7 +17,7 @@ class LogInViewController: UIViewController, PopUpProtocol {
     @IBOutlet weak var cardBody: UIView!
     
     // MARK: - Injection
-    let viewModel = LogInViewModel(dataService: LoginRepository())
+    let viewModel = LogInViewModel(dataService: AuthDataSource())
     var loader : UIAlertController?
     
     
@@ -45,7 +45,7 @@ class LogInViewController: UIViewController, PopUpProtocol {
             }
             
             let user:User = response.data!
-            UserProfileRepository().saveUser(user: user)
+            LocalUserRepository().saveUser(user: user)
 
             self.loader?.dismiss(animated: true, completion: {
                 self.navigateMainStoryBoard()

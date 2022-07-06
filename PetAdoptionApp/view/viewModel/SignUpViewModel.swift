@@ -8,9 +8,9 @@
 import Foundation
 
 class SignUpViewModel {
-    private var repo: LoginRepository?
+    private var repo: AuthDataSource?
     
-    init(repo: LoginRepository) {
+    init(repo: AuthDataSource) {
             self.repo = repo
     }
     

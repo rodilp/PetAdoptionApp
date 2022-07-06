@@ -12,7 +12,6 @@ import Alamofire
 
 protocol AdoptionProtocol {
     func requestAdoption(request:AdoptionRequest, completion: @escaping (BaseResponse?, Error?) -> Void)
-
 }
 
 struct AdoptionDataSource : AdoptionProtocol {

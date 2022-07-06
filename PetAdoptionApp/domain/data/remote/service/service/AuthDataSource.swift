@@ -8,12 +8,15 @@
 import Foundation
 import Alamofire
 
+protocol AuthProtocol {
+    func createAccount(request: AccountRequest, completion: @escaping (AuthResponse?, Error?) -> Void)
+    func auth(request: AuthRequest, completion: @escaping (AuthResponse?, Error?) -> Void )
+}
 
-struct LoginRepository {
-    
-    func createAccount(request: AccountRequest, completion: @escaping (AuthResponse?, Error?) -> () ){
+
+struct AuthDataSource: AuthProtocol {
+    func createAccount(request: AccountRequest, completion: @escaping (AuthResponse?, Error?) -> Void) {
         var memberJson : String = ""
-        
         let api = ApiUtils.apiCreateAccount.getService()
  
         if let jsonData = try? JSONEncoder().encode(request) {
@@ -38,21 +41,17 @@ struct LoginRepository {
                 completion(usr, nil)
             }
         }
-
-        
     }
     
     
-    func auth(request: AuthRequest, completion: @escaping (AuthResponse?, Error?) -> () ){
-        
+    func auth(request: AuthRequest, completion: @escaping (AuthResponse?, Error?) -> Void) {
         var memberJson : String = ""
         let api = ApiUtils.apiAuth.getService()
         
-
         if let jsonData = try? JSONEncoder().encode(request) {
             memberJson = String(data: jsonData, encoding: String.Encoding.utf8)!
         }
-
+        
         let urlComponent = URLComponents(string: api)!
         print(memberJson)
 
@@ -73,13 +72,9 @@ struct LoginRepository {
                 completion(usr, nil)
             }
         }
-                    
     }
     
-    
-    
-    
-    
+
     
 }
 
