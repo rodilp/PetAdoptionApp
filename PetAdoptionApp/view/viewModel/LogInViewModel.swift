@@ -7,7 +7,7 @@
 
 import Foundation
 class LogInViewModel {
-    private var dataService: AuthDataSource?
+    private var auhtRepository: AuthRepositoryProtocol?
     
     
     var response: AuthResponse? {
@@ -27,14 +27,14 @@ class LogInViewModel {
     var updateLoadingStatus: ((_ st:Bool) -> ())?
     var didFinishFetch: ((_ res:AuthResponse) -> ())?
     
-    init(dataService: AuthDataSource) {
-            self.dataService = dataService
+    init(auhtRepository: AuthRepositoryProtocol) {
+            self.auhtRepository = auhtRepository
         }
     
     
     func auth(rq:AuthRequest){
         self.isLoading = true
-        self.dataService?.auth(request: rq, completion: { response,error  in
+        self.auhtRepository?.auth(request: rq, completion: { response,error  in
             if error != nil {
                             self.isLoading = false
                             return

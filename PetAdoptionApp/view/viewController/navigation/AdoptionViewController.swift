@@ -20,8 +20,6 @@ class AdoptionViewController: UIViewController, CellProtocol {
         
         adoptionTableView.delegate = self
         adoptionTableView.dataSource = self
-        
-        
 
     }
     
@@ -37,11 +35,6 @@ class AdoptionViewController: UIViewController, CellProtocol {
     func accepAction(action: Bool) {
         print("Callback:::: \(action)")
     }
-    
-    
-
-    
-
 
 
 }
@@ -57,7 +50,7 @@ extension AdoptionViewController: UITableViewDataSource{
             return UITableViewCell()
         }
         
-        cell.petNameLabel.text = "Gaaaa"
+        cell.petNameLabel.text = "title"
         cell.delegate = self
         
         return cell

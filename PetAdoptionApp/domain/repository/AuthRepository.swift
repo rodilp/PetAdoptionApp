@@ -7,17 +7,30 @@
 
 import Foundation
 
-struct AuthRepository{
-    private let remote = AuthDataSource()
+protocol AuthRepositoryProtocol{
+    func createAccount(request: AccountRequest, completion: @escaping (AuthResponse?, Error?) -> Void)
+    func auth(request: AuthRequest, completion: @escaping (AuthResponse?, Error?) -> Void )
     
+}
+
+class AuthRepository: AuthRepositoryProtocol{
+    
+    private let dataSource: AuthProtocol
+    
+    required init(dataSoruce: AuthProtocol){
+        self.dataSource = dataSoruce
+    
+    }
+  
+
     func createAccount(request: AccountRequest, completion: @escaping (AuthResponse?, Error?) -> Void){
-        remote.createAccount(request: request) { response, error in
+        dataSource.createAccount(request: request) { response, error in
             completion(response,error)
         }
     }
     
     func auth(request: AuthRequest, completion: @escaping (AuthResponse?, Error?) -> Void ){
-        remote.auth(request: request) { response, error in
+        dataSource.auth(request: request) { response, error in
             completion(response, error)
         }
     }

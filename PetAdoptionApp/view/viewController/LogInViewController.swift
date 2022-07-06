@@ -17,7 +17,10 @@ class LogInViewController: UIViewController, PopUpProtocol {
     @IBOutlet weak var cardBody: UIView!
     
     // MARK: - Injection
-    let viewModel = LogInViewModel(dataService: AuthDataSource())
+
+    
+    var viewModel : LogInViewModel!
+    
     var loader : UIAlertController?
     
     
@@ -25,7 +28,15 @@ class LogInViewController: UIViewController, PopUpProtocol {
         super.viewDidLoad()
 
         setupView()
-        setupObserver()
+       
+    }
+    
+    func setupViewModel(viewModel: LogInViewModel){
+        self.viewModel = viewModel
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //setupObserver()
     }
     
     
@@ -36,6 +47,7 @@ class LogInViewController: UIViewController, PopUpProtocol {
     }
     
     func setupObserver(){
+        
         viewModel.didFinishFetch = { response in
             if(response.data == nil){
                 self.loader?.dismiss(animated: true, completion: {

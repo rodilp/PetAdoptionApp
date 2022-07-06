@@ -13,9 +13,7 @@ struct User : Codable {
     let fullName:String
     let email:String
     let image:String
+    let typeUser:Int
     let createdAt:String
-    
-
-    
     
 }
