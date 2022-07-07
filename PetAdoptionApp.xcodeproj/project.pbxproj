@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		45004B0128762B92003A0557 /* AdoptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45004B0028762B92003A0557 /* AdoptionTableViewCell.swift */; };
 		45004B0328764874003A0557 /* AuthModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45004B0228764874003A0557 /* AuthModule.swift */; };
+		45004B052876529D003A0557 /* ApproveAdoptionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45004B042876529D003A0557 /* ApproveAdoptionRequest.swift */; };
+		45004B072876547B003A0557 /* AdoptionStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45004B062876547B003A0557 /* AdoptionStatusResponse.swift */; };
+		45004B09287654CD003A0557 /* Adoption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45004B08287654CD003A0557 /* Adoption.swift */; };
+		45004B0B2876586D003A0557 /* AdoptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45004B0A2876586D003A0557 /* AdoptionViewModel.swift */; };
 		4505DC6C2874ABBA00D104EF /* AdoptionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505DC6B2874ABBA00D104EF /* AdoptionRequest.swift */; };
 		4505DC6E2874AE9000D104EF /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505DC6D2874AE9000D104EF /* BaseResponse.swift */; };
 		4505DC722874B06900D104EF /* AdoptionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505DC712874B06900D104EF /* AdoptionDataSource.swift */; };
@@ -67,6 +71,10 @@
 /* Begin PBXFileReference section */
 		45004B0028762B92003A0557 /* AdoptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdoptionTableViewCell.swift; sourceTree = "<group>"; };
 		45004B0228764874003A0557 /* AuthModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModule.swift; sourceTree = "<group>"; };
+		45004B042876529D003A0557 /* ApproveAdoptionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveAdoptionRequest.swift; sourceTree = "<group>"; };
+		45004B062876547B003A0557 /* AdoptionStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdoptionStatusResponse.swift; sourceTree = "<group>"; };
+		45004B08287654CD003A0557 /* Adoption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adoption.swift; sourceTree = "<group>"; };
+		45004B0A2876586D003A0557 /* AdoptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdoptionViewModel.swift; sourceTree = "<group>"; };
 		4505DC6B2874ABBA00D104EF /* AdoptionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdoptionRequest.swift; sourceTree = "<group>"; };
 		4505DC6D2874AE9000D104EF /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		4505DC712874B06900D104EF /* AdoptionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdoptionDataSource.swift; sourceTree = "<group>"; };
@@ -147,14 +155,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		4506D573286B5F27006CD863 /* service */ = {
+		4506D573286B5F27006CD863 /* network */ = {
 			isa = PBXGroup;
 			children = (
 				458523C52869E8A7007C9F07 /* AuthDataSource.swift */,
 				4554A21B286E1440001A2FE3 /* PetDataSource.swift */,
 				4505DC712874B06900D104EF /* AdoptionDataSource.swift */,
 			);
-			path = service;
+			path = network;
 			sourceTree = "<group>";
 		};
 		4506D578286B7C2B006CD863 /* lottie */ = {
@@ -351,7 +359,7 @@
 		458523C42869E892007C9F07 /* service */ = {
 			isa = PBXGroup;
 			children = (
-				4506D573286B5F27006CD863 /* service */,
+				4506D573286B5F27006CD863 /* network */,
 				458523CB2869E9FE007C9F07 /* response */,
 				458523CA2869E9F6007C9F07 /* request */,
 			);
@@ -365,6 +373,7 @@
 				4506D58C286D0ED9006CD863 /* Pet.swift */,
 				4506D58E286D0F01006CD863 /* Image.swift */,
 				4554A217286E1013001A2FE3 /* Category.swift */,
+				45004B08287654CD003A0557 /* Adoption.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -375,6 +384,7 @@
 				458523CC2869EA1E007C9F07 /* AuthRequest.swift */,
 				458523D7286A6DE9007C9F07 /* AccountRequest.swift */,
 				4505DC6B2874ABBA00D104EF /* AdoptionRequest.swift */,
+				45004B042876529D003A0557 /* ApproveAdoptionRequest.swift */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -387,6 +397,7 @@
 				4554A219286E135C001A2FE3 /* CategoryResponse.swift */,
 				45E5368B28734E0400260F6F /* PetProfileResponse.swift */,
 				4505DC6D2874AE9000D104EF /* BaseResponse.swift */,
+				45004B062876547B003A0557 /* AdoptionStatusResponse.swift */,
 			);
 			path = response;
 			sourceTree = "<group>";
@@ -398,6 +409,7 @@
 				4506D574286B6384006CD863 /* SignUpViewModel.swift */,
 				4554A21D286E18EE001A2FE3 /* HomeViewModel.swift */,
 				45E5368928734C9F00260F6F /* PetProfileViewModel.swift */,
+				45004B0A2876586D003A0557 /* AdoptionViewModel.swift */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -537,6 +549,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45004B072876547B003A0557 /* AdoptionStatusResponse.swift in Sources */,
 				4506D58B286D0E3F006CD863 /* PetResponse.swift in Sources */,
 				45E5368C28734E0400260F6F /* PetProfileResponse.swift in Sources */,
 				45E536862873345600260F6F /* PetBannerCollectionViewCell.swift in Sources */,
@@ -547,6 +560,7 @@
 				4506D577286B7A0C006CD863 /* SuccessViewController.swift in Sources */,
 				458523C62869E8A7007C9F07 /* AuthDataSource.swift in Sources */,
 				4506D575286B6384006CD863 /* SignUpViewModel.swift in Sources */,
+				45004B09287654CD003A0557 /* Adoption.swift in Sources */,
 				4540742E286291600076E075 /* SignUpViewController.swift in Sources */,
 				455505D4286659EA0095D71A /* HomeViewController.swift in Sources */,
 				4505DC7828750ECE00D104EF /* AuthRepository.swift in Sources */,
@@ -567,12 +581,14 @@
 				4554A21A286E135C001A2FE3 /* CategoryResponse.swift in Sources */,
 				458523CD2869EA1E007C9F07 /* AuthRequest.swift in Sources */,
 				4506D580286BACE6006CD863 /* HttpUtil.swift in Sources */,
+				45004B0B2876586D003A0557 /* AdoptionViewModel.swift in Sources */,
 				45004B0128762B92003A0557 /* AdoptionTableViewCell.swift in Sources */,
 				450B3F1128611D8900F1B025 /* AppDelegate.swift in Sources */,
 				4506D583286BB95A006CD863 /* ProfileViewController.swift in Sources */,
 				4506D586286BBF38006CD863 /* CategoryCollectionViewCell.swift in Sources */,
 				4505DC6C2874ABBA00D104EF /* AdoptionRequest.swift in Sources */,
 				4554A21C286E1440001A2FE3 /* PetDataSource.swift in Sources */,
+				45004B052876529D003A0557 /* ApproveAdoptionRequest.swift in Sources */,
 				4505DC7628750EA400D104EF /* PetRepository.swift in Sources */,
 				453D786E2867884400EBC53A /* AlertPopUpViewController.swift in Sources */,
 				4554A220286E4D27001A2FE3 /* PetCollectionViewCell.swift in Sources */,

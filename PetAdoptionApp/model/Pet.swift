@@ -15,6 +15,6 @@ struct Pet: Codable{
     let race:String
     let address:String
     let description:String
-    let owner: User?
+    var owner: User?
     let images:[Image]
 }

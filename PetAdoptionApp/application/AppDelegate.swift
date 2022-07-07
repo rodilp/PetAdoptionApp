@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let module = AuthModule.setupModule()
-        window?.rootViewController = module
+        //let module = AuthModule.setupModule()
+        //window?.rootViewController = module
       
         return true
     }

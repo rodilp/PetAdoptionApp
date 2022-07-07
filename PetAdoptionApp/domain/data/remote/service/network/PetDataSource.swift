@@ -70,6 +70,9 @@ struct PetDataSource: PetProtocol{
         let api = ApiUtils.apiPetById.getService() + String(id)
         
         AF.request(api, method: .get, headers: nil).response { response in
+            
+            print(response)
+            
             if let  error = response.error {
                 completion(nil, error)
                 return

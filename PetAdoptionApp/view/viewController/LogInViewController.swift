@@ -19,7 +19,7 @@ class LogInViewController: UIViewController, PopUpProtocol {
     // MARK: - Injection
 
     
-    var viewModel : LogInViewModel!
+    var viewModel =  LogInViewModel(auhtRepository: AuthDataSource())
     
     var loader : UIAlertController?
     
@@ -36,7 +36,7 @@ class LogInViewController: UIViewController, PopUpProtocol {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //setupObserver()
+        setupObserver()
     }
     
     

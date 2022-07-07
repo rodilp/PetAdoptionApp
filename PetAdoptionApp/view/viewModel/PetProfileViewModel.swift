@@ -14,11 +14,12 @@ protocol PetDelegate{
 class PetProfileViewModel{
     
     var delegate : PetDelegate?
-    private var repo: PetDataSource?
-    let adoptionRepository = AdoptionRepository()
+    private var petrepository: PetProtocol?
+    private let adoptionRepository : AdoptionProtocol?
     
-    init(repo: PetDataSource) {
-        self.repo = repo
+    init(petrepository: PetProtocol, adoptionRepository:AdoptionProtocol) {
+        self.petrepository = petrepository
+        self.adoptionRepository = adoptionRepository
     }
     
     var didFinishAdoptionRequest:((_ res:BaseResponse) -> Void)?
@@ -30,7 +31,7 @@ class PetProfileViewModel{
     
     
     func getPetById(id:Int){
-        repo?.getPetById(id: id, completion: { response, error in
+        petrepository?.getPetById(id: id, completion: { response, error in
             if(response?.code == HttpUtil.OK){
                 let pet = response?.data
                 self.delegate?.getPet(pet: pet!)
@@ -40,7 +41,7 @@ class PetProfileViewModel{
     }
     
     func requestAdoption(request:AdoptionRequest){
-        adoptionRepository.requestAdoption(request: request) { response, error in
+        adoptionRepository?.requestAdoption(request: request) { response, error in
             if error != nil {
                 return
             }

@@ -7,7 +7,11 @@
 
 import Foundation
 class LogInViewModel {
-    private var auhtRepository: AuthRepositoryProtocol?
+    private var auhtRepository: AuthProtocol?
+    
+    init(auhtRepository: AuthProtocol) {
+            self.auhtRepository = auhtRepository
+    }
     
     
     var response: AuthResponse? {
@@ -27,9 +31,7 @@ class LogInViewModel {
     var updateLoadingStatus: ((_ st:Bool) -> ())?
     var didFinishFetch: ((_ res:AuthResponse) -> ())?
     
-    init(auhtRepository: AuthRepositoryProtocol) {
-            self.auhtRepository = auhtRepository
-        }
+ 
     
     
     func auth(rq:AuthRequest){

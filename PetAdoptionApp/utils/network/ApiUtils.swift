@@ -28,7 +28,7 @@ struct ApiUtils{
     //ADOPTION
     static let apiRequestAdoption:String = "/apiv1/adoption/send"
     static let apiApproveAdoption:String = "/apiv1/adoption/approve"
-    static let apiAdoptionList:String = "/apiv1/adoption/status"
+    static let apiAdoptionList:String = "/apiv1/adoption/status/"
     
     
     

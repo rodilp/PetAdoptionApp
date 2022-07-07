@@ -38,13 +38,14 @@ class PetProfileViewController: UIViewController, PopUpProtocol {
     var petImages:[Image] = []
     
     // MARK: - Injection
-    let viewModel = PetProfileViewModel(repo: PetDataSource())
+    let viewModel = PetProfileViewModel(petrepository: PetDataSource(), adoptionRepository: AdoptionDataSource())
     var loader : UIAlertController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
+        print("idpet \(idPet)")
         
         if(idPet != -1){
             viewModel.getPetById(id: idPet)

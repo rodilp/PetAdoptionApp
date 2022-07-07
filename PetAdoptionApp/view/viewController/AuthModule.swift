@@ -12,16 +12,16 @@ class AuthModule {
     
     static func setupModule() -> UIViewController{
         
-        let dataSource = AuthDataSource()
+        //let dataSource = AuthDataSource()
         
-        let repository = AuthRepository(dataSoruce: dataSource)
+        //let repository = AuthRepository(dataSoruce: dataSource)
         
-        let viewModel = LogInViewModel(auhtRepository: repository)
+        //let viewModel = LogInViewModel(auhtRepository: repository)
         
         let storyBoard = UIStoryboard(name: "LogIn", bundle: nil)
         let uiViewController = storyBoard.instantiateViewController(withIdentifier: "LogInViewController") as! LogInViewController
         
-        uiViewController.setupViewModel(viewModel: viewModel)
+       // uiViewController.setupViewModel(viewModel: viewModel)
         
         return uiViewController
         
