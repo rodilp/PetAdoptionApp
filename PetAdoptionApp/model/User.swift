@@ -16,4 +16,9 @@ struct User : Codable {
     let typeUser:Int
     let createdAt:String
     
+    
+    func isOwner() -> Bool{
+        return (typeUser == 2) ? true : false
+    }
+    
 }

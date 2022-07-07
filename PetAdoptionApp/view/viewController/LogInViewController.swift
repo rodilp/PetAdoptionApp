@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-class LogInViewController: UIViewController, PopUpProtocol {
+class LogInViewController: UIViewController, PopUpAlertProtocol {
     
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -28,6 +28,8 @@ class LogInViewController: UIViewController, PopUpProtocol {
         super.viewDidLoad()
 
         setupView()
+        verifyAuth()
+        
        
     }
     
@@ -39,6 +41,11 @@ class LogInViewController: UIViewController, PopUpProtocol {
         setupObserver()
     }
     
+    func verifyAuth(){
+        if LocalUserRepository().getUser() != nil {
+            navigateMainStoryBoard()
+        }
+    }
     
     func login(email:String, pass:String){
         let request = AuthRequest(email: email, password: pass)
@@ -109,7 +116,7 @@ class LogInViewController: UIViewController, PopUpProtocol {
         }
     }
 
-    func accepAction(action: Bool) {
+    func AlertAcceptAction(action: Bool) {
         print("Acept Pressed..")
     }
     

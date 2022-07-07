@@ -8,6 +8,11 @@
 import UIKit
 import Lottie
 
+protocol PopUpSuccessProtocol {
+    func successAcceptAction(action: Bool)
+}
+
+
 class SuccessViewController: UIViewController {
 
     @IBOutlet weak var acceptButton: UIButton!
@@ -18,6 +23,8 @@ class SuccessViewController: UIViewController {
     
     var messageTitle:String!
     var messageDescription:String!
+    var delegate:PopUpSuccessProtocol?
+    
     
     
     let animationView = AnimationView()
@@ -61,6 +68,7 @@ class SuccessViewController: UIViewController {
     
     @IBAction func accept(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+        self.delegate?.successAcceptAction(action: true)
     }
     
 

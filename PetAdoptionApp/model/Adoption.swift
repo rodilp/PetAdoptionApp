@@ -11,4 +11,16 @@ struct Adoption:Codable{
     let approveStatus:Int
     let pet:Pet
     let user:User
+    
+    
+    func isOwner() -> Bool {
+        if(user.typeUser == 2){
+            return true
+        }
+        return false
+    }
+    
+    func isApproved() -> Bool {
+        return (approveStatus == 1) ? true : false
+    }
 }

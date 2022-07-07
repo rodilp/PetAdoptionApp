@@ -21,8 +21,6 @@ struct AdoptionDataSource : AdoptionProtocol {
         let api = ApiUtils.apiAdoptionList.getService() + String(id)
         print(api)
         AF.request(api, method: .get, headers: nil).response { response in
-            
-            debugPrint(response)
             if let  error = response.error {
                 completion(nil, error)
                 return
@@ -46,7 +44,7 @@ struct AdoptionDataSource : AdoptionProtocol {
     
     func approveAdoption(request: ApproveAdoptionRequest, completion: @escaping (BaseResponse?, Error?) -> Void) {
         var bodyJson : String = ""
-        let api = ApiUtils.apiRequestAdoption.getService()
+        let api = ApiUtils.apiApproveAdoption.getService()
   
         if let jsonData = try? JSONEncoder().encode(request) {
             bodyJson = String(data: jsonData, encoding: String.Encoding.utf8)!

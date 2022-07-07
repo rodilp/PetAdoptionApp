@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PetProfileViewController: UIViewController, PopUpProtocol {
+class PetProfileViewController: UIViewController, PopUpAlertProtocol {
 
     
     
@@ -139,7 +139,7 @@ class PetProfileViewController: UIViewController, PopUpProtocol {
     }
     
     
-    func accepAction(action: Bool) {
+    func AlertAcceptAction(action: Bool) {
         let idUser = LocalUserRepository().getUser()?.idUser
         let requestAdoption = AdoptionRequest(idUser!, idPet)
         

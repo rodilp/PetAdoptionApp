@@ -8,8 +8,8 @@
 import UIKit
 
 
-protocol PopUpProtocol {
-    func accepAction(action: Bool)
+protocol PopUpAlertProtocol {
+    func AlertAcceptAction(action: Bool)
 }
 
 class AlertPopUpViewController: UIViewController {
@@ -20,7 +20,7 @@ class AlertPopUpViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var popupDescription: UILabel!
     
-    var delegate: PopUpProtocol?
+    var delegate: PopUpAlertProtocol?
     
     var messageTitle:String!
     var messageDescription:String!
@@ -59,7 +59,7 @@ class AlertPopUpViewController: UIViewController {
     
     @IBAction func accept(_ sender: UIButton) {
         self.dismiss(animated: true, completion: {
-            self.delegate?.accepAction(action: true)
+            self.delegate?.AlertAcceptAction(action: true)
         })
         
     }

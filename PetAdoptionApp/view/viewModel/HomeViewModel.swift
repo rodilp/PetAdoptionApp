@@ -29,7 +29,6 @@ class HomeViewModel{
                 self.delegate?.getCategories(cat: listC)
                 return
             }
-            
         })
     }
     

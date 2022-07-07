@@ -9,6 +9,6 @@ import Foundation
 
 struct ApproveAdoptionRequest:Encodable{
     let idAdoption:Int
-    let iduser:Int
+    let idUser:Int
     
 }

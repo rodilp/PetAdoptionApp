@@ -9,7 +9,7 @@ import UIKit
 
 
 protocol CellProtocol {
-    func accepAction(action: Bool)
+    func acceptCellAction(idAdoption: Int, idUser:Int)
 }
 
 class AdoptionTableViewCell: UITableViewCell {
@@ -25,23 +25,24 @@ class AdoptionTableViewCell: UITableViewCell {
     
     var delegate: CellProtocol?
     
+    var adoption: Adoption?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
     
-
-    @IBAction func acceptButton(_ sender: UIButton) {
-        print("Selected...\(petNameLabel.text ?? "NUll")")
-        self.delegate?.accepAction(action: true)
+        
+      
         
     }
     
+    
+    @IBAction func acceptButton(_ sender: UIButton) {
+        self.delegate?.acceptCellAction(idAdoption: adoption?.idReq ?? -1, idUser: adoption?.user.idUser ?? -1)
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
-        statusButton.bounce()
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }
