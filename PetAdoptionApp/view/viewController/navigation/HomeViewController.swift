@@ -37,7 +37,6 @@ class HomeViewController: UIViewController  {
         petCollectionView.dataSource = self
         // Do any additional setup after loading the view.
 
- 
     }
     
     //life of cicle view
@@ -104,16 +103,19 @@ extension HomeViewController: UICollectionViewDataSource{
         if(!categories.isEmpty){
             if(collectionView == categoryCollectionView){
                 let cat = categories[indexPath.row]
-                cell.categoryLabel.text = cat.name
-                cell.catogoryLogo.loadImage(url: cat.icon)
-                cell.round()
-                cell.categoryLabel.titleColor()
-                        
+
                 if(cat.name == "Todos"){
                     cell.contentView.backgroundColor = AppUtils.PRIMARY_ORANGE
                     cell.contentView.layer.cornerRadius = 15
                     cell.categoryLabel.textColor = .white
+                    cell.categoryLabel.text = ""
+                }else{
+                    cell.categoryLabel.text = cat.name
                 }
+                
+                cell.catogoryLogo.loadImage(url: cat.icon)
+                cell.round()
+                cell.categoryLabel.titleColor()
             
             }
         }

@@ -32,12 +32,7 @@ struct AdoptionDataSource : AdoptionProtocol {
             }catch let err  as NSError{
                 print("Error:: \(err)")
             }
-            /*
-            if let statusAdoption = try? JSONDecoder().decode(AdoptionStatusResponse.self, from: response.data!) {
-                print(statusAdoption)
-                completion(statusAdoption, nil)
-            } */
-                
+          
            
         }
     }

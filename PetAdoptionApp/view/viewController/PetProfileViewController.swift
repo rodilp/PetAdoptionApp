@@ -33,13 +33,12 @@ class PetProfileViewController: UIViewController, PopUpAlertProtocol {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var adoptionBt: UIButton!
     
-    
-    
     var petImages:[Image] = []
     
     // MARK: - Injection
     let viewModel = PetProfileViewModel(petrepository: PetDataSource(), adoptionRepository: AdoptionDataSource())
     var loader : UIAlertController?
+    let user = LocalUserRepository().getUser()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +70,7 @@ class PetProfileViewController: UIViewController, PopUpAlertProtocol {
     
     func setupView(){
         self.navigationItem.setHidesBackButton(true, animated: true)
+        adoptionBt.alpha = 0
         
         cardInfo.cardBorder(corner: 15, round: false)
         cardInfo.dropShadow(color: AppUtils.SECONDARY_GRAY, opacity: 1, offSet: CGSize(width: -1, height: 1), radius: 15, scale: true)
@@ -118,24 +118,26 @@ class PetProfileViewController: UIViewController, PopUpAlertProtocol {
         addressLabel.text = pet.address
         ageLabel.text = "\(pet.age), \(pet.ageTime)"
         
+        let idUser = user?.idUser ?? -1
+        
         if let owner = pet.owner {
             ownerLogo.loadImage(url: owner.image)
             ownerNameLabel.text = owner.fullName
             ownerDateLabel.text = owner.createdAt.formatDate()
             ownerLabel.text = AppUtils.OWNER
+            
+            if(owner.idUser == idUser){
+                adoptionBt.alpha = 0
+            }else{
+                adoptionBt.alpha = 1
+            }
         }
         
         descriptionTitleLabel.text = pet.name.formatDescriptionTitle()
         descriptionLabel.text = pet.description
+        sexLogo.image = self.getIconBySex(sex: pet.sex)
         
-        var image = UIImage()
-        if(pet.sex == AppUtils.MALE){
-            image = UIImage(named: "icon_male")!
-        }else{
-            image = UIImage(named: "icon_female")!
-        }
-        let imageView = UIImageView(image: image)
-        sexLogo.image = imageView.image
+       
     }
     
     

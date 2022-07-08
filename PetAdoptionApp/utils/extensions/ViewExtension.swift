@@ -140,6 +140,34 @@ extension UIViewController {
     }
     
     
+    func getIconBySex(sex:String) -> UIImage {
+        var image = UIImage()
+        if(sex == AppUtils.MALE){
+            image = UIImage(named: "icon_male")!
+        }else{
+            image = UIImage(named: "icon_female")!
+        }
+        let imageView = UIImageView(image: image)
+        return imageView.image!
+    }
+    
+    func getIconByUser(typeUser:Int) -> UIImage {
+        var image = UIImage()
+        if(typeUser == AppUtils.OWNER_ID){
+            image = UIImage(named: "icon_approve_request")!
+        }else{
+            image = UIImage(named: "icon_send_request")!
+        }
+        let imageView = UIImageView(image: image)
+        return imageView.image!
+    }
+    
+
+    
+    
+    
+    
+    
     
 }
 

@@ -24,7 +24,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ygy-df-oNh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ygy-df-oNh">
                                 <rect key="frame" x="15" y="98" width="384" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -98,6 +98,13 @@
                                                         <constraint firstAttribute="width" constant="15" id="fIk-yF-MJe"/>
                                                     </constraints>
                                                 </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_success" translatesAutoresizingMaskIntoConstraints="NO" id="uCa-3G-6JX">
+                                                    <rect key="frame" x="352" y="25" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="Flq-ba-M27"/>
+                                                        <constraint firstAttribute="height" constant="30" id="ln5-Sc-23j"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="Ci0-yF-flT" secondAttribute="bottom" constant="3" id="1xw-6t-wy1"/>
@@ -117,14 +124,17 @@
                                                 <constraint firstAttribute="trailing" secondItem="sYq-2h-biz" secondAttribute="trailing" constant="8" id="XLg-D8-u3t"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="TwS-mJ-yCn" secondAttribute="trailing" constant="8" id="ZLo-qY-IHo"/>
                                                 <constraint firstItem="VWb-DC-ZKb" firstAttribute="leading" secondItem="OSK-yW-so6" secondAttribute="trailing" constant="8" id="ZNj-3o-Rny"/>
+                                                <constraint firstAttribute="trailing" secondItem="uCa-3G-6JX" secondAttribute="trailing" constant="2" id="aNd-g6-vV9"/>
                                                 <constraint firstItem="TwS-mJ-yCn" firstAttribute="leading" secondItem="VWb-DC-ZKb" secondAttribute="trailing" constant="8" id="bVz-ad-Hqq"/>
                                                 <constraint firstItem="OSK-yW-so6" firstAttribute="top" secondItem="fgm-bk-stC" secondAttribute="top" constant="25" id="jzQ-jH-0NL"/>
                                                 <constraint firstItem="VWb-DC-ZKb" firstAttribute="top" secondItem="sYq-2h-biz" secondAttribute="bottom" constant="8" id="pLh-ia-M6Y"/>
                                                 <constraint firstItem="OSK-yW-so6" firstAttribute="leading" secondItem="fgm-bk-stC" secondAttribute="leading" constant="5" id="syX-eF-6qU"/>
+                                                <constraint firstItem="uCa-3G-6JX" firstAttribute="top" secondItem="fgm-bk-stC" secondAttribute="top" constant="25" id="uR2-1C-OI3"/>
                                                 <constraint firstItem="sYq-2h-biz" firstAttribute="top" secondItem="a7R-UD-Mor" secondAttribute="bottom" constant="5" id="vAp-1C-QNA"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="iconStatus" destination="uCa-3G-6JX" id="fgy-e0-Htb"/>
                                             <outlet property="petImage" destination="OSK-yW-so6" id="dSy-hW-6cw"/>
                                             <outlet property="petNameLabel" destination="xq8-Qn-baD" id="tjG-KL-6wV"/>
                                             <outlet property="petRaceLabel" destination="a7R-UD-Mor" id="pOj-Pj-t86"/>
@@ -183,12 +193,18 @@
                             <constraint firstItem="WnU-y0-l6o" firstAttribute="trailing" secondItem="5dx-Rt-dG8" secondAttribute="trailing" constant="15" id="vVK-uG-3i6"/>
                             <constraint firstItem="ygy-df-oNh" firstAttribute="top" secondItem="b5s-DQ-FcP" secondAttribute="bottom" constant="15" id="zb9-lz-4sG"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="5dx-Rt-dG8"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Adopcion" image="pet_uns" selectedImage="pet_sele" id="7kA-Fl-19k"/>
                     <connections>
                         <outlet property="adoptionTableView" destination="ygy-df-oNh" id="NNm-1K-0pV"/>
                         <outlet property="cardMessage" destination="5dx-Rt-dG8" id="L8I-uH-lTZ"/>
                         <outlet property="cardMessageLabel" destination="xKG-Lp-dQR" id="stU-FI-ZjZ"/>
+                        <outlet property="iconAdoption" destination="JwT-PV-zFi" id="E31-iz-kBN"/>
                         <outlet property="titleLabel" destination="b5s-DQ-FcP" id="95R-Pe-lcK"/>
                     </connections>
                 </viewController>
@@ -865,6 +881,7 @@
         <image name="icon_off" width="227" height="227"/>
         <image name="icon_place" width="37" height="49"/>
         <image name="icon_send_request" width="498.09869384765625" height="646.46502685546875"/>
+        <image name="icon_success" width="50" height="50"/>
         <image name="icon_time" width="53" height="61"/>
         <image name="load_image" width="620" height="609"/>
         <image name="pet_sele" width="23" height="22"/>

@@ -12,7 +12,6 @@ struct Adoption:Codable{
     let pet:Pet
     let user:User
     
-    
     func isOwner() -> Bool {
         if(user.typeUser == 2){
             return true

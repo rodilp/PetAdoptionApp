@@ -18,7 +18,28 @@ struct User : Codable {
     
     
     func isOwner() -> Bool{
-        return (typeUser == 2) ? true : false
+        if(typeUser == AppUtils.OWNER_ID){
+            return true
+        } else {
+            return false
+        }
     }
     
+    
+    func getMessageByUser() -> String {
+        if(typeUser == AppUtils.OWNER_ID){
+            return "No tienes solicitudes"
+        }else{
+            return  "No tienes adopciones"
+        }
+    }
+    
+    func getTitleByUser() -> String {
+        if(typeUser == AppUtils.OWNER_ID){
+            return "Mis Solicitudes"
+        }else{
+            return "Mis Adopciones"
+        }
+
+    }
 }

@@ -22,6 +22,7 @@ class AdoptionTableViewCell: UITableViewCell {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userDetailLabel: UILabel!
     @IBOutlet weak var statusButton: UIButton!
+    @IBOutlet weak var iconStatus: UIImageView!
     
     var delegate: CellProtocol?
     

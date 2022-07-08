@@ -13,6 +13,7 @@ class AdoptionViewController: UIViewController {
     @IBOutlet weak var cardMessage: UIView!
     @IBOutlet weak var cardMessageLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var iconAdoption: UIImageView!
     
     let viewModel = AdoptionViewModel(adoptionRepository: AdoptionDataSource())
     var adoptions : [Adoption] = []
@@ -22,17 +23,25 @@ class AdoptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupView()
         adoptionTableView.delegate = self
         adoptionTableView.dataSource = self
         viewModel.delegate = self
         
         setupObserver()
-        setupView()
+  
     }
     
     func setupView() {
         cardMessageLabel.titleColor()
         titleLabel.titleColor()
+        
+        if let user = LocalUserRepository().getUser() {
+            iconAdoption.image = self.getIconByUser(typeUser: user.typeUser)
+            titleLabel.text = user.getTitleByUser()
+            cardMessageLabel.text = user.getMessageByUser()
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -118,16 +127,7 @@ extension AdoptionViewController: UITableViewDataSource{
         cell.petNameLabel.text = adoption.pet.name
         cell.petRaceLabel.text = adoption.pet.race
         cell.petImage.loadImage(url: adoption.pet.images[0].url)
-        
-        var image = UIImage()
-        if(adoption.pet.sex == AppUtils.MALE){
-            image = UIImage(named: "icon_male")!
-        }else{
-            image = UIImage(named: "icon_female")!
-        }
-        let imageView = UIImageView(image: image)
-        cell.petSexLogo.image = imageView.image
-        
+        cell.petSexLogo.image = self.getIconBySex(sex: adoption.pet.sex)
         cell.userImage.loadImage(url: adoption.user.image)
         cell.userNameLabel.text = adoption.user.fullName
         
@@ -138,10 +138,11 @@ extension AdoptionViewController: UITableViewDataSource{
         cell.petImage.roundBorder(corner: 15, round: false)
         cell.userImage.roundBorder(corner: 0, round: true)
         cell.statusButton.roundButton()
+        cell.iconStatus.alpha = 0
      
         
         let typeUser = self.user?.typeUser ?? -1
-        print(typeUser)
+
         
         
         if(typeUser == AppUtils.OWNER_ID){
@@ -149,22 +150,24 @@ extension AdoptionViewController: UITableViewDataSource{
             if(adoption.isApproved()){
                 cell.statusButton.setTitle("Solicitud Aceptado", for: .normal)
                 cell.statusButton.isEnabled = false
+                cell.iconStatus.alpha = 1
             }else{
                 cell.statusButton.setTitle("Aceptar adopción", for: .normal)
                 cell.statusButton.roundButton()
                 cell.statusButton.isEnabled = true
+                cell.iconStatus.alpha = 0
             }
         }else{
             cell.userDetailLabel.text = "Dueño"
             if(adoption.isApproved()){
                 cell.statusButton.setTitle("Adopción aprobado", for: .normal)
-                let isEnabled = false
-                cell.statusButton.isEnabled = isEnabled
-                cell.statusButton.tintColor = UIColor.systemPink
-                //cell.statusButton.isEnabled = false
+                cell.statusButton.isEnabled = false
+                cell.iconStatus.alpha = 1
+     
             }else{
                 cell.statusButton.setTitle("Solicitud enviado", for: .normal)
                 cell.statusButton.isEnabled = false
+                cell.iconStatus.alpha = 0
             }
         }
        
