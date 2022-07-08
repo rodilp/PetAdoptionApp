@@ -9,4 +9,5 @@ import Foundation
 struct Category:Codable{
     let idCategory:Int
     let name:String
+    let icon:String
 }

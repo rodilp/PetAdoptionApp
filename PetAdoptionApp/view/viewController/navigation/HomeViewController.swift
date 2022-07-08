@@ -102,19 +102,19 @@ extension HomeViewController: UICollectionViewDataSource{
         
         let cell = categoryCollectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
         if(!categories.isEmpty){
-        
-        if(collectionView == categoryCollectionView){
+            if(collectionView == categoryCollectionView){
                 let cat = categories[indexPath.row]
                 cell.categoryLabel.text = cat.name
+                cell.catogoryLogo.loadImage(url: cat.icon)
                 cell.round()
                 cell.categoryLabel.titleColor()
-                    
+                        
                 if(cat.name == "Todos"){
                     cell.contentView.backgroundColor = AppUtils.PRIMARY_ORANGE
                     cell.contentView.layer.cornerRadius = 15
                     cell.categoryLabel.textColor = .white
                 }
-        
+            
             }
         }
             
