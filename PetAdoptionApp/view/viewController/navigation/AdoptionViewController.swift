@@ -17,7 +17,7 @@ class AdoptionViewController: UIViewController {
     
     let viewModel = AdoptionViewModel(adoptionRepository: AdoptionDataSource())
     var adoptions : [Adoption] = []
-    let user = LocalUserRepository().getUser()
+    let local = LocalDataRepository(localData: LocalDataSource())
     var loader : UIAlertController?
     
     override func viewDidLoad() {
@@ -36,7 +36,7 @@ class AdoptionViewController: UIViewController {
         cardMessageLabel.titleColor()
         titleLabel.titleColor()
         
-        if let user = LocalUserRepository().getUser() {
+        if let user = local.getUser() {
             iconAdoption.image = self.getIconByUser(typeUser: user.typeUser)
             titleLabel.text = user.getTitleByUser()
             cardMessageLabel.text = user.getMessageByUser()
@@ -50,7 +50,7 @@ class AdoptionViewController: UIViewController {
     
 
     func loadAdoptions(){
-        if let user = LocalUserRepository().getUser() {
+        if let user = local.getUser() {
             print("USER::: \(user)")
             viewModel.getAdoptions(id: user.idUser)
         }
@@ -93,7 +93,7 @@ extension AdoptionViewController: AdoptionDelegate, CellProtocol, PopUpSuccessPr
     
     
     func acceptCellAction(idAdoption: Int, idUser:Int) {
-        if let usr = user {
+        if let usr = local.getUser() {
             if(usr.isOwner()){
                 if(idAdoption != -1 && idUser != -1){
                     let request = ApproveAdoptionRequest(idAdoption: idAdoption, idUser: idUser)
@@ -141,14 +141,14 @@ extension AdoptionViewController: UITableViewDataSource{
         cell.iconStatus.alpha = 0
      
         
-        let typeUser = self.user?.typeUser ?? -1
+        let typeUser = local.getUser()?.typeUser ?? -1
 
         
         
         if(typeUser == AppUtils.OWNER_ID){
             cell.userDetailLabel.text = "Quiere Adoptar"
             if(adoption.isApproved()){
-                cell.statusButton.setTitle("Solicitud Aceptado", for: .normal)
+                cell.statusButton.setTitle("Solicitud Aceptada", for: .normal)
                 cell.statusButton.isEnabled = false
                 cell.iconStatus.alpha = 1
             }else{
@@ -160,12 +160,12 @@ extension AdoptionViewController: UITableViewDataSource{
         }else{
             cell.userDetailLabel.text = "Dueño"
             if(adoption.isApproved()){
-                cell.statusButton.setTitle("Adopción aprobado", for: .normal)
+                cell.statusButton.setTitle("Adopción aprobada", for: .normal)
                 cell.statusButton.isEnabled = false
                 cell.iconStatus.alpha = 1
      
             }else{
-                cell.statusButton.setTitle("Solicitud enviado", for: .normal)
+                cell.statusButton.setTitle("Solicitud enviada", for: .normal)
                 cell.statusButton.isEnabled = false
                 cell.iconStatus.alpha = 0
             }

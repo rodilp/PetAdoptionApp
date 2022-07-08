@@ -15,12 +15,17 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var offLabel: UILabel!
     @IBOutlet weak var cardExit: UIView!
     @IBOutlet weak var titleLabel: UILabel!
+    
+    var local = LocalDataRepository(localData: LocalDataSource())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setupView()
+        setupLister()
         loadInfoUser()
+        
     }
     
     func setupView(){
@@ -32,26 +37,26 @@ class ProfileViewController: UIViewController {
         offLabel.titleColor()
         titleLabel.titleColor()
         
+        
+    }
+    
+    
+    func setupLister(){
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.exitAccount(_:)))
+        cardExit.addGestureRecognizer(gesture)
+    }
+    
+    @objc private func exitAccount(_ sender:UITapGestureRecognizer){
+        print("Exit")
     }
     
     func loadInfoUser(){
-        if let user = LocalUserRepository().getUser() {
+        if let user = local.getUser() {
             userNameLabel.text = user.fullName
             userDetailLabel.text = user.email
             userLogo.loadImage(url: user.image)
         }
-        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

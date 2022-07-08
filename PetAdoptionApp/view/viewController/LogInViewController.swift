@@ -17,9 +17,10 @@ class LogInViewController: UIViewController, PopUpAlertProtocol {
     @IBOutlet weak var cardBody: UIView!
     
     // MARK: - Injection
-
     
-    var viewModel =  LogInViewModel(auhtRepository: AuthDataSource())
+    
+    var viewModel : LogInViewModel?
+    var local = LocalDataRepository(localData: LocalDataSource())
     
     var loader : UIAlertController?
     
@@ -29,20 +30,20 @@ class LogInViewController: UIViewController, PopUpAlertProtocol {
 
         setupView()
         verifyAuth()
+
+        let authRepository = AuthRepository(dataSoruce: AuthDataSource())
+        viewModel =  LogInViewModel(auhtRepository: authRepository)
         
        
     }
-    
-    func setupViewModel(viewModel: LogInViewModel){
-        self.viewModel = viewModel
-    }
+
     
     override func viewDidAppear(_ animated: Bool) {
         setupObserver()
     }
     
     func verifyAuth(){
-        if LocalUserRepository().getUser() != nil {
+        if local.getUser() != nil {
             navigateMainStoryBoard()
         }
     }
@@ -50,12 +51,12 @@ class LogInViewController: UIViewController, PopUpAlertProtocol {
     func login(email:String, pass:String){
         let request = AuthRequest(email: email, password: pass)
         self.loader = self.showLoader(msm: "Ingresando...")
-        viewModel.auth(rq: request)
+        viewModel?.auth(rq: request)
     }
     
     func setupObserver(){
         
-        viewModel.didFinishFetch = { response in
+        viewModel?.didFinishFetch = { response in
             if(response.data == nil){
                 self.loader?.dismiss(animated: true, completion: {
                     self.showAlertPopUp(title: "¡Ups!!", description: response.message, showCancel: false)
@@ -64,14 +65,14 @@ class LogInViewController: UIViewController, PopUpAlertProtocol {
             }
             
             let user:User = response.data!
-            LocalUserRepository().saveUser(user: user)
+            self.local.saveUser(user: user)
 
             self.loader?.dismiss(animated: true, completion: {
                 self.navigateMainStoryBoard()
             })
         }
         
-        viewModel.updateLoadingStatus = { st in
+        viewModel?.updateLoadingStatus = { st in
             if(st){
                 print("cargando...")
             }

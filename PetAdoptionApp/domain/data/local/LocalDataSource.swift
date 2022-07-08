@@ -7,12 +7,15 @@
 
 import Foundation
 
-protocol UserProtocol{
+protocol LocalDataProtocol{
     func saveUser(user:User)
     func getUser() -> User?
+    
+    func saveSetting(setting: Setting)
+    func getSetting()  -> Setting?
 }
 
-struct UserData : UserProtocol{
+struct LocalDataSource : LocalDataProtocol{
     
     func saveUser(user: User) {
         let userDefaults = UserDefaults.standard
@@ -32,5 +35,25 @@ struct UserData : UserProtocol{
         return nil
     }
     
+    
+    
+    
+    func saveSetting(setting: Setting) {
+        let userDefaults = UserDefaults.standard
+        do {
+            try userDefaults.setObject(setting, forKey: "key_setting")
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    
+    func getSetting() -> Setting? {
+        let userDefaults = UserDefaults.standard
+        if let setting = try?  userDefaults.getObject(forKey: "key_setting", castTo: Setting.self){
+            return setting
+        }
+        return nil
+    }
     
 }

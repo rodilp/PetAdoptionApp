@@ -7,9 +7,9 @@
 
 import Foundation
 class LogInViewModel {
-    private var auhtRepository: AuthProtocol?
+    private var auhtRepository: AuthRepositoryProtocol?
     
-    init(auhtRepository: AuthProtocol) {
+    init(auhtRepository: AuthRepositoryProtocol) {
             self.auhtRepository = auhtRepository
     }
     

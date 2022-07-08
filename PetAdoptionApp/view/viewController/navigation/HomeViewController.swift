@@ -18,10 +18,11 @@ class HomeViewController: UIViewController  {
     
     var categories:[Category] = []
     var pets:[Pet] = []
+    var filterPets:[Pet] = []
     
     // MARK: - Injection
     let viewModel = HomeViewModel(repo: PetDataSource())
-    let profile = LocalUserRepository()
+    var local = LocalDataRepository(localData: LocalDataSource())
  
 
     override func viewDidLoad() {
@@ -35,7 +36,7 @@ class HomeViewController: UIViewController  {
         
         categoryCollectionView.dataSource = self
         petCollectionView.dataSource = self
-        // Do any additional setup after loading the view.
+
 
     }
     
@@ -49,13 +50,36 @@ class HomeViewController: UIViewController  {
         searchTextField.searchTextField()
         imageLogo.roundBorder(corner: 0, round: true)
         
-        if let image = profile.getUser(){
+        if let image = local.getUser(){
             imageLogo.loadImage(url: image.image)
         }
         
         titleLabel.titleColor()
         sectionTitleLabel.titleColor()
+        
+        searchTextField.addTarget(self, action: #selector(searchPet(textField:)), for: .editingChanged)
     }
+    
+    
+    @objc private func searchPet(textField: UITextField) {
+       if let textField = searchTextField {
+           filterPets = []
+           if(textField.text == ""){
+                filterPets = pets
+            }
+            pets.forEach { pet in
+                let letter = pet.name + pet.race
+                if(letter.lowercased().contains(textField.text?.lowercased() ?? "")){
+                    filterPets.append(pet)
+                }
+            }
+        self.petCollectionView.reloadData()
+       }
+        
+    }
+    
+
+    
     
     func goToPetProfile(idPet:Int){
         let controller : PetProfileViewController = self.storyboard?.instantiateViewController(withIdentifier: "PetProfileViewController") as! PetProfileViewController
@@ -74,6 +98,7 @@ class HomeViewController: UIViewController  {
 extension HomeViewController: CategoryDelegate{
     func getPets(pets: [Pet]) {
         self.pets = pets
+        self.filterPets = pets
         petCollectionView.reloadData()
     }
     
@@ -91,7 +116,7 @@ extension HomeViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
        if(collectionView == petCollectionView){
-           return pets.count
+           return filterPets.count
         }
         
         return categories.count
@@ -127,7 +152,7 @@ extension HomeViewController: UICollectionViewDataSource{
             let cell2 = petCollectionView.dequeueReusableCell(withReuseIdentifier: "PetCollectionViewCell", for: indexPath) as! PetCollectionViewCell
             
             if(!pets.isEmpty){
-                let pet = pets[indexPath.row]
+                let pet = filterPets[indexPath.row]
                 cell2.nameLabel.text = pet.name
                 cell2.detailLabel.text = "\(pet.sex), \(pet.age) \(pet.ageTime)"
                 cell2.petImage.roundBorder(corner: 15, round: false)
@@ -153,7 +178,7 @@ extension HomeViewController: UICollectionViewDelegate{
         
         if(collectionView == petCollectionView){
             print("Cell Pets \(indexPath.row + 1) clicked")
-            let pet = pets[indexPath.row]
+            let pet = filterPets[indexPath.row]
             goToPetProfile(idPet: pet.idPet)
         }
         

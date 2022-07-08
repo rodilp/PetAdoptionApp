@@ -38,7 +38,7 @@ class PetProfileViewController: UIViewController, PopUpAlertProtocol {
     // MARK: - Injection
     let viewModel = PetProfileViewModel(petrepository: PetDataSource(), adoptionRepository: AdoptionDataSource())
     var loader : UIAlertController?
-    let user = LocalUserRepository().getUser()
+    var local = LocalDataRepository(localData: LocalDataSource())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +52,7 @@ class PetProfileViewController: UIViewController, PopUpAlertProtocol {
         
         setupObserver()
         viewModel.delegate = self
+        petBannerCollectionView.delegate = self
         petBannerCollectionView.dataSource = self
         pageControl.currentPage = 0
         
@@ -118,7 +119,7 @@ class PetProfileViewController: UIViewController, PopUpAlertProtocol {
         addressLabel.text = pet.address
         ageLabel.text = "\(pet.age), \(pet.ageTime)"
         
-        let idUser = user?.idUser ?? -1
+        let idUser = local.getUser()?.idUser ?? -1
         
         if let owner = pet.owner {
             ownerLogo.loadImage(url: owner.image)
@@ -142,7 +143,7 @@ class PetProfileViewController: UIViewController, PopUpAlertProtocol {
     
     
     func AlertAcceptAction(action: Bool) {
-        let idUser = LocalUserRepository().getUser()?.idUser
+        let idUser = local.getUser()?.idUser
         let requestAdoption = AdoptionRequest(idUser!, idPet)
         
         self.loader = self.showLoader(msm: "Solicitando...")
@@ -162,7 +163,7 @@ extension PetProfileViewController: PetDelegate{
     
 }
 
-extension PetProfileViewController: UICollectionViewDataSource {
+extension PetProfileViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return petImages.count
@@ -175,6 +176,17 @@ extension PetProfileViewController: UICollectionViewDataSource {
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    
+    
  
 }
 
@@ -182,4 +194,6 @@ extension PetProfileViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         pageControl.currentPage = indexPath.row
     }
+    
+  
 }
