@@ -8,6 +8,8 @@
 import UIKit
 
 class SignUpViewController: UIViewController {
+    
+    static let name:String = "SignUp"
 
     @IBOutlet weak var cardBackBackground: UIView!
     @IBOutlet weak var cardBodyView: UIView!
@@ -33,21 +35,21 @@ class SignUpViewController: UIViewController {
         viewModel.onSuccessRegister = { response in
             self.loader?.dismiss(animated: true, completion: {
                 self.cleanInputs()
-                self.showSuccessPopUp(title: "¡Felicitaciones!", description: response.message)
+                self.showSuccessPopUp(title: NSLocalizedString("alert_title_success", comment: ""), description: response.message)
 
             })
         }
         
         viewModel.onAlertRegister = { message in
             self.loader?.dismiss(animated: true, completion: {
-                self.showAlertPopUp(title: "¡Ups!", description: message, showCancel: false)
+                self.showAlertPopUp(title:  NSLocalizedString("alert_title_error", comment: ""), description: message, showCancel: false)
 
             })
         }
         
         viewModel.onError = {
             self.loader?.dismiss(animated: true, completion: {
-                self.showAlertPopUp(title: "¡Ups!", description: "Ocurrio un error con el servidor", showCancel: false)
+                self.showAlertPopUp(title:  NSLocalizedString("alert_title_error", comment: ""), description: "Ocurrio un error con el servidor", showCancel: false)
    
             })
             

@@ -76,7 +76,7 @@ class AdoptionViewController: UIViewController {
 
 extension AdoptionViewController: AdoptionDelegate, CellProtocol, PopUpSuccessProtocol{
     
-    func successAcceptAction(action: Bool) {
+    func onSuccessAcceptAction() {
         loadAdoptions()
     }
     

@@ -40,7 +40,6 @@
 		452D1DCB2873C06100748E52 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452D1DCA2873C06100748E52 /* LocalDataSource.swift */; };
 		452D1DCD2873C33A00748E52 /* LocalDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452D1DCC2873C33A00748E52 /* LocalDataRepository.swift */; };
 		4530A5992878A9BF007627E4 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4530A5982878A9BF007627E4 /* Setting.swift */; };
-		4530A59E2878F2C3007627E4 /* PopUpProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4530A59D2878F2C3007627E4 /* PopUpProtocol.swift */; };
 		453D786B286786E500EBC53A /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453D786A286786E500EBC53A /* PopUp.storyboard */; };
 		453D786E2867884400EBC53A /* AlertPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D786D2867884400EBC53A /* AlertPopUpViewController.swift */; };
 		454074202861F3CD0076E075 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4540741F2861F3CD0076E075 /* UIExtensions.swift */; };
@@ -57,6 +56,8 @@
 		455505D02866536D0095D71A /* AdoptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455505CF2866536D0095D71A /* AdoptionViewController.swift */; };
 		455505D2286653A30095D71A /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455505D1286653A30095D71A /* MainTabBarViewController.swift */; };
 		455505D4286659EA0095D71A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455505D3286659EA0095D71A /* HomeViewController.swift */; };
+		456EBEF6287CA3680060B834 /* PopUpProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EBEF5287CA3680060B834 /* PopUpProtocol.swift */; };
+		456EBEF9287CA5940060B834 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 456EBEFB287CA5940060B834 /* Localizable.strings */; };
 		458523C62869E8A7007C9F07 /* AuthDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458523C52869E8A7007C9F07 /* AuthDataSource.swift */; };
 		458523C92869E992007C9F07 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458523C82869E992007C9F07 /* User.swift */; };
 		458523CD2869EA1E007C9F07 /* AuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458523CC2869EA1E007C9F07 /* AuthRequest.swift */; };
@@ -106,7 +107,6 @@
 		452D1DCA2873C06100748E52 /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
 		452D1DCC2873C33A00748E52 /* LocalDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataRepository.swift; sourceTree = "<group>"; };
 		4530A5982878A9BF007627E4 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
-		4530A59D2878F2C3007627E4 /* PopUpProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpProtocol.swift; sourceTree = "<group>"; };
 		453D786A286786E500EBC53A /* PopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUp.storyboard; sourceTree = "<group>"; };
 		453D786D2867884400EBC53A /* AlertPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPopUpViewController.swift; sourceTree = "<group>"; };
 		4540741F2861F3CD0076E075 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
@@ -123,6 +123,8 @@
 		455505CF2866536D0095D71A /* AdoptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdoptionViewController.swift; sourceTree = "<group>"; };
 		455505D1286653A30095D71A /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		455505D3286659EA0095D71A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		456EBEF5287CA3680060B834 /* PopUpProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpProtocol.swift; sourceTree = "<group>"; };
+		456EBEFA287CA5940060B834 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		458523C52869E8A7007C9F07 /* AuthDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataSource.swift; sourceTree = "<group>"; };
 		458523C82869E992007C9F07 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		458523CC2869EA1E007C9F07 /* AuthRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequest.swift; sourceTree = "<group>"; };
@@ -281,7 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				452D1DC22873BAF200748E52 /* ObjectSavable.swift */,
-				4530A59D2878F2C3007627E4 /* PopUpProtocol.swift */,
+				456EBEF5287CA3680060B834 /* PopUpProtocol.swift */,
 			);
 			path = protocols;
 			sourceTree = "<group>";
@@ -298,6 +300,7 @@
 		4540741E2861F3A70076E075 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				456EBEF2287C9E5E0060B834 /* resources */,
 				452D1DC42873BE6400748E52 /* extensions */,
 				4506D578286B7C2B006CD863 /* lottie */,
 				458523D3286A0687007C9F07 /* network */,
@@ -350,6 +353,14 @@
 				4506D582286BB95A006CD863 /* ProfileViewController.swift */,
 			);
 			path = navigation;
+			sourceTree = "<group>";
+		};
+		456EBEF2287C9E5E0060B834 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				456EBEFB287CA5940060B834 /* Localizable.strings */,
+			);
+			path = resources;
 			sourceTree = "<group>";
 		};
 		458523C32869E608007C9F07 /* domain */ = {
@@ -502,6 +513,7 @@
 				454074242861FEEE0076E075 /* LogIn.storyboard in Resources */,
 				450B3F1D28611D8A00F1B025 /* LaunchScreen.storyboard in Resources */,
 				450B3F1A28611D8A00F1B025 /* Assets.xcassets in Resources */,
+				456EBEF9287CA5940060B834 /* Localizable.strings in Resources */,
 				450B3F1828611D8900F1B025 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -562,7 +574,6 @@
 				45004B0328764874003A0557 /* AuthModule.swift in Sources */,
 				45407428286202260076E075 /* ViewExtension.swift in Sources */,
 				4506D57E286BAC1F006CD863 /* AppUtils.swift in Sources */,
-				4530A59E2878F2C3007627E4 /* PopUpProtocol.swift in Sources */,
 				4554A21E286E18EE001A2FE3 /* HomeViewModel.swift in Sources */,
 				4506D577286B7A0C006CD863 /* SuccessViewController.swift in Sources */,
 				458523C62869E8A7007C9F07 /* AuthDataSource.swift in Sources */,
@@ -580,6 +591,7 @@
 				45E5368A28734C9F00260F6F /* PetProfileViewModel.swift in Sources */,
 				450B3F1528611D8900F1B025 /* ViewController.swift in Sources */,
 				4506D58D286D0ED9006CD863 /* Pet.swift in Sources */,
+				456EBEF6287CA3680060B834 /* PopUpProtocol.swift in Sources */,
 				4505DC722874B06900D104EF /* AdoptionDataSource.swift in Sources */,
 				4505DC742874B0B000D104EF /* AdoptionRepository.swift in Sources */,
 				452D1DCB2873C06100748E52 /* LocalDataSource.swift in Sources */,
@@ -629,6 +641,14 @@
 				450B3F1C28611D8A00F1B025 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		456EBEFB287CA5940060B834 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				456EBEFA287CA5940060B834 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

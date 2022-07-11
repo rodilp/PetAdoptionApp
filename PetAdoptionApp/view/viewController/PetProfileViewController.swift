@@ -7,10 +7,8 @@
 
 import UIKit
 
-class PetProfileViewController: UIViewController, PopUpAlertProtocol {
+class PetProfileViewController: UIViewController, PopUpProtocol {
 
-    
-    
     var page:Int!
     var idPet:Int = -1
 
@@ -44,7 +42,6 @@ class PetProfileViewController: UIViewController, PopUpAlertProtocol {
         super.viewDidLoad()
         
         setupView()
-        print("idpet \(idPet)")
         
         if(idPet != -1){
             viewModel.getPetById(id: idPet)
@@ -101,10 +98,11 @@ class PetProfileViewController: UIViewController, PopUpAlertProtocol {
     @IBAction func adoptionButton(_ sender: UIButton) {
         adoptionBt.bounce()
         
-        self.showAlertPopUp(title: "¡Confirmación!", description: "Estas seguro de enviar su solicitud de adopcion?", showCancel: true)
+        
+        self.showAlertPopUp(title: NSLocalizedString("alert_title_confirm", comment: ""), description: NSLocalizedString("alert_msm_confirm", comment: ""), showCancel: true)
     }
     
-    
+   
     func setupObserver(){
         viewModel.didFinishAdoptionRequest  = { response in
             self.loader?.dismiss(animated: true, completion: {
@@ -142,13 +140,18 @@ class PetProfileViewController: UIViewController, PopUpAlertProtocol {
     }
     
     
-    func AlertAcceptAction(action: Bool) {
+    func onAcceptAction() {
         let idUser = local.getUser()?.idUser
         let requestAdoption = AdoptionRequest(idUser!, idPet)
         
         self.loader = self.showLoader(msm: "Solicitando...")
         viewModel.requestAdoption(request: requestAdoption)
     }
+    
+    func onCancelAction() {
+        print("cancel")
+    }
+    
     
 }
 

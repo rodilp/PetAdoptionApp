@@ -8,9 +8,8 @@
 import UIKit
 import Alamofire
 
-class LogInViewController: UIViewController, PopUpAlertProtocol {
-    
-    
+class LogInViewController: UIViewController {
+
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
@@ -50,7 +49,7 @@ class LogInViewController: UIViewController, PopUpAlertProtocol {
     
     func login(email:String, pass:String){
         let request = AuthRequest(email: email, password: pass)
-        self.loader = self.showLoader(msm: "Ingresando...")
+        self.loader = self.showLoader(msm: NSLocalizedString("alert_msm_entering", comment: ""))
         viewModel?.auth(rq: request)
     }
     
@@ -59,7 +58,7 @@ class LogInViewController: UIViewController, PopUpAlertProtocol {
         viewModel?.didFinishFetch = { response in
             if(response.data == nil){
                 self.loader?.dismiss(animated: true, completion: {
-                    self.showAlertPopUp(title: "¡Ups!!", description: response.message, showCancel: false)
+                    self.showAlertPopUp(title: NSLocalizedString("alert_title_error", comment: ""), description: response.message, showCancel: false)
                 })
                 return
             }
@@ -106,22 +105,19 @@ class LogInViewController: UIViewController, PopUpAlertProtocol {
     }
     
     func navigateOtherStoryBoard(){
-        let nextStory = UIStoryboard(name: "SignUp", bundle: nil)
+        let nextStory = UIStoryboard(name: SignUpViewController.name, bundle: nil)
         let viewC = nextStory.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
         self.navigationController?.pushViewController(viewC, animated: true)
     }
     
     func navigateMainStoryBoard(){
-        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainTBC") as? UITabBarController {
+        if let vc = UIStoryboard(name: MainTabBarViewController.name, bundle: nil).instantiateViewController(withIdentifier: "MainTBC") as? UITabBarController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 
-    func AlertAcceptAction(action: Bool) {
-        print("Acept Pressed..")
-    }
     
-    
-    
-    
+
 }
+
+

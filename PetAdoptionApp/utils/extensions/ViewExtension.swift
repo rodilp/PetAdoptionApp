@@ -116,7 +116,7 @@ extension UIViewController {
             popupVc.modalPresentationStyle = .custom
             popupVc.modalTransitionStyle = .crossDissolve
             
-            popupVc.delegate = self as? PopUpAlertProtocol
+            popupVc.delegate = self as? PopUpProtocol
             present(popupVc, animated: true)
             
         }
