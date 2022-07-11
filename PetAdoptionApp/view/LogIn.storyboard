@@ -168,6 +168,21 @@
             </objects>
             <point key="canvasLocation" x="1878.2608695652175" y="-260.49107142857144"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="iUY-IX-fxF">
+            <objects>
+                <viewController id="9vC-Ka-JmG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lbJ-Jz-Zaf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="aCw-ez-12q"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cKC-ul-2ik" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1074" y="-697"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="mBa-kB-XPv">
             <objects>
@@ -184,7 +199,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AqO-fC-mXT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="968.11594202898561" y="-260.49107142857144"/>
+            <point key="canvasLocation" x="258" y="-279"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="Ld2-5a-qUN">
