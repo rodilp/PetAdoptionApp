@@ -137,7 +137,7 @@ extension AdoptionViewController: UITableViewDataSource{
         cell.userDetailLabel.detailColor()
         cell.petImage.roundBorder(corner: 15, round: false)
         cell.userImage.roundBorder(corner: 0, round: true)
-        cell.statusButton.roundButton()
+        cell.statusButton.primaryRoundButton()
         cell.iconStatus.alpha = 0
      
         
@@ -153,7 +153,7 @@ extension AdoptionViewController: UITableViewDataSource{
                 cell.iconStatus.alpha = 1
             }else{
                 cell.statusButton.setTitle("Aceptar adopción", for: .normal)
-                cell.statusButton.roundButton()
+                cell.statusButton.primaryRoundButton()
                 cell.statusButton.isEnabled = true
                 cell.iconStatus.alpha = 0
             }

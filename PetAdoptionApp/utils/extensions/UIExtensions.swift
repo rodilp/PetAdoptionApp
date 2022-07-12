@@ -10,15 +10,21 @@ import UIKit
 
 
 extension UIButton{
-    func roundButton(){
-        layer.cornerRadius = bounds.height/2
-        tintColor = UIColor.orange
-        clipsToBounds = true
+    func primaryRoundButton(){
+        self.mainRoundButton(color: UIColor.orange)
     }
     
     func cancelButton(){
+        self.mainRoundButton(color: UIColor.gray)
+    }
+    
+    func startButton(){
+        self.mainRoundButton(color: UIColor.white)
+    }
+    
+    func mainRoundButton(color: UIColor){
         layer.cornerRadius = bounds.height/2
-        tintColor = UIColor.gray
+        tintColor = color
         clipsToBounds = true
     }
     

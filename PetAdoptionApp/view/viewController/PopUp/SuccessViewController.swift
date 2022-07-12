@@ -39,7 +39,7 @@ class SuccessViewController: UIViewController {
         cardBackground.layer.borderWidth = 1.2
         cardBackground.layer.borderColor = AppUtils.GRAY.cgColor
     
-        acceptButton.roundButton()
+        acceptButton.primaryRoundButton()
         
         popupTitle.text =  messageTitle
         popupDescription.text = messageDescription

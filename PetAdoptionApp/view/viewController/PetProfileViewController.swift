@@ -31,6 +31,8 @@ class PetProfileViewController: UIViewController, PopUpProtocol {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var adoptionBt: UIButton!
     
+    fileprivate let application = UIApplication.shared
+    
     var petImages:[Image] = []
     
     // MARK: - Injection
@@ -87,7 +89,7 @@ class PetProfileViewController: UIViewController, PopUpProtocol {
         descriptionTitleLabel.titleColor()
         descriptionLabel.detailColor()
         
-        adoptionBt.roundButton()
+        adoptionBt.primaryRoundButton()
     }
     
     
@@ -96,10 +98,11 @@ class PetProfileViewController: UIViewController, PopUpProtocol {
     }
     
     @IBAction func adoptionButton(_ sender: UIButton) {
-        adoptionBt.bounce()
+        //adoptionBt.bounce()
+    
+       //self.showAlertPopUp(title: NSLocalizedString("alert_title_confirm", comment: ""), description: NSLocalizedString("alert_msm_confirm", comment: ""), showCancel: true)
         
-        
-        self.showAlertPopUp(title: NSLocalizedString("alert_title_confirm", comment: ""), description: NSLocalizedString("alert_msm_confirm", comment: ""), showCancel: true)
+        self.call(phoneNumber: "+51920888949")
     }
     
    
@@ -135,8 +138,6 @@ class PetProfileViewController: UIViewController, PopUpProtocol {
         descriptionTitleLabel.text = pet.name.formatDescriptionTitle()
         descriptionLabel.text = pet.description
         sexLogo.image = self.getIconBySex(sex: pet.sex)
-        
-       
     }
     
     
@@ -150,6 +151,19 @@ class PetProfileViewController: UIViewController, PopUpProtocol {
     
     func onCancelAction() {
         print("cancel")
+    }
+    
+    
+    func call(phoneNumber: String){
+        if(!phoneNumber.isEmpty){
+            let cad = "tel://" + phoneNumber
+            guard let phoneUrl = URL(string: cad) else { return  }
+            if application.canOpenURL(phoneUrl){
+                application.open(phoneUrl, options: [:], completionHandler: nil)
+            }else{
+                //alert
+            }
+        }
     }
     
     

@@ -21,4 +21,8 @@ class LocalDataRepository {
     
     func getSetting() -> Setting? {return localData?.getSetting()}
     func saveSettign(sett:Setting){ localData?.saveSetting(setting: sett)}
+    
+    func clearLocalData(key:String){
+        localData?.clearLocalData(key: key)
+    }
 }

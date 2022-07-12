@@ -8,5 +8,10 @@
 import Foundation
 
 struct Setting:Codable {
-    let isLauchApp:Bool
+    var isLauchApp:Bool = false
+    
+    init(isLaunchApp:Bool){
+        self.isLauchApp = isLaunchApp
+    }
+
 }

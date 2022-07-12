@@ -28,11 +28,13 @@ class LogInViewController: UIViewController {
         super.viewDidLoad()
 
         setupView()
-        verifyAuth()
+        //verifyAuth()
 
         let authRepository = AuthRepository(dataSoruce: AuthDataSource())
         viewModel =  LogInViewModel(auhtRepository: authRepository)
         
+
+        print("Main:::LOGIN")
        
     }
 
@@ -43,7 +45,7 @@ class LogInViewController: UIViewController {
     
     func verifyAuth(){
         if local.getUser() != nil {
-            navigateMainStoryBoard()
+            goToMain()
         }
     }
     
@@ -67,7 +69,7 @@ class LogInViewController: UIViewController {
             self.local.saveUser(user: user)
 
             self.loader?.dismiss(animated: true, completion: {
-                self.navigateMainStoryBoard()
+                self.goToMain()
             })
         }
         
@@ -85,8 +87,9 @@ class LogInViewController: UIViewController {
 
     
     func setupView(){
+        self.navigationItem.setHidesBackButton(true, animated: true)
         cardBody.roundCorners(corners: .topLeft, radius: 60)
-        signInButton.roundButton()
+        signInButton.primaryRoundButton()
         emailTextField.roundTextField()
         passwordTextField.roundTextField()
     }
@@ -101,19 +104,35 @@ class LogInViewController: UIViewController {
     
     @IBAction func SignUp(_ sender: Any) {
         let controller : SignUpViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
-            self.navigationController?.pushViewController(controller, animated: true)
+        self.navigationController?.pushViewController(controller, animated: true)
+      
     }
     
-    func navigateOtherStoryBoard(){
-        let nextStory = UIStoryboard(name: SignUpViewController.name, bundle: nil)
-        let viewC = nextStory.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
-        self.navigationController?.pushViewController(viewC, animated: true)
-    }
     
     func navigateMainStoryBoard(){
-        if let vc = UIStoryboard(name: MainTabBarViewController.name, bundle: nil).instantiateViewController(withIdentifier: "MainTBC") as? UITabBarController {
+        if let vc = UIStoryboard(name: MainTabBarViewController.name, bundle: nil).instantiateViewController(withIdentifier: "MainTBC") as? MainTabBarViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+    
+    func goToMain(){
+        let onboardingViewController = UIStoryboard(name: App.StoryBoardID.main, bundle: nil).instantiateViewController(withIdentifier: App.StoryBoardID.mainHomeViewController)
+        
+        if let sceneDelegate = view.window?.windowScene?.delegate as? SceneDelegate,
+           let window = sceneDelegate.window {
+            window.rootViewController = onboardingViewController
+            window.makeKeyAndVisible()
+            
+            UIView.transition(with: window, duration: 0.25, options: .transitionCrossDissolve, animations: nil, completion: nil)
+        }
+    }
+    
+    func goToRegister(){
+        let story = UIStoryboard(name: "LogIn", bundle:nil)
+        let vc = story.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        UIApplication.shared.windows.first?.rootViewController = vc
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+
     }
 
     

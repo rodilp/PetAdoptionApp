@@ -48,6 +48,7 @@ class ProfileViewController: UIViewController {
     
     @objc private func exitAccount(_ sender:UITapGestureRecognizer){
         print("Exit")
+        logOut()
     }
     
     func loadInfoUser(){
@@ -56,6 +57,31 @@ class ProfileViewController: UIViewController {
             userDetailLabel.text = user.email
             userLogo.loadImage(url: user.image)
         }
+    }
+    
+    func logOut(){
+        local.clearLocalData(key: "key_user_profile")
+        //UIApplication.shared.delegate?.window!?.rootViewController = UIStoryboard(name: "LogIn", bundle: nil).instantiateInitialViewController()
+        //navigateMainStoryBoard()
+
+        goToLoginV2()
+       
+    
+            
+    }
+    
+    func navigateMainStoryBoard(){
+        if let vc = UIStoryboard(name: "LogIn", bundle: nil).instantiateViewController(withIdentifier: "OnboardingViewController") as? UITabBarController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    
+    func goToLoginV2(){
+        let story = UIStoryboard(name: "LogIn", bundle:nil)
+        let vc = story.instantiateViewController(withIdentifier: "LogInViewController") as! LogInViewController
+        UIApplication.shared.windows.first?.rootViewController = vc
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
     
 

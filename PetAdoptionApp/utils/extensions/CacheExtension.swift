@@ -30,4 +30,9 @@ extension UserDefaults: ObjectSavable {
             throw ObjectSavableError.unableToDecode
         }
     }
+    
+    func deleteData(key:String){
+        self.removeObject(forKey: key)
+        self.synchronize()
+    }
 }

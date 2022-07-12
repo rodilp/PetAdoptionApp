@@ -13,9 +13,16 @@ protocol LocalDataProtocol{
     
     func saveSetting(setting: Setting)
     func getSetting()  -> Setting?
+    
+    func clearLocalData(key:String)
 }
 
 struct LocalDataSource : LocalDataProtocol{
+    func clearLocalData(key: String) {
+        let userDefaults = UserDefaults.standard
+        userDefaults.deleteData(key: key)
+    }
+    
     
     func saveUser(user: User) {
         let userDefaults = UserDefaults.standard

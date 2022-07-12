@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ADH-mr-ASv">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboarding View Controller-->
+        <scene sceneID="Yqm-a5-YRt">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingViewController" id="cwG-qg-Osq" customClass="OnboardingViewController" customModule="PetAdoptionApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dCK-xi-LYy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_onboarding" translatesAutoresizingMaskIntoConstraints="NO" id="L27-LS-mkR">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bl7-mg-M75">
+                                <rect key="frame" x="107" y="735" width="200" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="0Ck-rx-S7c"/>
+                                    <constraint firstAttribute="width" constant="200" id="I4G-On-b5g"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Empecemos">
+                                    <color key="baseForegroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="start:" destination="cwG-qg-Osq" eventType="touchUpInside" id="Y4W-n4-TPy"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pet Adoption" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VS6-WT-xbK">
+                                <rect key="frame" x="25" y="128" width="364" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Has un nuevo amigo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MR-XJ-C2d">
+                                <rect key="frame" x="25" y="166.5" width="364" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="J4u-KI-iRt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="J4u-KI-iRt" firstAttribute="trailing" secondItem="VS6-WT-xbK" secondAttribute="trailing" constant="25" id="0Y9-uK-wyP"/>
+                            <constraint firstItem="VS6-WT-xbK" firstAttribute="leading" secondItem="J4u-KI-iRt" secondAttribute="leading" constant="25" id="3nN-a3-ZvM"/>
+                            <constraint firstItem="4MR-XJ-C2d" firstAttribute="leading" secondItem="J4u-KI-iRt" secondAttribute="leading" constant="25" id="6kN-5b-o3f"/>
+                            <constraint firstItem="J4u-KI-iRt" firstAttribute="bottom" secondItem="bl7-mg-M75" secondAttribute="bottom" constant="76" id="EpF-a3-nAv"/>
+                            <constraint firstItem="J4u-KI-iRt" firstAttribute="bottom" secondItem="L27-LS-mkR" secondAttribute="bottom" id="NlV-Si-NSU"/>
+                            <constraint firstItem="bl7-mg-M75" firstAttribute="centerX" secondItem="dCK-xi-LYy" secondAttribute="centerX" id="ajc-m1-Zxf"/>
+                            <constraint firstItem="VS6-WT-xbK" firstAttribute="top" secondItem="J4u-KI-iRt" secondAttribute="top" constant="40" id="bju-tR-Gky"/>
+                            <constraint firstItem="L27-LS-mkR" firstAttribute="leading" secondItem="J4u-KI-iRt" secondAttribute="leading" id="jmf-k7-l7O"/>
+                            <constraint firstItem="L27-LS-mkR" firstAttribute="top" secondItem="dCK-xi-LYy" secondAttribute="top" id="seD-jp-jVA"/>
+                            <constraint firstItem="4MR-XJ-C2d" firstAttribute="top" secondItem="VS6-WT-xbK" secondAttribute="bottom" constant="5" id="uFh-L5-3l9"/>
+                            <constraint firstItem="J4u-KI-iRt" firstAttribute="trailing" secondItem="4MR-XJ-C2d" secondAttribute="trailing" constant="25" id="vd0-dR-Zk1"/>
+                            <constraint firstItem="J4u-KI-iRt" firstAttribute="trailing" secondItem="L27-LS-mkR" secondAttribute="trailing" id="yFD-gm-je3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="0CI-Br-FHd"/>
+                    <connections>
+                        <outlet property="buttonStart" destination="bl7-mg-M75" id="15U-Sj-UAO"/>
+                        <outlet property="detailLabel" destination="4MR-XJ-C2d" id="NdS-Xt-TVQ"/>
+                        <outlet property="titleLabel" destination="VS6-WT-xbK" id="3ro-5G-crO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DKi-94-NDb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1834.7826086956522" y="-390.40178571428572"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="og0-Zm-h97">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ADH-mr-ASv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IM5-9a-ewC">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cwG-qg-Osq" kind="relationship" relationship="rootViewController" id="7fU-qv-VkL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rf5-R3-LSL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="924.63768115942037" y="-390.40178571428572"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="image_onboarding" width="2620" height="4580"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

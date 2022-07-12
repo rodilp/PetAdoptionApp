@@ -8,8 +8,6 @@
 import UIKit
 
 class SignUpViewController: UIViewController {
-    
-    static let name:String = "SignUp"
 
     @IBOutlet weak var cardBackBackground: UIView!
     @IBOutlet weak var cardBodyView: UIView!
@@ -68,7 +66,7 @@ class SignUpViewController: UIViewController {
         emailTextField.roundTextField()
         passwordTextField.roundTextField()
         confirmPasswordTextField.roundTextField()
-        createAccountButton.roundButton()
+        createAccountButton.primaryRoundButton()
     }
     
     

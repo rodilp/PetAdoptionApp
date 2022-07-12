@@ -40,7 +40,7 @@ class AlertPopUpViewController: UIViewController {
         cardBox.layer.borderWidth = 1.2
         cardBox.layer.borderColor = AppUtils.GRAY.cgColor
         
-        accepButton.roundButton()
+        accepButton.primaryRoundButton()
         cancelButton.cancelButton()
         
         popupTitle.text = messageTitle
