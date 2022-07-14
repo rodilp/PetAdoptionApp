@@ -10,13 +10,12 @@ import Foundation
 import Foundation
 import Alamofire
 
-protocol AdoptionProtocol {
-    func requestAdoption(request:AdoptionRequest, completion: @escaping (BaseResponse?, Error?) -> Void)
-    func approveAdoption(request:ApproveAdoptionRequest, completion: @escaping (BaseResponse?, Error?) -> Void)
-    func adoptionStatus(id:Int,completion: @escaping (AdoptionStatusResponse?, Error?) -> Void)
-}
 
-struct AdoptionDataSource : AdoptionProtocol {
+
+struct AdoptionDataSource{
+    static let shared = AdoptionDataSource()
+    private init() {}
+    
     func adoptionStatus(id:Int, completion: @escaping (AdoptionStatusResponse?, Error?) -> Void) {
         let api = ApiUtils.apiAdoptionList.getService() + String(id)
         print(api)

@@ -7,11 +7,31 @@
 
 import Foundation
 
-struct AdoptionRepository{
-    private let remote = AdoptionDataSource()
+protocol AdoptionRepositoryProtocol {
+    func requestAdoption(request:AdoptionRequest, completion: @escaping (BaseResponse?, Error?) -> Void)
+    func approveAdoption(request:ApproveAdoptionRequest, completion: @escaping (BaseResponse?, Error?) -> Void)
+    func adoptionStatus(id:Int,completion: @escaping (AdoptionStatusResponse?, Error?) -> Void)
+}
+
+struct AdoptionRepository: AdoptionRepositoryProtocol{
     
+    private let service = AdoptionDataSource.shared
+    
+    
+    func approveAdoption(request: ApproveAdoptionRequest, completion: @escaping (BaseResponse?, Error?) -> Void) {
+        service.approveAdoption(request: request) { response, error in
+            completion(response, error)
+        }
+    }
+    
+    func adoptionStatus(id: Int, completion: @escaping (AdoptionStatusResponse?, Error?) -> Void) {
+        service.adoptionStatus(id: id) { response, error in
+            completion(response, error)
+        }
+    }
+
     func requestAdoption(request: AdoptionRequest, completion: @escaping  (BaseResponse?, Error?) -> Void) {
-        remote.requestAdoption(request: request) { response, error in
+        service.requestAdoption(request: request) { response, error in
             completion(response, error)
         }
     }

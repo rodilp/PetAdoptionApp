@@ -14,11 +14,11 @@ protocol PetDelegate{
 class PetProfileViewModel{
     
     var delegate : PetDelegate?
-    private var petrepository: PetProtocol?
-    private let adoptionRepository : AdoptionProtocol?
+    private var petRepository: PetRepositoryProtocol?
+    private let adoptionRepository : AdoptionRepositoryProtocol?
     
-    init(petrepository: PetProtocol, adoptionRepository:AdoptionProtocol) {
-        self.petrepository = petrepository
+    init(petrepository: PetRepositoryProtocol, adoptionRepository:AdoptionRepositoryProtocol) {
+        self.petRepository = petrepository
         self.adoptionRepository = adoptionRepository
     }
     
@@ -31,7 +31,7 @@ class PetProfileViewModel{
     
     
     func getPetById(id:Int){
-        petrepository?.getPetById(id: id, completion: { response, error in
+        petRepository?.getPetById(id: id, completion: { response, error in
             if(response?.code == HttpUtil.OK){
                 let pet = response?.data
                 self.delegate?.getPet(pet: pet!)

@@ -8,14 +8,12 @@
 import Foundation
 import Alamofire
 
-protocol PetProtocol{
-    func getCategories(completion: @escaping (CategoryResponse?, Error?) -> Void)
-    func getPets(completion: @escaping (PetResponse?, Error?) -> Void)
-    func getPetByCategory(id:Int, completion: @escaping (PetResponse?, Error?) -> Void)
-    func getPetById(id:Int, completion: @escaping (PetProfileResponse?, Error?) -> Void)
-}
 
-struct PetDataSource: PetProtocol{
+
+class PetDataSource{
+    static let shared = PetDataSource()
+    private init() {}
+    
     func getCategories(completion: @escaping (CategoryResponse?, Error?) -> Void) {
         let api = ApiUtils.apiCategory.getService()
         AF.request(api, method: .get, headers: nil).response { response in

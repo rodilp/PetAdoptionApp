@@ -13,9 +13,9 @@ protocol AdoptionDelegate{
 class AdoptionViewModel {
     var delegate: AdoptionDelegate?
     
-    private var adoptionRepository: AdoptionProtocol?
+    private var adoptionRepository: AdoptionRepositoryProtocol?
     
-    init(adoptionRepository: AdoptionProtocol) {
+    init(adoptionRepository: AdoptionRepositoryProtocol) {
         self.adoptionRepository = adoptionRepository
     }
     

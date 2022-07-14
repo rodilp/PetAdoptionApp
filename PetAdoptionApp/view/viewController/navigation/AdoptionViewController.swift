@@ -15,7 +15,7 @@ class AdoptionViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var iconAdoption: UIImageView!
     
-    let viewModel = AdoptionViewModel(adoptionRepository: AdoptionDataSource())
+    let viewModel = AdoptionViewModel(adoptionRepository: AdoptionRepository())
     var adoptions : [Adoption] = []
     let local = LocalDataRepository(localData: LocalDataSource())
     var loader : UIAlertController?

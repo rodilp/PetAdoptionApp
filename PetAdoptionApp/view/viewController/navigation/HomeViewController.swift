@@ -21,7 +21,7 @@ class HomeViewController: UIViewController  {
     var filterPets:[Pet] = []
     
     // MARK: - Injection
-    let viewModel = HomeViewModel(repo: PetDataSource())
+    let viewModel = HomeViewModel(repo: PetRepository())
     var local = LocalDataRepository(localData: LocalDataSource())
  
 

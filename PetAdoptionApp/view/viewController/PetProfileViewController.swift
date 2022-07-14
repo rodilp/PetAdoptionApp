@@ -36,7 +36,7 @@ class PetProfileViewController: UIViewController, PopUpProtocol {
     var petImages:[Image] = []
     
     // MARK: - Injection
-    let viewModel = PetProfileViewModel(petrepository: PetDataSource(), adoptionRepository: AdoptionDataSource())
+    let viewModel = PetProfileViewModel(petrepository: PetRepository(), adoptionRepository: AdoptionRepository())
     var loader : UIAlertController?
     var local = LocalDataRepository(localData: LocalDataSource())
     

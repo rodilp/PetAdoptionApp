@@ -6,30 +6,36 @@
 //
 
 import Foundation
+protocol PetRepositoryProtocol{
+    func getCategories(completion: @escaping (CategoryResponse?, Error?) -> Void)
+    func getPets(completion: @escaping (PetResponse?, Error?) -> Void)
+    func getPetByCategory(id:Int, completion: @escaping (PetResponse?, Error?) -> Void)
+    func getPetById(id:Int, completion: @escaping (PetProfileResponse?, Error?) -> Void)
+}
 
-struct PetRepository{
-    private let remote = PetDataSource()
+class PetRepository:PetRepositoryProtocol{
     
+    private let service = PetDataSource.shared
     func getCategories(completion: @escaping (CategoryResponse?, Error?) -> Void) {
-        remote.getCategories { response, error in
+        service.getCategories { response, error in
             completion(response, error)
         }
     }
     
     func getPets(completion: @escaping (PetResponse?, Error?) -> Void) {
-        remote.getPets { response, error in
+        service.getPets { response, error in
             completion(response, error)
         }
     }
     
     func getPetByCategory(id:Int, completion: @escaping (PetResponse?, Error?) -> Void) {
-        remote.getPetByCategory(id: id) { response, error in
+        service.getPetByCategory(id: id) { response, error in
             completion(response, error)
         }
     }
     
     func getPetById(id:Int, completion: @escaping (PetProfileResponse?, Error?) -> Void) {
-        remote.getPetById(id: id) { response, error in
+        service.getPetById(id: id) { response, error in
             completion(response, error)
         }
     }
