@@ -15,22 +15,16 @@ protocol AuthRepositoryProtocol{
 
 class AuthRepository: AuthRepositoryProtocol{
     
-    private let dataSource: AuthProtocol?
-    
-    required init(dataSoruce: AuthProtocol){
-        self.dataSource = dataSoruce
-    
-    }
-  
+    let service = AuthDataSource.shared
 
     func createAccount(request: AccountRequest, completion: @escaping (AuthResponse?, Error?) -> Void){
-        dataSource?.createAccount(request: request) { response, error in
+        service.createAccount(request: request) { response, error in
             completion(response,error)
         }
     }
     
     func auth(request: AuthRequest, completion: @escaping (AuthResponse?, Error?) -> Void ){
-        dataSource?.auth(request: request) { response, error in
+        service.auth(request: request) { response, error in
             completion(response, error)
         }
     }

@@ -8,13 +8,12 @@
 import Foundation
 import Alamofire
 
-protocol AuthProtocol {
-    func createAccount(request: AccountRequest, completion: @escaping (AuthResponse?, Error?) -> Void)
-    func auth(request: AuthRequest, completion: @escaping (AuthResponse?, Error?) -> Void )
-}
 
-
-struct AuthDataSource: AuthProtocol {
+class AuthDataSource {
+    static let shared = AuthDataSource()
+    
+    private init() {}
+    
     func createAccount(request: AccountRequest, completion: @escaping (AuthResponse?, Error?) -> Void) {
         var memberJson : String = ""
         let api = ApiUtils.apiCreateAccount.getService()

@@ -6,13 +6,16 @@
 //
 
 import Foundation
-class LogInViewModel {
+final class LogInViewModel {
+    
     private var auhtRepository: AuthRepositoryProtocol?
     
     init(auhtRepository: AuthRepositoryProtocol) {
             self.auhtRepository = auhtRepository
     }
     
+    
+    var error: ObservableObject<String?> = ObservableObject("")
     
     var response: AuthResponse? {
         didSet {
@@ -38,9 +41,11 @@ class LogInViewModel {
         self.isLoading = true
         self.auhtRepository?.auth(request: rq, completion: { response,error  in
             if error != nil {
-                            self.isLoading = false
-                            return
-                        }
+                self.isLoading = false
+                return
+            }
+
+            self.error.value = response?.message
             self.isLoading = false
             self.response  = response
         })

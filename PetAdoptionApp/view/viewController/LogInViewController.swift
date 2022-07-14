@@ -18,7 +18,7 @@ class LogInViewController: UIViewController {
     // MARK: - Injection
     
     
-    var viewModel : LogInViewModel?
+    var viewModel =  LogInViewModel(auhtRepository: AuthRepository())
     var local = LocalDataRepository(localData: LocalDataSource())
     
     var loader : UIAlertController?
@@ -30,18 +30,15 @@ class LogInViewController: UIViewController {
         setupView()
         //verifyAuth()
 
-        let authRepository = AuthRepository(dataSoruce: AuthDataSource())
-        viewModel =  LogInViewModel(auhtRepository: authRepository)
+        //let authRepository = AuthRepository(dataSoruce: AuthDataSource())
+       // viewModel =  LogInViewModel(auhtRepository: authRepository)
         
-
+        setupObserver()
         print("Main:::LOGIN")
        
     }
 
-    
-    override func viewDidAppear(_ animated: Bool) {
-        setupObserver()
-    }
+
     
     func verifyAuth(){
         if local.getUser() != nil {
@@ -49,15 +46,19 @@ class LogInViewController: UIViewController {
         }
     }
     
-    func login(email:String, pass:String){
-        let request = AuthRequest(email: email, password: pass)
-        self.loader = self.showLoader(msm: NSLocalizedString("alert_msm_entering", comment: ""))
-        viewModel?.auth(rq: request)
+    func login(){
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text else{
+                  print("Empty inputs")
+                  return
+              }
+    
+        viewModel.auth(rq: AuthRequest(email: email, password: password))
     }
     
-    func setupObserver(){
+    private func setupObserver(){
         
-        viewModel?.didFinishFetch = { response in
+        viewModel.didFinishFetch = { response in
             if(response.data == nil){
                 self.loader?.dismiss(animated: true, completion: {
                     self.showAlertPopUp(title: NSLocalizedString("alert_title_error", comment: ""), description: response.message, showCancel: false)
@@ -73,14 +74,15 @@ class LogInViewController: UIViewController {
             })
         }
         
-        viewModel?.updateLoadingStatus = { st in
+        viewModel.updateLoadingStatus = { st in
             if(st){
-                print("cargando...")
+                self.loader = self.showLoader(msm: NSLocalizedString("alert_msm_entering", comment: ""))
             }
-            else{
-                print("terminando....")
-                self.loader?.dismiss(animated: true, completion: nil)
-            }
+            
+        }
+        
+        viewModel.error.observe { error in
+            print("New Observer: \(String(describing: error))")
         }
     }
 
@@ -98,7 +100,7 @@ class LogInViewController: UIViewController {
     @IBAction func signIn(_ sender: Any) {
         signInButton.bounce()
         
-        login(email: emailTextField.text ?? "", pass: passwordTextField.text ?? "" )
+        login()
         
     }
     

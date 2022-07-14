@@ -17,7 +17,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var createAccountButton: UIButton!
     
-    let viewModel = SignUpViewModel(repo: AuthDataSource())
+    let viewModel = SignUpViewModel(repo: AuthRepository())
     var loader : UIAlertController?
 
     override func viewDidLoad() {
