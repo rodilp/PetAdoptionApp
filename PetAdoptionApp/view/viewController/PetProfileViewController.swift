@@ -98,11 +98,10 @@ class PetProfileViewController: UIViewController, PopUpProtocol {
     }
     
     @IBAction func adoptionButton(_ sender: UIButton) {
-        //adoptionBt.bounce()
+        adoptionBt.bounce()
     
-       //self.showAlertPopUp(title: NSLocalizedString("alert_title_confirm", comment: ""), description: NSLocalizedString("alert_msm_confirm", comment: ""), showCancel: true)
-        
-        self.call(phoneNumber: "+51920888949")
+       self.showAlertPopUp(title: NSLocalizedString("alert_title_confirm", comment: ""), description: NSLocalizedString("alert_msm_confirm", comment: ""), showCancel: true)
+
     }
     
    
@@ -153,20 +152,7 @@ class PetProfileViewController: UIViewController, PopUpProtocol {
         print("cancel")
     }
     
-    
-    func call(phoneNumber: String){
-        if(!phoneNumber.isEmpty){
-            let cad = "tel://" + phoneNumber
-            guard let phoneUrl = URL(string: cad) else { return  }
-            if application.canOpenURL(phoneUrl){
-                application.open(phoneUrl, options: [:], completionHandler: nil)
-            }else{
-                //alert
-            }
-        }
-    }
-    
-    
+
 }
 
 extension PetProfileViewController: PetDelegate{
