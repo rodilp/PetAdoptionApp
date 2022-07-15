@@ -55,6 +55,8 @@ class PetProfileViewController: UIViewController, PopUpProtocol {
         petBannerCollectionView.dataSource = self
         pageControl.currentPage = 0
         
+        setupLister()
+        
     }
     
     @objc func imageTapped(sender: UITapGestureRecognizer) {
@@ -87,10 +89,11 @@ class PetProfileViewController: UIViewController, PopUpProtocol {
         adoptionBt.primaryRoundButton()
     }
     
-    
-    @IBAction func backButton(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
+    func setupLister(){
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.back(_:)))
+        backCard.addGestureRecognizer(gesture)
     }
+    
     
     @IBAction func adoptionButton(_ sender: UIButton) {
         adoptionBt.bounce()
@@ -142,6 +145,10 @@ class PetProfileViewController: UIViewController, PopUpProtocol {
     
     func onCancelAction() {
         print("cancel")
+    }
+    
+    @objc private func back(_ sender:UITapGestureRecognizer){
+        navigationController?.popViewController(animated: true)
     }
     
 

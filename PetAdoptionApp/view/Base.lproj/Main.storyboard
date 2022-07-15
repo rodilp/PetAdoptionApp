@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FXq-I5-mS8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -571,24 +572,18 @@
                                     <view alpha="0.60000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KAv-NW-3hi">
                                         <rect key="frame" x="25" y="190" width="45" height="45"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0e-el-mtf">
-                                                <rect key="frame" x="1.5" y="0.0" width="42" height="45"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="b1S-XW-5Vx"/>
-                                                </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="icon_back"/>
-                                                <connections>
-                                                    <action selector="backButton:" destination="oBQ-28-imx" eventType="touchUpInside" id="1W2-MQ-jlA"/>
-                                                </connections>
-                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_back" translatesAutoresizingMaskIntoConstraints="NO" id="Wgu-df-x4J">
+                                                <rect key="frame" x="15" y="15" width="15" height="15"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="45" id="2by-6M-Cdx"/>
-                                            <constraint firstItem="N0e-el-mtf" firstAttribute="centerY" secondItem="KAv-NW-3hi" secondAttribute="centerY" id="WHv-a8-Agf"/>
+                                            <constraint firstAttribute="bottom" secondItem="Wgu-df-x4J" secondAttribute="bottom" constant="15" id="Pqe-y6-7Qf"/>
+                                            <constraint firstItem="Wgu-df-x4J" firstAttribute="top" secondItem="KAv-NW-3hi" secondAttribute="top" constant="15" id="aEt-Mg-k7L"/>
                                             <constraint firstAttribute="height" constant="45" id="bcg-Bf-aLp"/>
-                                            <constraint firstItem="N0e-el-mtf" firstAttribute="centerX" secondItem="KAv-NW-3hi" secondAttribute="centerX" id="qpP-hA-ugb"/>
+                                            <constraint firstItem="Wgu-df-x4J" firstAttribute="leading" secondItem="KAv-NW-3hi" secondAttribute="leading" constant="15" id="dm3-DL-ijv"/>
+                                            <constraint firstAttribute="trailing" secondItem="Wgu-df-x4J" secondAttribute="trailing" constant="15" id="v8i-R4-cTa"/>
                                         </constraints>
                                     </view>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="2cB-kk-usc">
