@@ -65,16 +65,10 @@ class ProfileViewController: UIViewController {
 
     }
     
-    func navigateMainStoryBoard(){
-        if let vc = UIStoryboard(name: "LogIn", bundle: nil).instantiateViewController(withIdentifier: "OnboardingViewController") as? UITabBarController {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-    }
-    
     
     func goToLoginV2(){
-        let story = UIStoryboard(name: "LogIn", bundle:nil)
-        let vc = story.instantiateViewController(withIdentifier: "LoginNavigationController") as! LoginNavigationController
+        let story = UIStoryboard(name: App.StoryBoardID.login, bundle:nil)
+        let vc = story.instantiateViewController(withIdentifier: App.StoryBoardID.loginNavigationViewController) as! LoginNavigationController
         UIApplication.shared.windows.first?.rootViewController = vc
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }

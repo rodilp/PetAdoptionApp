@@ -55,11 +55,6 @@ class PetProfileViewController: UIViewController, PopUpProtocol {
         petBannerCollectionView.dataSource = self
         pageControl.currentPage = 0
         
-        
-        //let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
-        //imageLogo.addGestureRecognizer(tapGR)
-        //imageLogo.isUserInteractionEnabled = true
-    
     }
     
     @objc func imageTapped(sender: UITapGestureRecognizer) {
@@ -99,12 +94,9 @@ class PetProfileViewController: UIViewController, PopUpProtocol {
     
     @IBAction func adoptionButton(_ sender: UIButton) {
         adoptionBt.bounce()
-    
         self.showAlertPopUp(title: App.getString(key: "alert_title_confirm"), description: App.getString(key: "alert_msm_confirm"), showCancel: true)
-
     }
     
-   
     func setupObserver(){
         viewModel.didFinishAdoptionRequest  = { response in
             self.loader?.dismiss(animated: true, completion: {
@@ -173,7 +165,7 @@ extension PetProfileViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = petBannerCollectionView.dequeueReusableCell(withReuseIdentifier: "PetBannerCollectionViewCell", for: indexPath) as! PetBannerCollectionViewCell
+        let cell = petBannerCollectionView.dequeueReusableCell(withReuseIdentifier: PetBannerCollectionViewCell.identifier, for: indexPath) as! PetBannerCollectionViewCell
         let image = petImages[indexPath.row]
         cell.petImage.loadImage(url: image.url)
         

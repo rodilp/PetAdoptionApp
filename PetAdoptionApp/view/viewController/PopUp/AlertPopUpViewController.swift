@@ -23,7 +23,6 @@ class AlertPopUpViewController: UIViewController {
     var messageDescription:String!
     var isShowCancel:Bool!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

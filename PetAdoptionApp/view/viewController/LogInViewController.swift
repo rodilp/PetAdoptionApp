@@ -99,17 +99,11 @@ class LogInViewController: UIViewController {
     @IBAction func SignUp(_ sender: Any) {
        signUpButton.bounce()
         
-        let controller : SignUpViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        let controller : SignUpViewController = self.storyboard?.instantiateViewController(withIdentifier: App.StoryBoardID.signUpViewController) as! SignUpViewController
         self.navigationController?.pushViewController(controller, animated: true)
       
     }
     
-    
-    func navigateMainStoryBoard(){
-        if let vc = UIStoryboard(name: MainTabBarViewController.name, bundle: nil).instantiateViewController(withIdentifier: "MainTBC") as? MainTabBarViewController {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-    }
     
     func goToMain(){
         let onboardingViewController = UIStoryboard(name: App.StoryBoardID.main, bundle: nil).instantiateViewController(withIdentifier: App.StoryBoardID.mainHomeViewController)
@@ -122,15 +116,6 @@ class LogInViewController: UIViewController {
             UIView.transition(with: window, duration: 0.25, options: .transitionCrossDissolve, animations: nil, completion: nil)
         }
     }
-    
-    func goToRegister(){
-        let story = UIStoryboard(name: "LogIn", bundle:nil)
-        let vc = story.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
-        UIApplication.shared.windows.first?.rootViewController = vc
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
-
-    }
-
     
 
 }

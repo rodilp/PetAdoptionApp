@@ -8,6 +8,7 @@
 import UIKit
 
 class PetBannerCollectionViewCell: UICollectionViewCell {
+    static let identifier:String = "PetBannerCollectionViewCell"
     
     
     @IBOutlet weak var petImage: UIImageView!

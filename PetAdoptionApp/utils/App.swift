@@ -17,7 +17,10 @@ struct App{
         static let main = "Main"
         static let onboardingViewController = "OnboardingViewController"
         static let logInViewController = "LogInViewController"
+        static let signUpViewController = "SignUpViewController"
+        static let loginNavigationViewController = "LoginNavigationController"
         static let mainHomeViewController  = "MainTBC"
+        static let petprofileViewController = "PetProfileViewController"
     }
     
     static func getString(key:String) -> String{

@@ -18,11 +18,11 @@ protocol LocalDataProtocol{
 }
 
 struct LocalDataSource : LocalDataProtocol{
+    
     func clearLocalData(key: String) {
         let userDefaults = UserDefaults.standard
         userDefaults.deleteData(key: key)
     }
-    
     
     func saveUser(user: User) {
         let userDefaults = UserDefaults.standard
@@ -33,7 +33,6 @@ struct LocalDataSource : LocalDataProtocol{
         }
     }
     
-    
     func getUser() -> User? {
         let userDefaults = UserDefaults.standard
         if let user = try?  userDefaults.getObject(forKey: "key_user_profile", castTo: User.self){
@@ -41,8 +40,6 @@ struct LocalDataSource : LocalDataProtocol{
         }
         return nil
     }
-    
-    
     
     
     func saveSetting(setting: Setting) {

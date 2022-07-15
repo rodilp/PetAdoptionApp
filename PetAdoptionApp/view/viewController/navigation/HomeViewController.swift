@@ -76,7 +76,7 @@ class HomeViewController: UIViewController  {
     
     
     func goToPetProfile(idPet:Int){
-        let controller : PetProfileViewController = self.storyboard?.instantiateViewController(withIdentifier: "PetProfileViewController") as! PetProfileViewController
+        let controller : PetProfileViewController = self.storyboard?.instantiateViewController(withIdentifier: App.StoryBoardID.petprofileViewController) as! PetProfileViewController
         controller.idPet = idPet
             self.navigationController?.pushViewController(controller, animated: true)
     }
@@ -118,7 +118,7 @@ extension HomeViewController: UICollectionViewDataSource{
             if(collectionView == categoryCollectionView){
                 let cat = categories[indexPath.row]
 
-                if(cat.name == "Todos"){
+                if(cat.name == AppUtils.ALL){
                     cell.contentView.backgroundColor = AppUtils.PRIMARY_ORANGE
                     cell.contentView.layer.cornerRadius = 15
                     cell.categoryLabel.textColor = .white
@@ -166,7 +166,6 @@ extension HomeViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if(collectionView == petCollectionView){
-            print("Cell Pets \(indexPath.row + 1) clicked")
             let pet = filterPets[indexPath.row]
             goToPetProfile(idPet: pet.idPet)
         }
@@ -189,9 +188,7 @@ extension HomeViewController: UICollectionViewDelegate{
                 cell.round()
                 cell.categoryLabel.titleColor()
             }
-            let category = categories[indexPath.row]
-            print("Cell deselect -> \(category.name) clicked")
-            
+
         }
     }
     

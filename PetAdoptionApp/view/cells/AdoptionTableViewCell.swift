@@ -14,6 +14,8 @@ protocol CellProtocol {
 
 class AdoptionTableViewCell: UITableViewCell {
     
+    static let identifier:String = "AdoptionTableViewCell"
+    
     @IBOutlet weak var petImage: UIImageView!
     @IBOutlet weak var petNameLabel: UILabel!
     @IBOutlet weak var petSexLogo: UIImageView!
@@ -31,12 +33,7 @@ class AdoptionTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    
-        
-      
-        
     }
-    
     
     @IBAction func acceptButton(_ sender: UIButton) {
         self.delegate?.acceptCellAction(idAdoption: adoption?.idReq ?? -1, idUser: adoption?.user.idUser ?? -1)

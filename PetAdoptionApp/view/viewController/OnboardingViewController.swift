@@ -17,12 +17,8 @@ class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupView()
-
-        // Do any additional setup after loading the view.
-       checkAuth()
-        
+        checkAuth()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,22 +52,17 @@ class OnboardingViewController: UIViewController {
         goToLogin()
     }
     
+    
     func goToLogin(){
-        let story = UIStoryboard(name: "LogIn", bundle:nil)
-        let vc = story.instantiateViewController(withIdentifier: "LoginNavigationController") as! LoginNavigationController
+        let story = UIStoryboard(name: App.StoryBoardID.login, bundle:nil)
+        let vc = story.instantiateViewController(withIdentifier: App.StoryBoardID.logInViewController) as! LoginNavigationController
         UIApplication.shared.windows.first?.rootViewController = vc
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
     
-    func navigateMainStoryBoard(){
-        if let vc = UIStoryboard(name: MainTabBarViewController.name, bundle: nil).instantiateViewController(withIdentifier: "MainTBC") as? MainTabBarViewController {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-    }
-    
     func goToMain(){
-        let story = UIStoryboard(name: "Main", bundle:nil)
-        let vc = story.instantiateViewController(withIdentifier: "MainTBC") as! MainTabBarViewController
+        let story = UIStoryboard(name: App.StoryBoardID.main, bundle:nil)
+        let vc = story.instantiateViewController(withIdentifier: App.StoryBoardID.mainHomeViewController) as! MainTabBarViewController
         UIApplication.shared.windows.first?.rootViewController = vc
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }

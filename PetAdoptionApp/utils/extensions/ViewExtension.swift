@@ -107,6 +107,7 @@ extension UIViewController {
     }
     
     
+    
     func showAlertPopUp(title:String, description:String, showCancel:Bool){
         if let popupVc = UIStoryboard(name: "PopUp", bundle: nil).instantiateViewController(withIdentifier: "ErrorPopUpViewController") as? AlertPopUpViewController {
             popupVc.messageTitle = title
@@ -118,7 +119,6 @@ extension UIViewController {
             
             popupVc.delegate = self as? PopUpProtocol
             present(popupVc, animated: true)
-            
         }
     }
     
@@ -135,7 +135,6 @@ extension UIViewController {
             popupVc.delegate = self as? PopUpSuccessProtocol
 
             present(popupVc, animated: true)
-            
         }
     }
     

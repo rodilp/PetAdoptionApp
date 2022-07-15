@@ -53,7 +53,6 @@ class AdoptionViewController: UIViewController{
 
     func loadAdoptions(){
         if let user = local.getUser() {
-            print("USER::: \(user)")
             viewModel.getAdoptions(id: user.idUser)
         }
     }
@@ -63,7 +62,7 @@ class AdoptionViewController: UIViewController{
     func setupObserver(){
         viewModel.didFinishAdoptionApprove = { response in
             self.loader?.dismiss(animated: true, completion: {
-                self.showSuccessPopUp(title: "Felicidades!", description: response.message)
+                self.showSuccessPopUp(title: App.getString(key: "alert_title_success"), description: response.message)
             })
         }
     }
@@ -78,7 +77,7 @@ class AdoptionViewController: UIViewController{
 extension AdoptionViewController: AdoptionDelegate, CellProtocol, PopUpSuccessProtocol, PopUpProtocol {
     func onAcceptAction() {
         let request = ApproveAdoptionRequest(idAdoption: self.idAdoption, idUser: self.idUser)
-        self.loader = self.showLoader(msm: "Aprobando...")
+        self.loader = self.showLoader(msm: App.getString(key: "alert_msm_approve"))
         viewModel.approveAdoption(request: request)
     }
     
@@ -112,7 +111,7 @@ extension AdoptionViewController: AdoptionDelegate, CellProtocol, PopUpSuccessPr
                     self.idAdoption = idAdoption
                     self.idUser = idUser
                     
-                    self.showAlertPopUp(title: App.getString(key: "alert_title_confirm"), description: "¿Estas seguro de aceptar la solicitud de adopción?", showCancel: true)
+                    self.showAlertPopUp(title: App.getString(key: "alert_title_confirm"), description: App.getString(key: "alert_msm_request"), showCancel: true)
                 }
             }
         }
@@ -128,7 +127,7 @@ extension AdoptionViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AdoptionTableViewCell", for: indexPath) as? AdoptionTableViewCell else{
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AdoptionTableViewCell.identifier, for: indexPath) as? AdoptionTableViewCell else{
             return UITableViewCell()
         }
         

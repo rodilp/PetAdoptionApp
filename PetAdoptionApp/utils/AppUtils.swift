@@ -21,6 +21,7 @@ struct AppUtils{
     static let MALE = "Macho"
     static let OWNER = "Dueño"
     static let OWNER_ID = 2
+    static let ALL = "Todos"
 }
 
 
