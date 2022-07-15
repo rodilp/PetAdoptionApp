@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YE6-Do-Pkz">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -226,25 +227,18 @@
                                     <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SQA-K7-30v">
                                         <rect key="frame" x="25" y="79" width="45" height="45"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Fh-Hf-QX8">
-                                                <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="BJY-TN-dyV"/>
-                                                    <constraint firstAttribute="width" constant="45" id="g6g-vn-V4f"/>
-                                                </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="icon_back"/>
-                                                <connections>
-                                                    <action selector="backButton:" destination="gd1-zf-T9a" eventType="touchUpInside" id="Hvr-Uk-6S6"/>
-                                                </connections>
-                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_back" translatesAutoresizingMaskIntoConstraints="NO" id="p23-BV-usg">
+                                                <rect key="frame" x="15" y="15" width="15" height="15"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                         <constraints>
-                                            <constraint firstItem="5Fh-Hf-QX8" firstAttribute="centerY" secondItem="SQA-K7-30v" secondAttribute="centerY" id="EMw-Gb-l0L"/>
+                                            <constraint firstItem="p23-BV-usg" firstAttribute="top" secondItem="SQA-K7-30v" secondAttribute="top" constant="15" id="Nj9-u0-IOD"/>
+                                            <constraint firstItem="p23-BV-usg" firstAttribute="leading" secondItem="SQA-K7-30v" secondAttribute="leading" constant="15" id="Qw2-qH-SbW"/>
                                             <constraint firstAttribute="width" constant="45" id="Vnz-EH-4gg"/>
+                                            <constraint firstAttribute="bottom" secondItem="p23-BV-usg" secondAttribute="bottom" constant="15" id="gVs-Ot-I1b"/>
                                             <constraint firstAttribute="height" constant="45" id="q11-bt-ZG7"/>
-                                            <constraint firstItem="5Fh-Hf-QX8" firstAttribute="centerX" secondItem="SQA-K7-30v" secondAttribute="centerX" id="vyg-B0-sbz"/>
+                                            <constraint firstAttribute="trailing" secondItem="p23-BV-usg" secondAttribute="trailing" constant="15" id="x63-Ok-pkn"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crear Cuenta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYI-bG-yno">
@@ -374,7 +368,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WFx-PZ-xsx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2836" y="-526"/>
+            <point key="canvasLocation" x="2834.7826086956525" y="-526.33928571428567"/>
         </scene>
     </scenes>
     <resources>

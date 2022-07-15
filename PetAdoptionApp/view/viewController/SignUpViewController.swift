@@ -25,6 +25,7 @@ class SignUpViewController: UIViewController {
         
         setupView()
         setupObserver()
+        setupLister()
        
     }
     
@@ -50,6 +51,15 @@ class SignUpViewController: UIViewController {
             })
             
         }
+    }
+    
+    func setupLister(){
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.back(_:)))
+        cardBackBackground.addGestureRecognizer(gesture)
+    }
+    
+    @objc private func back(_ sender:UITapGestureRecognizer){
+        navigationController?.popViewController(animated: true)
     }
     
     
@@ -100,11 +110,7 @@ class SignUpViewController: UIViewController {
     }
     
 
-    
-    @IBAction func backButton(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-        
-    }
+
     
     
 
