@@ -16,10 +16,10 @@ protocol CategoryDelegate{
 class HomeViewModel{
     
     var delegate : CategoryDelegate?
-    private var repo: PetRepositoryProtocol?
+    private var petRepository: PetRepositoryProtocol?
     
     init(repo: PetRepositoryProtocol) {
-        self.repo = repo
+        self.petRepository = repo
     }
     
     var isLoading: Bool = false {
@@ -30,7 +30,7 @@ class HomeViewModel{
   
     
     func getListCategory(){
-        repo?.getCategories(completion: { response, error in
+        petRepository?.getCategories(completion: { response, error in
             if(response?.code == HttpUtil.OK){
                 let listC = response?.data ?? []
                 self.delegate?.getCategories(cat: listC)
@@ -41,7 +41,7 @@ class HomeViewModel{
     
     func getPets(){
         self.isLoading = true
-        repo?.getPets(completion: { response, error in
+        petRepository?.getPets(completion: { response, error in
             if(response?.code == HttpUtil.OK){
                 let pets = response?.data ?? []
                 self.delegate?.getPets(pets: pets)
@@ -52,7 +52,7 @@ class HomeViewModel{
     }
     
     func getPetsByCategory(id:Int){
-        repo?.getPetByCategory(id: id, completion: { response, error in
+        petRepository?.getPetByCategory(id: id, completion: { response, error in
             if(response?.code == HttpUtil.OK){
                 let pets = response?.data ?? []
                 self.delegate?.getPets(pets: pets)

@@ -55,7 +55,7 @@ class OnboardingViewController: UIViewController {
     
     func goToLogin(){
         let story = UIStoryboard(name: App.StoryBoardID.login, bundle:nil)
-        let vc = story.instantiateViewController(withIdentifier: App.StoryBoardID.logInViewController) as! LoginNavigationController
+        let vc = story.instantiateViewController(withIdentifier: App.StoryBoardID.loginNavigationViewController) as! LoginNavigationController
         UIApplication.shared.windows.first?.rootViewController = vc
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }

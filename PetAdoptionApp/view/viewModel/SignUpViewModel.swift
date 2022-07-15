@@ -8,10 +8,10 @@
 import Foundation
 
 class SignUpViewModel {
-    private var repo: AuthRepositoryProtocol?
+    private var auhtRepository: AuthRepositoryProtocol?
     
-    init(repo: AuthRepositoryProtocol) {
-            self.repo = repo
+    init(auhtRepository: AuthRepositoryProtocol) {
+            self.auhtRepository = auhtRepository
     }
     
     
@@ -37,7 +37,7 @@ class SignUpViewModel {
 
     func createAccount(rq:AccountRequest){
         
-        self.repo?.createAccount(request: rq, completion: { response,error  in
+        self.auhtRepository?.createAccount(request: rq, completion: { response,error  in
             if error != nil {
                 self.isError = true
                 return

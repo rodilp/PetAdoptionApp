@@ -54,7 +54,7 @@ class ProfileViewController: UIViewController {
     func loadInfoUser(){
         if let user = local.getUser() {
             userNameLabel.text = user.fullName
-            userDetailLabel.text = user.email
+            userDetailLabel.text = user.email +  " (\(user.cellPhone))"
             userLogo.loadImage(url: user.image)
         }
     }

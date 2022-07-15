@@ -14,6 +14,7 @@ struct User : Codable {
     let email:String
     let image:String
     let typeUser:Int
+    let cellPhone:String
     let createdAt:String
     
     

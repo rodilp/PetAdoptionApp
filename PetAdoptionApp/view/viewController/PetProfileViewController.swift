@@ -117,7 +117,7 @@ class PetProfileViewController: UIViewController, PopUpProtocol {
             ownerLogo.loadImage(url: owner.image)
             ownerNameLabel.text = owner.fullName
             ownerDateLabel.text = owner.createdAt.formatDate()
-            ownerLabel.text = AppUtils.OWNER
+            ownerLabel.text = AppUtils.OWNER + " (\(owner.cellPhone))"
             
             if(owner.idUser == idUser){
                 adoptionBt.alpha = 0

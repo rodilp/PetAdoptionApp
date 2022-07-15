@@ -3,7 +3,7 @@ alert_title_error       = "¡Ups!";
 alert_title_success     = "¡Felicitaciones!";
 alert_title_confirm     = "¡Confirmación!";
 alert_msm_confirm       = "¿Estas seguro de enviar su solicitud de adopcion?";
-alert_msm_request       = "¿Estas seguro de aceptar la solicitud de adopción?";
+alert_msm_acept_req     = "¿Estas seguro de aceptar la solicitud de adopción?";
 
 alert_msm_entering      = "Ingresando...";
 alert_msm_request       = "Solicitando...";

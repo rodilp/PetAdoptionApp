@@ -111,7 +111,7 @@ extension AdoptionViewController: AdoptionDelegate, CellProtocol, PopUpSuccessPr
                     self.idAdoption = idAdoption
                     self.idUser = idUser
                     
-                    self.showAlertPopUp(title: App.getString(key: "alert_title_confirm"), description: App.getString(key: "alert_msm_request"), showCancel: true)
+                    self.showAlertPopUp(title: App.getString(key: "alert_title_confirm"), description: App.getString(key: "alert_msm_acept_req"), showCancel: true)
                 }
             }
         }
@@ -171,7 +171,7 @@ extension AdoptionViewController: UITableViewDataSource{
                 cell.iconStatus.alpha = 0
             }
         }else{
-            cell.userDetailLabel.text = "Dueño"
+            cell.userDetailLabel.text = "Dueño (\(adoption.user.cellPhone))"
             if(adoption.isApproved()){
                 cell.statusButton.setTitle("Adopción aprobada", for: .normal)
                 cell.statusButton.isEnabled = false
