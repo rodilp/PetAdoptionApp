@@ -14,7 +14,7 @@ An application to adopt pets
 To run project, first clone repository
 
 ```bash
-git clone clone repository https://github.com/rodilp/PetAdoptionApp
+git clone repository https://github.com/rodilp/PetAdoptionApp
 ```
 
 After clone project use the following command
