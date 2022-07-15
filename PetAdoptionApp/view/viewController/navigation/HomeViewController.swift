@@ -23,6 +23,7 @@ class HomeViewController: UIViewController  {
     // MARK: - Injection
     let viewModel = HomeViewModel(repo: PetRepository())
     var local = LocalDataRepository(localData: LocalDataSource())
+    var loader : UIAlertController?
  
 
     override func viewDidLoad() {
@@ -30,21 +31,14 @@ class HomeViewController: UIViewController  {
         
         setupView()
         viewModel.delegate = self
-        
-        viewModel.getListCategory()
         viewModel.getPets()
+        viewModel.getListCategory()
+      
         
         categoryCollectionView.dataSource = self
         petCollectionView.dataSource = self
-
-
     }
-    
-    //life of cicle view
-    override func viewDidAppear(_ animated: Bool) {
-        //call Api
-    }
-
+ 
     
     func setupView(){
         searchTextField.searchTextField()
@@ -88,11 +82,6 @@ class HomeViewController: UIViewController  {
     }
     
 
-    
-    
-
-
-
 }
 
 extension HomeViewController: CategoryDelegate{
@@ -124,7 +113,7 @@ extension HomeViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = categoryCollectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
+        let cell = categoryCollectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.indentifier, for: indexPath) as! CategoryCollectionViewCell
         if(!categories.isEmpty){
             if(collectionView == categoryCollectionView){
                 let cat = categories[indexPath.row]
@@ -149,7 +138,7 @@ extension HomeViewController: UICollectionViewDataSource{
        
         
         if(collectionView == petCollectionView){
-            let cell2 = petCollectionView.dequeueReusableCell(withReuseIdentifier: "PetCollectionViewCell", for: indexPath) as! PetCollectionViewCell
+            let cell2 = petCollectionView.dequeueReusableCell(withReuseIdentifier: PetCollectionViewCell.identifier, for: indexPath) as! PetCollectionViewCell
             
             if(!pets.isEmpty){
                 let pet = filterPets[indexPath.row]

@@ -6,3 +6,9 @@ alert_msm_confirm       = "¿Estas seguro de enviar su solicitud de adopcion?";
 
 alert_msm_entering      = "Ingresando...";
 alert_msm_request       = "Solicitando...";
+alert_msm_loading       = "Cargando";
+
+alert_msm_create        = "Creando...";
+msm_empty_inputs        = "Es necesario ingresar todos los campos";
+msm_pasword             = "Las contraseñas no son iguales, verifique porfavor!";
+msms_server_error       = "Ocurrio un error con el servidor";

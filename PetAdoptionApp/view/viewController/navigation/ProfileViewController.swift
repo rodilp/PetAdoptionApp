@@ -61,13 +61,8 @@ class ProfileViewController: UIViewController {
     
     func logOut(){
         local.clearLocalData(key: "key_user_profile")
-        //UIApplication.shared.delegate?.window!?.rootViewController = UIStoryboard(name: "LogIn", bundle: nil).instantiateInitialViewController()
-        //navigateMainStoryBoard()
-
         goToLoginV2()
-       
-    
-            
+
     }
     
     func navigateMainStoryBoard(){
@@ -79,7 +74,7 @@ class ProfileViewController: UIViewController {
     
     func goToLoginV2(){
         let story = UIStoryboard(name: "LogIn", bundle:nil)
-        let vc = story.instantiateViewController(withIdentifier: "LogInViewController") as! LogInViewController
+        let vc = story.instantiateViewController(withIdentifier: "LoginNavigationController") as! LoginNavigationController
         UIApplication.shared.windows.first?.rootViewController = vc
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }

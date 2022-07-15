@@ -13,7 +13,7 @@ protocol AdoptionRepositoryProtocol {
     func adoptionStatus(id:Int,completion: @escaping (AdoptionStatusResponse?, Error?) -> Void)
 }
 
-struct AdoptionRepository: AdoptionRepositoryProtocol{
+class AdoptionRepository: AdoptionRepositoryProtocol{
     
     private let service = AdoptionDataSource.shared
     

@@ -19,4 +19,8 @@ struct App{
         static let logInViewController = "LogInViewController"
         static let mainHomeViewController  = "MainTBC"
     }
+    
+    static func getString(key:String) -> String{
+        return NSLocalizedString(key, comment: "")
+    }
 }

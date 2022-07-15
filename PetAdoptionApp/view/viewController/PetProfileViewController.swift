@@ -100,7 +100,7 @@ class PetProfileViewController: UIViewController, PopUpProtocol {
     @IBAction func adoptionButton(_ sender: UIButton) {
         adoptionBt.bounce()
     
-       self.showAlertPopUp(title: NSLocalizedString("alert_title_confirm", comment: ""), description: NSLocalizedString("alert_msm_confirm", comment: ""), showCancel: true)
+        self.showAlertPopUp(title: App.getString(key: "alert_title_confirm"), description: App.getString(key: "alert_msm_confirm"), showCancel: true)
 
     }
     

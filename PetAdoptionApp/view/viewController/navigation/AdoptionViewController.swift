@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AdoptionViewController: UIViewController {
+class AdoptionViewController: UIViewController{
 
     @IBOutlet weak var adoptionTableView: UITableView!
     @IBOutlet weak var cardMessage: UIView!
@@ -20,6 +20,9 @@ class AdoptionViewController: UIViewController {
     let local = LocalDataRepository(localData: LocalDataSource())
     var loader : UIAlertController?
     
+    var idAdoption:Int = 0
+    var idUser:Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,9 +30,8 @@ class AdoptionViewController: UIViewController {
         adoptionTableView.delegate = self
         adoptionTableView.dataSource = self
         viewModel.delegate = self
-        
+
         setupObserver()
-  
     }
     
     func setupView() {
@@ -63,7 +65,6 @@ class AdoptionViewController: UIViewController {
             self.loader?.dismiss(animated: true, completion: {
                 self.showSuccessPopUp(title: "Felicidades!", description: response.message)
             })
-            
         }
     }
     
@@ -74,7 +75,19 @@ class AdoptionViewController: UIViewController {
 
 }
 
-extension AdoptionViewController: AdoptionDelegate, CellProtocol, PopUpSuccessProtocol{
+extension AdoptionViewController: AdoptionDelegate, CellProtocol, PopUpSuccessProtocol, PopUpProtocol {
+    func onAcceptAction() {
+        let request = ApproveAdoptionRequest(idAdoption: self.idAdoption, idUser: self.idUser)
+        self.loader = self.showLoader(msm: "Aprobando...")
+        viewModel.approveAdoption(request: request)
+    }
+    
+    func onCancelAction() {
+        print("cancel")
+        self.idUser = 0
+        self.idAdoption = 0
+    }
+    
     
     func onSuccessAcceptAction() {
         loadAdoptions()
@@ -96,9 +109,10 @@ extension AdoptionViewController: AdoptionDelegate, CellProtocol, PopUpSuccessPr
         if let usr = local.getUser() {
             if(usr.isOwner()){
                 if(idAdoption != -1 && idUser != -1){
-                    let request = ApproveAdoptionRequest(idAdoption: idAdoption, idUser: idUser)
-                    self.loader = self.showLoader(msm: "Aprobando...")
-                    viewModel.approveAdoption(request: request)
+                    self.idAdoption = idAdoption
+                    self.idUser = idUser
+                    
+                    self.showAlertPopUp(title: App.getString(key: "alert_title_confirm"), description: "¿Estas seguro de aceptar la solicitud de adopción?", showCancel: true)
                 }
             }
         }

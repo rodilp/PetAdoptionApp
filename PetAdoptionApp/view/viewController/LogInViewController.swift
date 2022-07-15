@@ -13,14 +13,13 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var cardBody: UIView!
+    @IBOutlet weak var logoImage: UIImageView!
     
     // MARK: - Injection
-    
-    
     var viewModel =  LogInViewModel(auhtRepository: AuthRepository())
     var local = LocalDataRepository(localData: LocalDataSource())
-    
     var loader : UIAlertController?
     
     
@@ -29,13 +28,7 @@ class LogInViewController: UIViewController {
 
         setupView()
         //verifyAuth()
-
-        //let authRepository = AuthRepository(dataSoruce: AuthDataSource())
-       // viewModel =  LogInViewModel(auhtRepository: authRepository)
-        
         setupObserver()
-        print("Main:::LOGIN")
-       
     }
 
 
@@ -49,10 +42,8 @@ class LogInViewController: UIViewController {
     func login(){
         guard let email = emailTextField.text,
               let password = passwordTextField.text else{
-                  print("Empty inputs")
                   return
               }
-    
         viewModel.auth(rq: AuthRequest(email: email, password: password))
     }
     
@@ -61,7 +52,7 @@ class LogInViewController: UIViewController {
         viewModel.didFinishFetch = { response in
             if(response.data == nil){
                 self.loader?.dismiss(animated: true, completion: {
-                    self.showAlertPopUp(title: NSLocalizedString("alert_title_error", comment: ""), description: response.message, showCancel: false)
+                    self.showAlertPopUp(title: App.getString(key: "alert_title_error"), description: response.message, showCancel: false)
                 })
                 return
             }
@@ -76,22 +67,23 @@ class LogInViewController: UIViewController {
         
         viewModel.updateLoadingStatus = { st in
             if(st){
-                self.loader = self.showLoader(msm: NSLocalizedString("alert_msm_entering", comment: ""))
+                self.loader = self.showLoader(msm: App.getString(key: "alert_msm_entering"))
             }
-            
         }
         
-        viewModel.error.observe { error in
-            print("New Observer: \(String(describing: error))")
-        }
+
     }
 
 
+    
+  
     
     func setupView(){
         self.navigationItem.setHidesBackButton(true, animated: true)
         cardBody.roundCorners(corners: .topLeft, radius: 60)
         signInButton.primaryRoundButton()
+        logoImage.roundBorder(corner: 0, round: true)
+        signUpButton.secondaryButton()
         emailTextField.roundTextField()
         passwordTextField.roundTextField()
     }
@@ -105,6 +97,8 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction func SignUp(_ sender: Any) {
+       signUpButton.bounce()
+        
         let controller : SignUpViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
         self.navigationController?.pushViewController(controller, animated: true)
       

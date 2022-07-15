@@ -22,6 +22,13 @@ class HomeViewModel{
         self.repo = repo
     }
     
+    var isLoading: Bool = false {
+        didSet { self.loadingStatus?(isLoading) }
+    }
+    
+    var loadingStatus: ((_ st:Bool) -> ())?
+  
+    
     func getListCategory(){
         repo?.getCategories(completion: { response, error in
             if(response?.code == HttpUtil.OK){
@@ -33,10 +40,12 @@ class HomeViewModel{
     }
     
     func getPets(){
+        self.isLoading = true
         repo?.getPets(completion: { response, error in
             if(response?.code == HttpUtil.OK){
                 let pets = response?.data ?? []
                 self.delegate?.getPets(pets: pets)
+                self.isLoading = false
                 return
             }
         })

@@ -33,21 +33,19 @@ class SignUpViewController: UIViewController {
         viewModel.onSuccessRegister = { response in
             self.loader?.dismiss(animated: true, completion: {
                 self.cleanInputs()
-                self.showSuccessPopUp(title: NSLocalizedString("alert_title_success", comment: ""), description: response.message)
-
+                self.showSuccessPopUp(title: App.getString(key: "alert_title_success"), description: response.message)
             })
         }
         
         viewModel.onAlertRegister = { message in
             self.loader?.dismiss(animated: true, completion: {
-                self.showAlertPopUp(title:  NSLocalizedString("alert_title_error", comment: ""), description: message, showCancel: false)
-
+                self.showAlertPopUp(title: App.getString(key: "alert_title_error"), description: message, showCancel: false)
             })
         }
         
         viewModel.onError = {
             self.loader?.dismiss(animated: true, completion: {
-                self.showAlertPopUp(title:  NSLocalizedString("alert_title_error", comment: ""), description: "Ocurrio un error con el servidor", showCancel: false)
+                self.showAlertPopUp(title: App.getString(key: "alert_title_error"), description: App.getString(key: "msms_server_error"), showCancel: false)
    
             })
             
@@ -78,19 +76,17 @@ class SignUpViewController: UIViewController {
         let password = passwordTextField.text ?? ""
         let repassword = confirmPasswordTextField.text ?? ""
         
-        
-        
         if(fullName.isEmpty || email.isEmpty || password.isEmpty || repassword.isEmpty){
-            self.presentAlert(withTitle: "Ups!", message: "Es necesario ingresar todos los campos")
+            self.presentAlert(withTitle: App.getString(key: "alert_title_error"), message: App.getString(key: "msm_empty_inputs"))
             return
         }
         
         if(password != repassword){
-            self.presentAlert(withTitle: "Ups!", message: "Las contraseñas no son iguales, verifique porfavor!")
+            self.presentAlert(withTitle: App.getString(key: "alert_title_error"), message: App.getString(key: "msm_pasword"))
             return
         }
         
-        self.loader = self.showLoader(msm: "creando...")
+        self.loader = self.showLoader(msm: App.getString(key: "alert_msm_create"))
         let account = AccountRequest(fullName: fullName, email: email, password: password)
         viewModel.createAccount(rq: account)
         

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		45004B0128762B92003A0557 /* AdoptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45004B0028762B92003A0557 /* AdoptionTableViewCell.swift */; };
-		45004B0328764874003A0557 /* AuthModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45004B0228764874003A0557 /* AuthModule.swift */; };
 		45004B052876529D003A0557 /* ApproveAdoptionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45004B042876529D003A0557 /* ApproveAdoptionRequest.swift */; };
 		45004B072876547B003A0557 /* AdoptionStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45004B062876547B003A0557 /* AdoptionStatusResponse.swift */; };
 		45004B09287654CD003A0557 /* Adoption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45004B08287654CD003A0557 /* Adoption.swift */; };
@@ -69,7 +68,6 @@
 		458523D22869FF39007C9F07 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458523D12869FF39007C9F07 /* LogInViewModel.swift */; };
 		458523D5286A06BE007C9F07 /* ApiUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458523D4286A06BE007C9F07 /* ApiUtils.swift */; };
 		458523D8286A6DE9007C9F07 /* AccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458523D7286A6DE9007C9F07 /* AccountRequest.swift */; };
-		45985664287F94B30017C8F6 /* ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45985663287F94B30017C8F6 /* ObservableObject.swift */; };
 		45E536862873345600260F6F /* PetBannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E536852873345600260F6F /* PetBannerCollectionViewCell.swift */; };
 		45E5368A28734C9F00260F6F /* PetProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E5368928734C9F00260F6F /* PetProfileViewModel.swift */; };
 		45E5368C28734E0400260F6F /* PetProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E5368B28734E0400260F6F /* PetProfileResponse.swift */; };
@@ -78,7 +76,6 @@
 
 /* Begin PBXFileReference section */
 		45004B0028762B92003A0557 /* AdoptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdoptionTableViewCell.swift; sourceTree = "<group>"; };
-		45004B0228764874003A0557 /* AuthModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModule.swift; sourceTree = "<group>"; };
 		45004B042876529D003A0557 /* ApproveAdoptionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveAdoptionRequest.swift; sourceTree = "<group>"; };
 		45004B062876547B003A0557 /* AdoptionStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdoptionStatusResponse.swift; sourceTree = "<group>"; };
 		45004B08287654CD003A0557 /* Adoption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adoption.swift; sourceTree = "<group>"; };
@@ -141,7 +138,6 @@
 		458523D12869FF39007C9F07 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		458523D4286A06BE007C9F07 /* ApiUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUtils.swift; sourceTree = "<group>"; };
 		458523D7286A6DE9007C9F07 /* AccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRequest.swift; sourceTree = "<group>"; };
-		45985663287F94B30017C8F6 /* ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject.swift; sourceTree = "<group>"; };
 		45E536852873345600260F6F /* PetBannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetBannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		45E5368928734C9F00260F6F /* PetProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileViewModel.swift; sourceTree = "<group>"; };
 		45E5368B28734E0400260F6F /* PetProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileResponse.swift; sourceTree = "<group>"; };
@@ -343,7 +339,6 @@
 				45407425286201C80076E075 /* LogInViewController.swift */,
 				4540742D286291600076E075 /* SignUpViewController.swift */,
 				4554A221286E7286001A2FE3 /* PetProfileViewController.swift */,
-				45004B0228764874003A0557 /* AuthModule.swift */,
 				456EBEFC287DE1BA0060B834 /* OnboardingViewController.swift */,
 			);
 			path = viewController;
@@ -441,7 +436,6 @@
 				4554A21D286E18EE001A2FE3 /* HomeViewModel.swift */,
 				45E5368928734C9F00260F6F /* PetProfileViewModel.swift */,
 				45004B0A2876586D003A0557 /* AdoptionViewModel.swift */,
-				45985663287F94B30017C8F6 /* ObservableObject.swift */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -587,7 +581,6 @@
 				4506D58B286D0E3F006CD863 /* PetResponse.swift in Sources */,
 				45E5368C28734E0400260F6F /* PetProfileResponse.swift in Sources */,
 				45E536862873345600260F6F /* PetBannerCollectionViewCell.swift in Sources */,
-				45004B0328764874003A0557 /* AuthModule.swift in Sources */,
 				456EBEFF287DF6810060B834 /* App.swift in Sources */,
 				45407428286202260076E075 /* ViewExtension.swift in Sources */,
 				4506D57E286BAC1F006CD863 /* AppUtils.swift in Sources */,
@@ -622,7 +615,6 @@
 				450B3F1128611D8900F1B025 /* AppDelegate.swift in Sources */,
 				4506D583286BB95A006CD863 /* ProfileViewController.swift in Sources */,
 				4506D586286BBF38006CD863 /* CategoryCollectionViewCell.swift in Sources */,
-				45985664287F94B30017C8F6 /* ObservableObject.swift in Sources */,
 				4530A5992878A9BF007627E4 /* Setting.swift in Sources */,
 				4505DC6C2874ABBA00D104EF /* AdoptionRequest.swift in Sources */,
 				4554A21C286E1440001A2FE3 /* PetDataSource.swift in Sources */,
@@ -725,7 +717,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -780,7 +772,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -806,6 +798,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -835,6 +828,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

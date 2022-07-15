@@ -11,7 +11,11 @@ import UIKit
 
 extension UIButton{
     func primaryRoundButton(){
-        self.mainRoundButton(color: UIColor.orange)
+        self.mainRoundButton(color: AppUtils.PRIMARY_ORANGE)
+    }
+    
+    func secondaryButton(){
+        self.mainRoundButton(color: AppUtils.PRIMARY_LIGTH)
     }
     
     func cancelButton(){

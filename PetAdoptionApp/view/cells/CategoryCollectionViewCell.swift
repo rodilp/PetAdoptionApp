@@ -8,6 +8,9 @@
 import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
+    
+    static let indentifier = "CategoryCollectionViewCell"
+    
     @IBOutlet weak var categoryLabel: UILabel!
     
     @IBOutlet weak var catogoryLogo: UIImageView!
