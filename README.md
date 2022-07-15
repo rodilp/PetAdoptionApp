@@ -1,4 +1,7 @@
 # PetAdoptionApp
+
+![onboarding_screen](https://user-images.githubusercontent.com/51392463/179158238-43378020-b199-4a10-9cf0-292ae5402a98.png)
+
 An application to adopt pets
 
 # PetAdoptionApp project structure
