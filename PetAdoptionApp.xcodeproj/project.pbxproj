@@ -20,7 +20,6 @@
 		4505DC7828750ECE00D104EF /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505DC7728750ECE00D104EF /* AuthRepository.swift */; };
 		4506D575286B6384006CD863 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4506D574286B6384006CD863 /* SignUpViewModel.swift */; };
 		4506D577286B7A0C006CD863 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4506D576286B7A0C006CD863 /* SuccessViewController.swift */; };
-		4506D57C286B7F22006CD863 /* successful.json in Resources */ = {isa = PBXBuildFile; fileRef = 4506D57B286B7F22006CD863 /* successful.json */; };
 		4506D57E286BAC1F006CD863 /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4506D57D286BAC1F006CD863 /* AppUtils.swift */; };
 		4506D580286BACE6006CD863 /* HttpUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4506D57F286BACE6006CD863 /* HttpUtil.swift */; };
 		4506D583286BB95A006CD863 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4506D582286BB95A006CD863 /* ProfileViewController.swift */; };
@@ -55,6 +54,7 @@
 		455505D02866536D0095D71A /* AdoptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455505CF2866536D0095D71A /* AdoptionViewController.swift */; };
 		455505D2286653A30095D71A /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455505D1286653A30095D71A /* MainTabBarViewController.swift */; };
 		455505D4286659EA0095D71A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455505D3286659EA0095D71A /* HomeViewController.swift */; };
+		455C14802882425C00F540A8 /* successfull.json in Resources */ = {isa = PBXBuildFile; fileRef = 455C147F2882425C00F540A8 /* successfull.json */; };
 		456EBEF6287CA3680060B834 /* PopUpProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EBEF5287CA3680060B834 /* PopUpProtocol.swift */; };
 		456EBEF9287CA5940060B834 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 456EBEFB287CA5940060B834 /* Localizable.strings */; };
 		456EBEFD287DE1BA0060B834 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EBEFC287DE1BA0060B834 /* OnboardingViewController.swift */; };
@@ -88,7 +88,6 @@
 		4505DC7728750ECE00D104EF /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		4506D574286B6384006CD863 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		4506D576286B7A0C006CD863 /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
-		4506D57B286B7F22006CD863 /* successful.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = successful.json; path = ../../../../../../Downloads/successful.json; sourceTree = "<group>"; };
 		4506D57D286BAC1F006CD863 /* AppUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
 		4506D57F286BACE6006CD863 /* HttpUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpUtil.swift; sourceTree = "<group>"; };
 		4506D582286BB95A006CD863 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +124,7 @@
 		455505CF2866536D0095D71A /* AdoptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdoptionViewController.swift; sourceTree = "<group>"; };
 		455505D1286653A30095D71A /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		455505D3286659EA0095D71A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		455C147F2882425C00F540A8 /* successfull.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = successfull.json; sourceTree = "<group>"; };
 		456EBEF5287CA3680060B834 /* PopUpProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpProtocol.swift; sourceTree = "<group>"; };
 		456EBEFA287CA5940060B834 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		456EBEFC287DE1BA0060B834 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 		4506D578286B7C2B006CD863 /* lottiee */ = {
 			isa = PBXGroup;
 			children = (
-				4506D57B286B7F22006CD863 /* successful.json */,
+				455C147F2882425C00F540A8 /* successfull.json */,
 			);
 			path = lottiee;
 			sourceTree = "<group>";
@@ -517,11 +517,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4506D57C286B7F22006CD863 /* successful.json in Resources */,
 				453D786B286786E500EBC53A /* PopUp.storyboard in Resources */,
 				454074242861FEEE0076E075 /* LogIn.storyboard in Resources */,
 				450B3F1D28611D8A00F1B025 /* LaunchScreen.storyboard in Resources */,
 				450B3F1A28611D8A00F1B025 /* Assets.xcassets in Resources */,
+				455C14802882425C00F540A8 /* successfull.json in Resources */,
 				456EBEF9287CA5940060B834 /* Localizable.strings in Resources */,
 				450B3F1828611D8900F1B025 /* Main.storyboard in Resources */,
 				456EBF01287E33FF0060B834 /* Onboarding.storyboard in Resources */,

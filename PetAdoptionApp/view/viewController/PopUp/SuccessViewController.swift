@@ -50,7 +50,7 @@ class SuccessViewController: UIViewController {
     
     
     func setupIcon(){
-        animationView.animation = Animation.named("successful")
+        animationView.animation = Animation.named("successfull")
         animationView.frame = cardIcon.bounds
         animationView.backgroundColor = UIColor.white
         animationView.contentMode = .scaleAspectFit
