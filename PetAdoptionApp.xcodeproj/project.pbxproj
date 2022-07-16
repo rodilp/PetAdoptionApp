@@ -177,12 +177,12 @@
 			path = network;
 			sourceTree = "<group>";
 		};
-		4506D578286B7C2B006CD863 /* lottie */ = {
+		4506D578286B7C2B006CD863 /* lottiee */ = {
 			isa = PBXGroup;
 			children = (
 				4506D57B286B7F22006CD863 /* successful.json */,
 			);
-			path = lottie;
+			path = lottiee;
 			sourceTree = "<group>";
 		};
 		4506D581286BAF67006CD863 /* application */ = {
@@ -308,7 +308,7 @@
 			children = (
 				456EBEF2287C9E5E0060B834 /* resources */,
 				452D1DC42873BE6400748E52 /* extensions */,
-				4506D578286B7C2B006CD863 /* lottie */,
+				4506D578286B7C2B006CD863 /* lottiee */,
 				458523D3286A0687007C9F07 /* network */,
 				4506D57D286BAC1F006CD863 /* AppUtils.swift */,
 				456EBEFE287DF6810060B834 /* App.swift */,
